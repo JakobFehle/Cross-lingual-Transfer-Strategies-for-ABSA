@@ -82,7 +82,12 @@ def extractAspects(output, task, cot = False, evaluation = False):
         
         pairs = pattern_pairs.findall(output)
         
-        return [[m[1], m[2]] for pair in pairs if (m := pattern_lab.search(pair))] or []
+        result = []
+        for pair in pairs:
+            m = pattern_lab.search(pair)
+            if m:
+                result.append([m[1], m[2]])
+        return result or []
 
     elif task in ['e2e', 'e2e-e', 'tasd']:
         if task in ['e2e', 'e2e-e']:
@@ -304,9 +309,9 @@ def createResults(pred_labels, gold_labels, label_space, task):
     
         micro_asp = calculateMetrics([[label.split(':')[0] for label in pred] for pred in pred_labels], [[label.split(':')[0] for label in gold] for gold in gold_labels])
         
-        macro_asp = {'precision': round(sum([metrics['metrics']['precision'] for metrics in metrics_asp]) / (len(label_space_grouped) / 3), 4), 
-                 'recall': round(sum([metrics['metrics']['recall'] for metrics in metrics_asp]) / (len(label_space_grouped) / 3), 4), 
-                 'f1': round(sum([metrics['metrics']['f1'] for metrics in metrics_asp]) / (len(label_space_grouped) / 3), 4), 
+        macro_asp = {'precision': round(sum([metrics['metrics']['precision'] for metrics in metrics_asp]) / (len(label_space_grouped)), 4), 
+                 'recall': round(sum([metrics['metrics']['recall'] for metrics in metrics_asp]) / (len(label_space_grouped)), 4), 
+                 'f1': round(sum([metrics['metrics']['f1'] for metrics in metrics_asp]) / (len(label_space_grouped)), 4), 
                  'accuracy': "",
                  'support': micro_asp['support']}
     

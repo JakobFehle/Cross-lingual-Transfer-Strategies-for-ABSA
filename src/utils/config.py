@@ -11,13 +11,12 @@ class Config(object):
         self.data_path = '../data/'
         
         # Dataset Params
-        self.dataset = None
-        self.split = None
-        self.low_resource_setting = None
-        self.original_split = False
         self.lang = 'en'
-        self.prompt_style = None
-        
+        self.data_setting = 'balanced'
+        self.lang_setting = 'orig'
+        self.eval_type = 'dev'
+
+        ## LLM only
         # Training Params
         self.flash_attention = False
         self.quant = 4
@@ -53,17 +52,6 @@ class Config(object):
         self.bf16 = True
         self.max_seq_length = 2048
         
-        # No need to change for normal behaviour
-        self.model_lr = self.learning_rate
-        self.model_shots = None
-        self.model_lang = self.lang
-        self.model_prompt_style = self.prompt_style
-        self.model_lora_alpha = self.lora_alpha
-        self.model_lora_r = self.lora_r
-        self.model_lora_dropout = self.lora_dropout
-        self.model_quant = 4
-        self.model_task = self.task
-        
         self.parser = self.setup_parser()
         self.args = vars(self.parser.parse_args())
         self.update_config_with_args()
@@ -83,32 +71,22 @@ class Config(object):
         # Model-related arguments
         parser.add_argument('--model_name_or_path', type=str, help='Base model name for training or inference')
         parser.add_argument('--seed', type=int, help='Seed to ensure reproducability.')
-        parser.add_argument('--model_task', type=str, help="Which ABSA Task the model was trained on. ['acd', 'acsa', 'e2e', 'tasd']")
-        parser.add_argument('--model_shots', type=str, help='Amount and style of few shot examples the model is trained on.')
-        parser.add_argument('--model_prompt_style', type=str, help='Style of the prompt the model is trained on.')
-        parser.add_argument('--model_lang', type=str, help='Language of the prompt.')
-        parser.add_argument('--model_quant', type=int, help='In which bit precision the model was trained on.')
-        parser.add_argument('--model_lr', type=float, help='The learning rate the model was trained on.')
-        parser.add_argument('--model_lora_alpha', type=int, help='The lora alpha value the model was trained on.')
-        parser.add_argument('--model_lora_r', type=int, help='The lora r value the model was trained on.')
-        parser.add_argument('--model_lora_dropout', type=float, help='The lora dropout the model was trained on.')
         parser.add_argument('--quant', type=int, help="How many bits to use for quantization.")
         parser.add_argument('--bf16', action='store_true', help="Compute dtype of the model (uses bf16 if set).")
         parser.add_argument('--flash_attention', action='store_true', help='If to enable flash attention.')
         parser.add_argument('--run_tag', type=str, help='Additional run-specific tag for the output-folder')
         parser.add_argument('--epoch', type=int, help='Epoch checkpoint of the model.')
         parser.add_argument('--output_dir', type=str, help='Relative path to output directory.')
+        parser.add_argument('--data_path', type=str, help='Relative path to data directory.')
         # Dataset-related arguments
-        parser.add_argument('--dataset', type=str, required=True, help="Which dataset to use: ['hotel', 'rest' or 'germeval']")
         parser.add_argument('--lang', type=str, help='Language of the prompt.')
+        parser.add_argument('--lang_setting', type=str, required=True, help='Dataset setting, original or balanced.')
         parser.add_argument('--shots', type=str, help='Amount and style of few shot examples for evaluation.')
-        parser.add_argument('--prompt_style', type=str, required=True, help='Style of the prompt for evaluation.')
-        parser.add_argument('--low_resource_setting', type=int, required=True, help='Amount of samples to train on (0 -> full dataset; 500 samples; 1000 samples).')
-        parser.add_argument('--split', type=int, required=True, help='Which split of the dataset to use.')
+        parser.add_argument('--data_setting', type=str, required=True, help='Dataset setting, original or balanced.')
         parser.add_argument('--wandb', action='store_true', help='If to report to wandb.')
         parser.add_argument('--max_seq_length', type=int, help="Maximum context length during training and inference.")
         parser.add_argument('--task', type=str, default="acsa", help="Which ABSA Task the model was trained on. ['acd', 'acsa', 'acsd']")
-        parser.add_argument('--original_split', action='store_true', help='If to use original dataset split.')
+        parser.add_argument('--eval_type', type=str, default="test", help="Which test set to choose. ['dev', 'test']")
         
          # Training arguments
         parser.add_argument('--per_device_train_batch_size', type=int, help='The training batch size per GPU.')

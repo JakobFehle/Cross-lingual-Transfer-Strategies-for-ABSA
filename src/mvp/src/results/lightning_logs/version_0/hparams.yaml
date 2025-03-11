@@ -1,0 +1,99 @@
+args: &id001 !!python/object:__main__.Namespace
+  adam_epsilon: 1.0e-08
+  agg_strategy: vote
+  beam_size: 1
+  check_val_every_n_epoch: 0
+  constrained_decode: true
+  ctrl_token: post
+  data_path: ../../../data/restaurant/
+  data_ratio: 1.0
+  data_setting: orig
+  dataset: rest-en
+  do_train: true
+  eval_batch_size: 16
+  eval_type: test
+  gradient_accumulation_steps: 2
+  lang: en
+  lang_setting: orig
+  learning_rate: 0.0001
+  load_ckpt_name: false
+  load_path_cache: false
+  lowercase: true
+  max_seq_length: 200
+  model_name_or_path: google/mt5-small
+  multi_path: true
+  multi_task: false
+  n_gpu: 1
+  num_path: 5
+  num_train_epochs: 10
+  output_dir: results/
+  save_top_k: 0
+  single_view_type: rank
+  sort_label: true
+  task: tasd
+  top_k: 5
+  train_batch_size: 8
+  warmup_steps: 0
+  weight_decay: 0
+config: *id001
+tokenizer: !!python/object:transformers.models.t5.tokenization_t5.T5Tokenizer
+  _additional_special_tokens: []
+  _bos_token: null
+  _cls_token: null
+  _decode_use_source_tokenizer: false
+  _eos_token: </s>
+  _extra_ids: 0
+  _mask_token: null
+  _pad_token: <pad>
+  _pad_token_type_id: 0
+  _processor_class: null
+  _sep_token: null
+  _unk_token: <unk>
+  added_tokens_decoder: {}
+  added_tokens_encoder: {}
+  deprecation_warnings: {}
+  init_inputs: !!python/tuple []
+  init_kwargs:
+    additional_special_tokens: null
+    eos_token: </s>
+    extra_ids: 0
+    name_or_path: google/mt5-small
+    pad_token: <pad>
+    sp_model_kwargs: {}
+    special_tokens_map_file: /home/jupyter/models/685ac0ca8568ec593a48b61b0a3c272beee9bc194a3c7241d15dcadb5f875e53.f76030f3ec1b96a8199b2593390c610e76ca8028ef3d24680000619ffb646276
+    unk_token: <unk>
+  model_input_names:
+  - input_ids
+  - attention_mask
+  model_max_length: 1000000000000000019884624838656
+  name_or_path: google/mt5-small
+  padding_side: right
+  sp_model: null
+  sp_model_kwargs: {}
+  tokens_trie: !!python/object:transformers.tokenization_utils.Trie
+    data:
+      <:
+        /:
+          s:
+            '>':
+              ? ''
+              : 1
+        p:
+          a:
+            d:
+              '>':
+                ? ''
+                : 1
+        u:
+          n:
+            k:
+              '>':
+                ? ''
+                : 1
+  truncation_side: right
+  unique_no_split_tokens:
+  - </s>
+  - <pad>
+  - <unk>
+  verbose: true
+  vocab_file: /home/jupyter/models/37d0f67f084f8c5fc5589e0bba5ff3c6307af833bb0b7f4eb33fbfd8d4038a9d.84ea7af2df68dc8db434d3160aab65cce8ac63ce5b6f7743f8c9a4a14b4f77e2
