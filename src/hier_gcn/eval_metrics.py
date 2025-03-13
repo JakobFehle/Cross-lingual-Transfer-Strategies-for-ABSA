@@ -19,7 +19,7 @@ from torch.nn import CrossEntropyLoss, MSELoss, MultiLabelSoftMarginLoss, BCEWit
 
 from run_classifier_dataset_utils import compute_metrics, fix_label, fix_14_label
 
-def hier_pred_eval(args, _e, category_map, logger, model, dataloader, device, task_name, eval_type='valid'):
+def hier_pred_eval(args, _e, category_map, logger, model, dataloader, device, task_name, label_list, label_space, eval_type='valid'):
     eval_loss = 0
     nb_eval_steps = 0
     preds = []
@@ -89,25 +89,25 @@ def hier_pred_eval(args, _e, category_map, logger, model, dataloader, device, ta
     preds = (preds > 0).astype(int)
     out_label_ids = (out_label_ids > 0).astype(int)
 
-    result = compute_metrics(task_name, preds, out_label_ids)
+    result, predictions = compute_metrics(preds, out_label_ids, label_list, label_space)
     # pdb.set_trace()
 
-    logger.info("***** Valid results *****")
-    for key in sorted(result.keys()):
-        logger.info("  %s = %s", key, str(result[key]))
+    # logger.info("***** Valid results *****")
+    # for key in sorted(result.keys()):
+    #     logger.info("  %s = %s", key, str(result[key]))
 
-    if eval_type == 'test':
-        if task_name != 'csc14':
-            if task_name != 'jcsc14':
-                preds, _ = fix_label(args.domain_type, 'sentiment', preds, out_label_ids)
-                print(preds)
-            else:
-                preds, _ = fix_14_label(preds, out_label_ids)
-        fix_result = compute_metrics(task_name, preds, out_label_ids)
-        # pdb.set_trace()
-        logger.info("***** Category Valid results *****")
-        for key in sorted(fix_result.keys()):
-            logger.info("  %s = %s", key, str(fix_result[key]))
-        return result, fix_result
+    # if eval_type == 'test':
+    #     if task_name != 'csc14':
+    #         if task_name != 'jcsc14':
+    #             preds, _ = fix_label(args.domain_type, 'sentiment', preds, out_label_ids)
+    #             print(preds)
+    #         else:
+    #             preds, _ = fix_14_label(preds, out_label_ids)
+    #     fix_result = compute_metrics(task_name, preds, out_label_ids)
+    #     # pdb.set_trace()
+    #     logger.info("***** Category Valid results *****")
+    #     for key in sorted(fix_result.keys()):
+    #         logger.info("  %s = %s", key, str(fix_result[key]))
+    #     return result, fix_result
 
-    return result
+    return result, predictions

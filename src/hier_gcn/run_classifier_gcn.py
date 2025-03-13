@@ -24,6 +24,7 @@ import sys
 import random
 from tqdm import tqdm, trange
 import pdb
+import json
 from manager import *
 import matplotlib.pyplot as plt
 import math
@@ -250,7 +251,7 @@ def main():
     if args.do_train:
 
         # Prepare data loader
-        train_examples, test_examples = processor.get_examples(args.data_dir, args.data_setting, args.lang, args.eval_type)
+        train_examples, test_examples, label_space = processor.get_examples(args.data_dir, args.data_setting, args.lang, args.eval_type)
         
         train_category_map, train_features = convert_examples_to_features(
             train_examples, label_list, args.max_seq_length, tokenizer, output_mode,task)
@@ -323,7 +324,6 @@ def main():
                              t_total=num_train_optimization_steps)
 
         train_category_map_gpu = [torch.tensor(train_category_map[i], dtype=torch.float).to(device) for i in range(len(train_category_map))]
-
         for _e in trange(int(args.num_train_epochs), desc="Epoch", disable=args.local_rank not in [-1, 0]):
             model.train()
             tr_loss = 0
@@ -374,31 +374,21 @@ def main():
                     global_step += 1
 
         model.eval()
-
-        result, fix_result = hier_pred_eval(args, 1, train_category_map_gpu, logger, model, eval_dataloader, device, task, eval_type='test')
+        
+        result, predictions = hier_pred_eval(args, 1, train_category_map_gpu, logger, model, eval_dataloader, device, task, label_list, label_space, eval_type='test')
 
         torch.cuda.empty_cache()
         gc.collect()
 
-        output_dir = f'{args.output_dir}/{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting}_{args.learning_rate}_{args.per_device_train_batch_size}_{args.num_train_epochs}_{args.seed}'
+        output_dir = f'{args.output_dir}/{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type.replace("_", "-")}_{args.data_setting}_{args.learning_rate}_{args.per_device_train_batch_size}_{int(args.num_train_epochs)}_{args.seed}/'
         
-        if not os.path.exists(output_dir) and args.local_rank in [-1, 0]:
-            os.makedirs(output_dir)
+        os.makedirs(output_dir, exist_ok=True)
         
-        output_eval_file = os.path.join(output_dir, "eval_results.txt")
-        with open(output_eval_file, "w") as writer:
-            logger.info("***** Eval results *****")
-            for key in sorted(result.keys()):
-                logger.info("  %s = %s", key, str(result[key]))
-                writer.write("%s = %s\n" % (key, str(result[key])))
+        for idx, name in enumerate(["asp", "asp_pol", "pairs", "pol"]):
+            pd.DataFrame.from_dict(result[idx]).transpose().to_csv(f"{output_dir}metrics_{name}.tsv", sep="\t")
 
-        cate_output_eval_file = os.path.join(output_dir, "cate_eval_results.txt")
-
-        with open(cate_output_eval_file, "w") as writer:
-            logger.info("***** Category Eval results *****")
-            for key in sorted(fix_result.keys()):
-                logger.info("  %s = %s", key, str(fix_result[key]))
-                writer.write("%s = %s\n" % (key, str(fix_result[key])))
+        with open(os.path.join(output_dir, 'predictions.json'), "w", encoding="utf-8") as f:
+            json.dump({'predictions': predictions}, f, indent=4, ensure_ascii=False)
 
 if __name__ == "__main__":
     main()

@@ -35,6 +35,7 @@ from preprocessing import loadDataset, splitForEvalSetting
 
 from scipy.stats import pearsonr, spearmanr
 from sklearn.metrics import matthews_corrcoef, f1_score, hamming_loss, precision_score, recall_score
+from sklearn.model_selection import train_test_split, StratifiedKFold, KFold
 
 logger = logging.getLogger(__name__)
 
@@ -103,9 +104,9 @@ class ACSAProcessor(DataProcessor):
 
     def get_examples(self, data_dir, data_setting, language, eval_type):
         logger.info("LOOKING AT {}".format(data_dir))
-        train, test, _ = splitForEvalSetting(loadDataset(data_dir, language, data_setting), eval_type)
+        train, test, label_space = splitForEvalSetting(loadDataset(data_dir, language, data_setting), eval_type)
 
-        return self._create_examples(train, "train"), self._create_examples(test, "test")
+        return self._create_examples(train, "train"), self._create_examples(test, "test"), label_space
 
     def get_labels(self):
         """See base class."""
@@ -347,10 +348,40 @@ def pearson_and_spearman(preds, labels):
         "corr": (pearson_corr + spearman_corr) / 2,
     }
 
+def convert_features_to_labels(features, label_list):
+    """
+    Wandelt eine Feature-Matrix mit binären Labels (Kategorie + Sentiment) zurück in lesbare Labels.
+    
+    :param features: 2D numpy array mit shape (n_samples, n_classes * 3), mit 1 für aktive Kategorien/Sentiments
+    :param label_list: Liste mit [Kategorie-Labels, Sentiment-Labels]
+    :return: Liste mit rekonstruierten Labels im Format ["KATEGORIE#SENTIMENT"]
+    """
+    category_labels = label_list[0]  # Liste der möglichen Kategorien
+    sentiment_labels = ['negative', 'neutral', 'positive']  # ['-1', '0', '1'] für Negativ, Neutral, Positiv
 
-def compute_metrics(task_name, preds, labels):
-    assert len(preds) == len(labels)
-    return acc_and_f1(preds, labels)
+    num_categories = len(category_labels)  # Anzahl der Kategorien
+    num_sentiments = len(sentiment_labels) - 1 # Pos, Neg, Neu, None
+
+    reconstructed_labels = []
+
+    for sample in features:  # Iteriere über alle Samples
+
+        labels_for_example = []
+        for idx in range(len(sample)):
+            if sample[idx] == 1:
+                labels_for_example.append(label_list[idx])
+
+        reconstructed_labels.append(labels_for_example)
+
+    return reconstructed_labels
+
+
+def compute_metrics(preds, golds, label_list, label_space):
+    assert len(preds) == len(golds)
+    label_list_adj = [f"{label.replace('#', ' ').lower()}:{pol}" for label in label_list[0] for pol in ['negative', 'neutral', 'positive']]
+    preds_labels = convert_features_to_labels(preds, label_list_adj)
+    golds_labels = convert_features_to_labels(golds, label_list_adj)
+    return createResults(preds_labels, golds_labels, label_space, 'acsa'), preds_labels
 
 processors = {
     "acsa": ACSAProcessor,
