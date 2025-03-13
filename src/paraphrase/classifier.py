@@ -96,6 +96,8 @@ class ParaphraseABSA:
     
     def loadPhraseDicts(self, lang):
         """Loads language-specific dictionaries for category mapping and aspect terms."""
+
+        ## Safety check
         for l in ["DE", "FR", "ES", "NL", "CS", "RU", "TR"]:
             en_to_x = CATEGORY_MAPPINGS[f'CAT_EN_{l.upper()}']
             x_to_en = CATEGORY_MAPPINGS[f'CAT_{l.upper()}_EN']
@@ -103,7 +105,7 @@ class ParaphraseABSA:
             for en_term, x_term in en_to_x.items():
                 # Check if reverse mapping exists
                 if x_term not in x_to_en or x_to_en[x_term] != en_term:
-                    print(f"❌ Mismatch in {lang}: '{en_term}' -> '{x_term}', but reverse is '{x_to_en.get(x_term, 'MISSING')}'")
+                    print(f"Mismatch in {lang}: '{en_term}' -> '{x_term}', but reverse is '{x_to_en.get(x_term, 'MISSING')}'")
         
         return POLARITY_MAPPINGS_POL_TO_TERM[lang], POLARITY_MAPPINGS_TERM_TO_POL[lang], TEXT_TEMPLATES[lang], TEXT_PATTERNS[lang], IT_TOKENS[lang], CATEGORY_MAPPINGS[f'CAT_EN_{lang.upper()}'], CATEGORY_MAPPINGS[f'CAT_{lang.upper()}_EN']
 
@@ -220,7 +222,7 @@ class ParaphraseABSA:
 
         return trainer
 
-    def savePredictions(self, trainer, results_path):
+    def evaluate(self, trainer, results_path):
         
         # Save results as tsv
         os.makedirs(results_path, exist_ok=True)
@@ -257,7 +259,7 @@ class ParaphraseABSA:
 
         trainer = self.trainModel()
 
-        self.savePredictions(trainer, results_path)
+        self.evaluate(trainer, results_path)
 if __name__ == "__main__":
 
     config = Config()
