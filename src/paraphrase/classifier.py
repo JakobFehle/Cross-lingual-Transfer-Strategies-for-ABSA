@@ -3,23 +3,22 @@ import numpy as np
 import torch
 import os, sys
 import transformers
-import argparse
 import re
 import json
+import time
 
 utils = os.path.abspath('../src/utils/') # Relative path to utils scripts
 sys.path.append(utils)
 
 from config import Config
-from transformers import MT5Tokenizer, MT5ForConditionalGeneration, AutoTokenizer, AutoModelForSeq2SeqLM, T5Tokenizer, T5ForConditionalGeneration, Seq2SeqTrainingArguments, Seq2SeqTrainer, TrainerCallback
+from transformers import MT5Tokenizer, MT5ForConditionalGeneration, AutoTokenizer, AutoModelForSeq2SeqLM, T5Tokenizer, T5ForConditionalGeneration, Seq2SeqTrainingArguments, Seq2SeqTrainer
 from torch.utils.data import Dataset as TorchDataset
 from transformers import DataCollatorForSeq2Seq
-from preprocessing import loadDataset
-from evaluation import createResults, convertLabels, extractAspects
+from evaluation import createResults, convertLabels
 from preprocessing import loadDataset, CATEGORY_MAPPINGS, POLARITY_MAPPINGS_POL_TO_TERM, POLARITY_MAPPINGS_TERM_TO_POL, TEXT_TEMPLATES, TEXT_PATTERNS, IT_TOKENS, OUTPUT_KEYS
 
 from datetime import datetime, timedelta
-from sklearn.model_selection import train_test_split, StratifiedKFold, KFold
+from sklearn.model_selection import KFold
 
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning, module="transformers.optimization")
@@ -52,7 +51,7 @@ class ParaphraseABSA:
         self.args = args
         self.task = args.task
         self.model_name_or_path = args.model_name_or_path
-        self.t5model_class, self.t5tokenizer_class = self.getClassifiers(args.lang if (args.lang_setting == 'adapted' and args.data_setting == 'orig') else 'multi')
+        self.t5model_class, self.t5tokenizer_class, self.max_batch = self.getModelConfig(args.lang if (args.lang_setting == 'adapted' and args.data_setting == 'orig') else 'multi')
 
         print(f"Creating model using tokenizer: {self.t5tokenizer_class.__name__}")
         self.tokenizer = self.t5tokenizer_class.from_pretrained(self.model_name_or_path)
@@ -66,18 +65,18 @@ class ParaphraseABSA:
         
         print(f"Device count: {self.gpu_count}")
 
-    def getClassifiers(self, lang):
+    def getModelConfig(self, lang):
         """Returns the correct tokenizer/model class for the selected language."""
         return {
-            'en': [T5ForConditionalGeneration, T5Tokenizer],
-            'de': [T5ForConditionalGeneration, T5Tokenizer],
-            'fr': [T5ForConditionalGeneration, T5Tokenizer],
-            'cs': [MT5ForConditionalGeneration, MT5Tokenizer],
-            'tr': [MT5ForConditionalGeneration, MT5Tokenizer],
-            'es': [T5ForConditionalGeneration, T5Tokenizer],
-            'ru': [T5ForConditionalGeneration, T5Tokenizer],
-            'nl': [T5ForConditionalGeneration, T5Tokenizer],
-            'multi': [MT5ForConditionalGeneration, MT5Tokenizer]
+            'en': [T5ForConditionalGeneration, T5Tokenizer, 16],
+            'de': [T5ForConditionalGeneration, T5Tokenizer, 16],
+            'fr': [T5ForConditionalGeneration, T5Tokenizer, 16],
+            'cs': [MT5ForConditionalGeneration, MT5Tokenizer, 8],
+            'tr': [MT5ForConditionalGeneration, MT5Tokenizer, 8],
+            'es': [T5ForConditionalGeneration, T5Tokenizer, 16],
+            'ru': [T5ForConditionalGeneration, T5Tokenizer, 16],
+            'nl': [T5ForConditionalGeneration, AutoTokenizer, 16],
+            'multi': [MT5ForConditionalGeneration, MT5Tokenizer, 8]
         }[lang]
 
     def splitForEvalSetting(self, dataset, eval_type):
@@ -171,12 +170,13 @@ class ParaphraseABSA:
         predictions = []
         for prediction in predictions_decoded:
             predictions.append(self.extractLabels(prediction))
-
-        self.predictions = predictions
         
         gold = []
         for ground_truth in ground_truth_decoded:
             gold.append(self.extractLabels(ground_truth))
+
+        self.predictions = predictions
+        self.gold = gold
         
         predictions, self.false_predictions = convertLabels(predictions, self.task, self.label_space)
         gold, _ = convertLabels(gold, self.task, self.label_space)
@@ -187,6 +187,10 @@ class ParaphraseABSA:
     def trainModel(self):
 
         adjusted_batch = int(self.args.per_device_train_batch_size/(self.gpu_count * self.args.gradient_accumulation_steps))
+
+        while adjusted_batch > self.max_batch: # Prevent OOM on GPU
+            adjusted_batch = int(adjusted_batch / 2)
+            self.args.gradient_accumulation_steps = int(self.args.gradient_accumulation_steps * 2)
         
         training_args = Seq2SeqTrainingArguments(
             output_dir = 'paraphrase/outputs/',
@@ -222,7 +226,7 @@ class ParaphraseABSA:
 
         return trainer
 
-    def evaluate(self, trainer, results_path):
+    def evaluate(self, trainer, results_path, training_duration):
         
         # Save results as tsv
         os.makedirs(results_path, exist_ok=True)
@@ -241,12 +245,24 @@ class ParaphraseABSA:
                 "data_setting": self.args.data_setting,
                 "lang": self.args.lang,
                 "lang_setting": self.args.lang_setting,
-                "eval_type": self.args.eval_type
+                "eval_type": self.args.eval_type,
+                "train_runtime": training_duration
             })
             json.dump(trainer_args, f, indent=4, ensure_ascii=False)
         
         with open(os.path.join(results_path, 'predictions.json'), "w", encoding="utf-8") as f:
             json.dump({'predictions': self.predictions}, f, indent=4, ensure_ascii=False)
+        
+        try:
+            matched_samples = [
+                {"predictions": pred, "gold_labels": gold}
+                for pred, gold in zip(self.predictions, self.gold)
+            ]
+            with open(os.path.join(results_path, 'predictions.json'), "w", encoding="utf-8") as f:
+                json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
+
+        except:
+            pass
 
         # Save false output labels to file
         if(len(self.false_predictions) > 0):
@@ -257,9 +273,14 @@ class ParaphraseABSA:
     def train_eval(self):
         results_path = f"{self.args.output_dir}{self.task}_{self.args.lang}_{self.args.lang_setting}_{self.args.eval_type.replace('_', '-')}_{self.args.data_setting}_{round(self.args.learning_rate,9)}_{self.args.per_device_train_batch_size}_{self.args.num_train_epochs}_{self.args.seed}/"
 
+        start_time = time.time()
+        
         trainer = self.trainModel()
 
-        self.evaluate(trainer, results_path)
+        end_time = time.time()
+        training_duration = end_time - start_time
+
+        self.evaluate(trainer, results_path, training_duration)
 if __name__ == "__main__":
 
     config = Config()

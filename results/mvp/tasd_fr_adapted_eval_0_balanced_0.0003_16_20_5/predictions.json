@@ -1,0 +1,5467 @@
+{
+    "test": [
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "deco",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "musique",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "deco",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "musique",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "plats",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "menu",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "plats",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "plats",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "menu",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "rosé",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "rosé",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "location general",
+                    "rue la bourdonnais",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "vins",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "carte des vins",
+                    "negative"
+                ],
+                [
+                    "drinks quality",
+                    "carte des vins",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "somme",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "terrasse",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "terrasse",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "carte",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "carte",
+                    "negative"
+                ],
+                [
+                    "food prices",
+                    "formule du jour",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "terrasse",
+                    "positive"
+                ],
+                [
+                    "location general",
+                    "place du bareuzay",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "place du bareuzay",
+                    "neutral"
+                ],
+                [
+                    "ambience general",
+                    "terrasse",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "location general",
+                    "boulevard",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "stationnement",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "null",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "vin",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "vin",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "plat",
+                    "positive"
+                ],
+                [
+                    "food prices",
+                    "dessert",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "matronne",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "matronne",
+                    "neutral"
+                ],
+                [
+                    "ambience general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "neutral"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "neutral"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "vins",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "vins",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "entrée",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "carte des vins",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "carte des vins",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "carte des vins",
+                    "neutral"
+                ],
+                [
+                    "drinks quality",
+                    "vin",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "carte des vins",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "vin",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "filet de vivaneau à la vietnamienne",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "légumes sautés",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "sauce hot sweet chili",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "filet de vivaneau à la vietnamienne",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "sauce",
+                    "negative"
+                ],
+                [
+                    "food prices",
+                    "légumes sautés",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "légumes sautés",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "carte",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "carte",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "carte",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "carte",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "déco",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "terrasse",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "terrasse",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "déco",
+                    "positive"
+                ],
+                [
+                    "location general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "location general",
+                    "emplacement",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "emplacement",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "carte",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "coucher de soleil",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "repas",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "plat du jour",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "repas",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "restaurant",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "restaurant",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "vin",
+                    "positive"
+                ],
+                [
+                    "food prices",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "vin",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "cave",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "cave",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "vin",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "pichets",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "coktails",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "vin",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "pichets",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "apéritifs",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "coktails",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "location general",
+                    "établissement",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "établissement",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "cuisine",
+                    "neutral"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "cuisine",
+                    "neutral"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "bouffe",
+                    "negative"
+                ],
+                [
+                    "food prices",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "bouffe",
+                    "neutral"
+                ],
+                [
+                    "food prices",
+                    "bouffe",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "espace",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "tables",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "environnement",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "attente",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "environnement",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "attente",
+                    "negative"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "décor",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "vaisselle",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "décor",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "restaurant",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "plats",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "vins",
+                    "positive"
+                ],
+                [
+                    "food prices",
+                    "entrée",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "dessert",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "musique pop",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "plats",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "plats",
+                    "positive"
+                ],
+                [
+                    "drinks prices",
+                    "vins",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "musique",
+                    "negative"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "salle",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "patrone",
+                    "negative"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "salle",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "patrone",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "cuisine",
+                    "negative"
+                ],
+                [
+                    "food prices",
+                    "cuisine",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "plats",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "restaurant",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "plats",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "restaurant",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "repas",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "serveuse",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "repas",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "repas",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "serveuse",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "dorade au chorizo",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "dorade au chorizo",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "croque monsieur",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "salade",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "croque monsieur",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "salade",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "portions",
+                    "neutral"
+                ],
+                [
+                    "food style_options",
+                    "sauf",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "moules",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "portions",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "entrée",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "moules",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "rognons",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "rognons",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "sauce",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "garniture",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "plats",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "légumes",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "souris d 'agneau",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "plats",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "légumes",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "souris d 'agneau",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "assiette de charcuterie",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "assiette de charcuterie",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "plats",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "plats",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "plats préparés",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "frigo",
+                    "negative"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "restau",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "mais grosse déception",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "terrasse",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "terrasse",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "nourriture",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "pain",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "steack haché",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "frites",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "salade",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "vinaigrette",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "pain",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "steack haché",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "produits frais",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "frites",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "salade",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "lieu",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "carte",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "lieu",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "carte",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "croustade de saint jacques",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "saint jacques",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "sauce",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "croustade de saint jacques",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "saint jacques",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "sauce",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "cuisine",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "produits",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "cuisine",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "cuisine",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "food prices",
+                    "carte de brasserie",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "carte",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "tapas",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "tapas",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "tapas",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "tapas",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "desserts",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "desserts",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "desserts",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "plats",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "carte",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "plats",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "plats",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "carte",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "dessert",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "dessert",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "dessert",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "bouillabaisse",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "bouillabaisse",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "bouillabaisse",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "bouillabaisse",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "viande",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "frites",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "viande",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "serveur",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "serveuse",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "plats",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "serveuse",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "plats",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "serveuses",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "responsable",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "serveuses",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "chewing-gum",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "serveuse",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "serveuse",
+                    "negative"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "restaurant",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "serveuse",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "serveuse",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "patron",
+                    "negative"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "patron",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "attente",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "attente",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "légume vert",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "frites",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "purée de pommes de terre risotto",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "plat",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "spaguetti carbonara",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "accueil",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "spaguetti carbonara",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "crème",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "accueil",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "serveur",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "manager",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "serveur",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "patron",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "attente",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "patron",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "patron",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "patronne",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "patronne",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "saumon mariné",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "saumon mariné",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "choses",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "lasagnes pâteuses",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "fromage",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "lasagnes",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "fromage",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "concentré de tomates",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "attente",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "attente",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "plats",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "plats",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "pizza",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "pizza",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "pizza",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "pizzas",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "pizzas",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "nourriture",
+                    "negative"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "restaurant",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "nourriture",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "plats",
+                    "negative"
+                ],
+                [
+                    "food prices",
+                    "plats",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "plats",
+                    "negative"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "plats",
+                    "negative"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "odeur",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "établissement",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "serveurs",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "établissement",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "serveurs",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "atmosphère",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "décors",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "atmosphère",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "décors",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "endroit",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "endroit",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "lieu",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "lieu",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "établissement",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "établissement",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "cuisine",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "cuisine",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "adresse",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "adresse",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "terrasse",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "terrasse",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "formule",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "formule",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "repas",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "repas",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "chants",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "décor",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "décor",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "décor",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "décor",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "endroit",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "endroit",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "restaurant",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "restaurant",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "salle",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "salle",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "salle",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "salle",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "restau",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "magret au miel",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "personnel",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "déco",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "restau",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "magret au miel",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "soufflé",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "personnel",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "déco",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "décoration",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "crêperie",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "décoration",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "assiettes",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "déco",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "déco",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "salle",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "wc",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "salle",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "resto",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "resto",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "plats",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "plats",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "resto",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "pizzas",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "plats",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "resto",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "pizzas",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "plats",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "carte",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "endroit",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "endroit",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "adresse",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "restau",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "resto",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "recettes",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "recettes",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "cuisine",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "cuisine",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "resto",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "resto",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "tha",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "tha",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "cadre",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "cuisinier",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "cuisinier",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "cuisine traditionnelle",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "cuisine traditionnelle",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "menu déjeuner",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "menu déjeuner",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "mets",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "courant",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "serveuse",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "endroit",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "serveuse",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "endroit",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "bagels",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "bagels",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "bagels",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "bagels",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "personnel",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "personnel",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "cuisine",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "serveuse",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "cuisine",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "serveuse",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "serveur",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "serveur",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "patronne",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "patronne",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "personnel",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "personnel",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "personnel",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "personnel",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "produits",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "ambiance",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "produits",
+                    "negative"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "accueil",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "paella",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "grillée",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "paella",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "cuisine",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "cuisine",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "cuisine",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "cuisine",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "échine de cochon confite",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "gnocchis",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "girolles",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "échine de cochon confite",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "gnocchis",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "tarte au citron",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "tarte au citron servie autrement",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "brioche perdue",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "galettes",
+                    "positive"
+                ],
+                [
+                    "food prices",
+                    "galettes",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "galettes",
+                    "positive"
+                ],
+                [
+                    "food prices",
+                    "galettes",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "entrées",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "entrées",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "couscous",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "couscous",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "couscous méchoui",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "suggestion du chef",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "couscous méchoui",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "produits",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "ntrecôte aux échalotes",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "champignons poêles",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "entrecôte aux échalotes",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "table",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "plats",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "plats",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "apéro",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "apéro",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "carpaccio de tomates",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "carpaccio",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "filet de boeuf sauce aux morilles",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "filet de boeuf sauce aux morilles",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "assiettes",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "assiettes",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "adresse",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "snacks",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "adresse",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "nourriture",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "pizzas",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "supions à la persillade",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "pizzas",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "supions à la persillade",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "produits",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "entrées",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "entrées",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "entrées",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "sauce blanche",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "sauce blanche",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "lieu",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "ambiance",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "null",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "plats",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "entrées",
+                    "negative"
+                ],
+                [
+                    "drinks style_options",
+                    "vins",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "plats",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "entrées",
+                    "negative"
+                ],
+                [
+                    "drinks style_options",
+                    "vins",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "restaurant",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "plat",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "jacques - risotto",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "plat",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "saint jacques - risotto",
+                    "neutral"
+                ],
+                [
+                    "food style_options",
+                    "saint jacques - risotto",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "null",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "service",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "service",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "salade",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "tartare",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "salade",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "tartare",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "quantités",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "menu",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "brasserie parisienne",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "entrée",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "onglet",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "viande caoutchouc",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "entrée",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "nem aux poireaux",
+                    "negative"
+                ],
+                [
+                    "drinks quality",
+                    "bordeaux",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "onglet avec polenta",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "viande",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "limoncello",
+                    "negative"
+                ],
+                [
+                    "food prices",
+                    "menu",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "limoncello",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "établissement",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "établissement",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "carte",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "filet a 25eu",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "viande limousine",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "carte",
+                    "negative"
+                ],
+                [
+                    "food prices",
+                    "faux filet",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "faux filet",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "null",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "serveur",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "serveur",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "devanture",
+                    "positive"
+                ],
+                [
+                    "food prices",
+                    "menu",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "cuisine",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "menu",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "null",
+                    "negative"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "null",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "resto",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "resto",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "null",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "null",
+                    "negative"
+                ]
+            ]
+        }
+    ]
+}

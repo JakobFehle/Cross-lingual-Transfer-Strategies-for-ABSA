@@ -1,0 +1,16 @@
+{
+    "model_name": "t5-base",
+    "task": "tasd",
+    "data_setting": "balanced",
+    "lang": "en",
+    "lang_setting": "adapted",
+    "per_device_train_batch_size": 16,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 0.0003,
+    "num_path": 5,
+    "ctrl_token": "post",
+    "top_k": 5,
+    "num_train_epochs": 20,
+    "eval_type": "eval_0",
+    "train_runtime": 6352.875009298325
+}

@@ -27,18 +27,140 @@ import torch.nn.functional as F
 
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import EarlyStopping, TQDMProgressBar, LearningRateMonitor
+from sklearn.model_selection import KFold
 
-from transformers import AdamW, T5Tokenizer, T5ForConditionalGeneration, get_linear_schedule_with_warmup
+from transformers import AdamW, T5Tokenizer, AutoTokenizer, T5ForConditionalGeneration, get_linear_schedule_with_warmup
 from transformers.file_utils import ModelOutput
 from transformers.models.t5.modeling_t5 import *
 
 from const import *
 
 from tqdm import tqdm
+import torch.multiprocessing as mp
+
+mp.set_start_method('spawn', force=True)
+
+TOKEN_IDS = {
+    't5-base': {
+            'OT': [667],
+            'AT': [188],
+            'SP': [134],
+            'AC': [254],
+            'SS': [4256],
+            'EP': [8569],
+            '[': [784],
+            ']': [908],
+            'null': [206,195],
+            'start': 3,
+            '</s>': 1
+        },
+    'google/mt5-base': {
+            'OT': [646],
+            'AT': [357],
+            'SP': [399],
+            'AC': [424],
+            'SS': [399],
+            'EP': [155719],
+            '[': [491],
+            ']': [439],
+            'null': [259, 1181],
+            'start': 259,
+            '</s>': 1
+        },
+    'yhavinga/t5-v1.1-base-dutch-cased': {
+            'OT': [166],
+            'AT': [324],
+            'SP': [609],
+            'AC': [1367],
+            'SS': [13614],
+            'E': [135],
+            'P': [1021],
+            '[': [2981],
+            ']': [2947],
+            'null': [7, 8916],
+            'start': 3,
+            '</s>': 1
+    },
+    'ai-forever/ruT5-base': {
+            'OT': [1446],
+            'AT': [1047],
+            'SP': [779],
+            'AC': [898],
+            'SS': [13443],
+            'E': [1383],
+            'P': [856],
+            '[': [813],
+            ']': [678],
+            'null': [4859, 17830],
+            'start': 8,
+            '</s>': 2
+    },
+    'vgaraujov/t5-base-spanish': {
+            'OT': [688],
+            'AT': [277],
+            'SP': [398],
+            'AC': [609],
+            'SS': [7554],
+            'EP': [8534],
+            '[': [1521],
+            ']': [1123],
+            'null': [3005, 2142],
+            'start': 26,
+            '</s>': 1
+    }
+    
+}
+
+IT_TOKEN_IDS = {
+    't5-base': {
+        'en':[34],
+        'de':[15, 7],
+        'fr':[3664]
+    },
+    'google/mt5-base': {
+        'en':[609],
+        'de':[655],
+        'fr':[7211],
+        'es':[10351],
+        'ru':[1436],
+        'cs':[288],
+        'nl':[622],
+        'tr':[758]
+    },
+    'yhavinga/t5-v1.1-base-dutch-cased': {
+        'nl':[12],
+        'en':[54, 10]
+    },
+    'ai-forever/ruT5-base': {
+        'ru':[43],
+        'en':[5449]
+    },
+    'vgaraujov/t5-base-spanish': {
+        'es':[107],
+        'en':[12371]
+    }
+    
+}
+
+OUTPUT_KEYS = ['per_device_train_batch_size', 'gradient_accumulation_steps', 'learning_rate', 'weight_decay', 'adam_beta1', 'adam_beta2', 'adam_epsilon', 'max_grad_norm', 'num_train_epochs', 'lr_scheduler_type', 'warmup_steps', 'seed', 'bf16', 'fp16', 'group_by_length', '_n_gpu', 'generation_max_length']
 
 LABEL_SPACE = ['ambience general:POSITIVE', 'ambience general:NEUTRAL', 'ambience general:NEGATIVE', 'drinks prices:POSITIVE', 'drinks prices:NEUTRAL', 'drinks prices:NEGATIVE', 'drinks quality:POSITIVE', 'drinks quality:NEUTRAL', 'drinks quality:NEGATIVE', 'drinks style_options:POSITIVE', 'drinks style_options:NEUTRAL', 'drinks style_options:NEGATIVE', 'food prices:POSITIVE', 'food prices:NEUTRAL', 'food prices:NEGATIVE', 'food quality:POSITIVE', 'food quality:NEUTRAL', 'food quality:NEGATIVE', 'food style_options:POSITIVE', 'food style_options:NEUTRAL', 'food style_options:NEGATIVE', 'location general:POSITIVE', 'location general:NEUTRAL', 'location general:NEGATIVE', 'restaurant general:POSITIVE', 'restaurant general:NEUTRAL', 'restaurant general:NEGATIVE', 'restaurant miscellaneous:POSITIVE', 'restaurant miscellaneous:NEUTRAL', 'restaurant miscellaneous:NEGATIVE', 'restaurant prices:POSITIVE', 'restaurant prices:NEUTRAL', 'restaurant prices:NEGATIVE', 'service general:POSITIVE', 'service general:NEUTRAL', 'service general:NEGATIVE']
 
-def extract_spans_para(seq, seq_type):
+def splitForEvalSetting(dataset, eval_type):
+    """Handles dataset splitting and cross-validation settings."""
+    train, test, label_space = dataset
+    split = eval_type.split('_')[1] if '_' in eval_type else False
+    
+    if split:
+        kf = KFold(n_splits=5, shuffle=True, random_state=42)
+        train_idx, val_idx = list(kf.split(train, None))[int(split)]
+        train, test = train.iloc[train_idx], train.iloc[val_idx]
+        print(f"Creating CV splits; using split {split} with random_state 42")
+
+    print(f"Train set size: {len(train)}, Test set size: {len(test)}")
+    return train, test, label_space
+
+def extract_spans_para(seq, lang, seq_type):
     quads = []
     sents = [s.strip() for s in seq.split('[SSEP]')]
     for s in sents:
@@ -69,8 +191,11 @@ def extract_spans_para(seq, seq_type):
 
             ac, sp, at, ot = result
 
+            if sp:
+                sp = POLARITY_MAPPINGS_TERM_TO_POL[lang][sp] if sp in POLARITY_MAPPINGS_TERM_TO_POL[lang] else sp
+            
             # if the aspect term is implicit
-            if at.lower() == 'it' or at.lower() == 'es':
+            if at and at.lower() == IT_TOKENS[lang]:
                 at = 'null'
         except ValueError:
             try:
@@ -116,11 +241,9 @@ def compute_f1_scores(pred_pt, gold_pt, verbose=True):
         'recall': recall * 100,
         'f1': f1 * 100
     }
-
     return scores
 
-
-def compute_scores(pred_seqs, gold_seqs, verbose=True, task="asqp"):
+def compute_scores_trainer(pred_seqs, gold_seqs, lang, verbose=True, task="asqp"):
     """
     Compute model performance
     """
@@ -130,8 +253,34 @@ def compute_scores(pred_seqs, gold_seqs, verbose=True, task="asqp"):
     all_labels, all_preds = [], []
 
     for i in range(num_samples):
-        gold_list = extract_spans_para(gold_seqs[i], 'gold')
-        pred_list = extract_spans_para(pred_seqs[i], 'pred')
+        gold_list = extract_spans_para(gold_seqs[i], lang, 'gold')
+        pred_list = extract_spans_para(pred_seqs[i], lang, 'pred')
+        if (task == "tasd"):
+          gold_list = [tup[:-1] for tup in gold_list]
+          pred_list = [tup[:-1] for tup in pred_list]
+
+        all_labels.append(gold_list)
+        all_preds.append(pred_list)
+
+    scores = compute_f1_scores(all_preds, all_labels)
+    scores["all_preds"] = all_preds
+    scores["all_labels"] = all_labels
+
+    return scores, all_labels, all_preds
+
+
+def compute_scores(pred_seqs, gold_seqs, lang, verbose=True, task="asqp"):
+    """
+    Compute model performance
+    """
+    assert len(pred_seqs) == len(gold_seqs), (len(pred_seqs), len(gold_seqs))
+    num_samples = len(gold_seqs)
+
+    all_labels, all_preds = [], []
+
+    for i in range(num_samples):
+        gold_list = extract_spans_para(gold_seqs[i], lang, 'gold')
+        pred_list = extract_spans_para(pred_seqs[i], lang, 'pred')
         if (task == "tasd"):
           gold_list = [tup[:-1] for tup in gold_list]
           pred_list = [tup[:-1] for tup in pred_list]
@@ -140,8 +289,8 @@ def compute_scores(pred_seqs, gold_seqs, verbose=True, task="asqp"):
         all_preds.append(pred_list)
 
     try:
-        preds = [[f'{labels[0]}:{opinion2sentword[labels[2]].upper() if labels[2] in opinion2sentword else ""}:{labels[1]}' for labels in pred] for pred in all_preds]
-        golds = [[f'{labels[0]}:{opinion2sentword[labels[2]].upper() if labels[2] in opinion2sentword else ""}:{labels[1]}' for labels in gold] for gold in all_labels]
+        preds = [[f'{labels[0]}:{labels[2].upper()}:{labels[1]}' for labels in pred] for pred in all_preds]
+        golds = [[f'{labels[0]}:{labels[2].upper()}:{labels[1]}' for labels in gold] for gold in all_labels]
     except KeyError:
         print('KeyError!')
         print(all_labels)
@@ -155,8 +304,7 @@ def compute_scores(pred_seqs, gold_seqs, verbose=True, task="asqp"):
     scores["all_labels"] = all_labels
     print('MVP F1-Micro: ', scores['f1'])
     # return scores, all_labels, all_preds
-    return scores_dfs, all_labels, pred_seqs
-
+    return scores_dfs, all_labels, all_preds
 
 def get_element_tokens(task):
     dic = {
@@ -181,7 +329,12 @@ def get_orders(task, data, data_type, args, sents, labels):
           device = torch.device('cuda')
     else:
           device = torch.device("cpu")
-    tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
+        
+    if args.lang != 'nl':
+        tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
+    else:
+        tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
+        
     model = MyT5ForConditionalGenerationScore.from_pretrained(
             args.model_name_or_path).to(device)
 
@@ -195,6 +348,8 @@ def get_orders(task, data, data_type, args, sents, labels):
                                              tokenizer, device,
                                              args.task)
 
+    print(optim_orders_all)
+
     #     print(optim_orders_all)
 
     if args.single_view_type == 'rank':
@@ -207,9 +362,6 @@ def get_orders(task, data, data_type, args, sents, labels):
 
     del model
     return orders
-
-
-
 
 def cal_entropy(inputs, preds, model_path, tokenizer, device=torch.device('cuda')):
     all_entropy = []
@@ -291,7 +443,7 @@ def order_scores_function(quad_list, cur_sent, model, tokenizer, device, task):
     results = {}
     for i, _ in enumerate(all_orders_list):
         cur_order = all_orders_list[i]
-        results[cur_order] = {"loss": loss[i], "entropy": entropy[i]}
+        results[cur_order] = {"loss": loss[i].cpu().item(), "entropy": entropy[i].cpu().item()}
 
     return results
 
@@ -319,7 +471,7 @@ def choose_best_order_global(sents, labels, model, tokenizer, device, task):
 
             at, ac, sp, ot = get_task_tuple(_tuple, task, args.lang)
 
-            element_dict = {"[A]": at, "[C]": ac, "[S]": sp}
+            element_dict = {"[A]": at, "[O]": ot, "[C]": ac, "[S]": sp}
             element_list = []
             for key in q:
                 element_list.append("{} {}".format(key, element_dict[key]))
@@ -348,6 +500,7 @@ def choose_best_order_global(sents, labels, model, tokenizer, device, task):
             scores[index] += order_scores[e.replace(" ", "  ")+" "]['entropy']
 
     indexes = np.argsort(np.array(scores))  # [::-1]
+    
     returned_orders = []
     for i in indexes:
         returned_orders.append(all_orders_list[i])
@@ -388,19 +541,10 @@ def get_task_tuple(_tuple, task, lang):
         raise NotImplementedError
 
     if sp:
-        if True:
-        # if lang == 'en':
-            sp = sentword2opinion[sp.lower()] if sp in sentword2opinion \
-                else senttag2opinion[sp.lower()]  # 'POS' -> 'good'
-        # else:
-        #     sp = sentword2opinion_GER[sp.lower()] if sp in sentword2opinion \
-        #         else senttag2opinion_GER[sp.lower()]  # 'POS' -> 'gut'
+        sp = POLARITY_MAPPINGS_POL_TO_TERM[lang][sp.lower()] if sp in POLARITY_MAPPINGS_POL_TO_TERM[lang] else 'nope'
+
     if at and at.lower() == 'null':  # for implicit aspect term
-        if True:
-        # if lang == 'en':
-            at = 'it'
-        # else:
-        #     at = 'es'
+        at = IT_TOKENS[lang]
 
     return at, ac, sp, ot
 
@@ -549,10 +693,7 @@ def read_line_examples_from_df(dataset,
                                  data_name,
                                  lowercase,
                                  silence=True):
-    """
-    Read data from file, each line is: sent####labels
-    Return List[List[word]], List[Tuple]
-    """
+
     tasks, datas = [], []
     sents, labels = [], []
 
@@ -561,10 +702,10 @@ def read_line_examples_from_df(dataset,
         datas.append(data_name)
         if lowercase:
             sents.append(formatText(row['text'].lower()).split())
-            labels.append([(label[2].lower(), label[0], label[1]) for label in row['labels']])
+            labels.append([(formatText(label[2].lower()), label[0], label[1]) for label in row['labels']])
         else:
             sents.append(formatText(row['text']).split())
-            labels.append([(label[2], label[0], label[1]) for label in row['labels']])
+            labels.append([(formatText(label[2]), label[0], label[1]) for label in row['labels']])
 
     if silence:
         print(f"Total examples = {len(sents)}")
@@ -580,26 +721,16 @@ def get_transformed_io(dataset, data_name, data_type, top_k, args):
     # the input is just the raw sentence
     inputs = [s.copy() for s in sents]
 
-    # low resource
-    if data_type == 'train' and args.data_ratio != 1.0:
-        num_sample = int(len(inputs) * args.data_ratio)
-        sample_indices = random.sample(list(range(0, len(inputs))), num_sample)
-        sample_inputs = [inputs[i] for i in sample_indices]
-        sample_labels = [labels[i] for i in sample_indices]
-        inputs, labels = sample_inputs, sample_labels
-        print(
-            f"Low resource: {args.data_ratio}, total train examples = {num_sample}")
-        if num_sample <= 20:
-            print("Labels:", sample_labels)
+    # if data_type == "train" or args.eval_type == "dev" or data_type == "test":
+    new_inputs, targets = get_para_targets(inputs, labels, data_name,
+                                           data_type, top_k, args.task,
+                                           args)
+    # else:
+    #     new_inputs, targets = get_para_targets_dev(inputs, labels, data_name,
+    #                                                args.task, args)
 
-    if data_type == "train" or args.eval_type == "dev" or data_type == "test":
-        new_inputs, targets = get_para_targets(inputs, labels, data_name,
-                                               data_type, top_k, args.task,
-                                               args)
-    else:
-        new_inputs, targets = get_para_targets_dev(inputs, labels, data_name,
-                                                   args.task, args)
-
+    print(sents[:2])
+    print(targets[:2])
     print(len(inputs), len(new_inputs), len(targets))
     return new_inputs, targets
 
@@ -649,7 +780,7 @@ class ABSADataset(Dataset):
 
     def _build_examples(self):
         
-        inputs, targets = get_transformed_io(self.dataset,
+        inputs, targets = get_transformed_io(self.dataset, self.args.dataset,
                                              self.data_type, self.top_k,
                                              self.args)
 
@@ -680,6 +811,9 @@ class ABSADataset(Dataset):
             self.inputs.append(tokenized_input)
             self.targets.append(tokenized_target)
 
+            # self.inputs.append({k: v.to("cuda") for k, v in tokenized_input.items()})  # Direkt auf GPU
+            # self.targets.append({k: v.to("cuda") for k, v in tokenized_target.items()})  # Direkt auf GPU
+
 _CONFIG_FOR_DOC = "T5Config"
 
 def calc_entropy(input_tensor):
@@ -688,7 +822,7 @@ def calc_entropy(input_tensor):
     probs = torch.exp(log_probs)
     p_log_p = log_probs * probs
     entropy = -p_log_p.sum()
-    return entropy
+    return entropy.detach()
 
 # add_start_docstrings("""T5 Model with a `language modeling` head on top. """, T5_START_DOCSTRING)
 @add_start_docstrings("""T5 Model with a `language modeling` head on top. """, T5_START_DOCSTRING)
@@ -864,10 +998,15 @@ class MyT5ForConditionalGenerationScore(T5PreTrainedModel):
             loss = []
             entropy = []
             for i in range(lm_logits.size()[0]):
+                # loss_i = loss_fct(lm_logits[i], labels[i])
+                # ent = calc_entropy(lm_logits[i, 0: decoder_attention_mask[i].sum().item()])
+                # loss.append(loss_i.item())
+                # entropy.append(ent.item())
+
                 loss_i = loss_fct(lm_logits[i], labels[i])
-                ent = calc_entropy(lm_logits[i, 0: decoder_attention_mask[i].sum().item()])
-                loss.append(loss_i.item())
-                entropy.append(ent.item())
+                ent = calc_entropy(lm_logits[i, 0: decoder_attention_mask[i].sum().detach()])
+                loss.append(loss_i.detach())  # Bleibt auf der GPU
+                entropy.append(ent.detach())  # Bleibt auf der GPU
             loss = [loss, entropy]
             # TODO(thom): Add z_loss https://github.com/tensorflow/mesh/blob/fa19d69eafc9a482aff0b59ddd96b025c0cb207d/mesh_tensorflow/layers.py#L666
         if not return_dict:
@@ -1165,6 +1304,7 @@ def set_seed(seed: int = 42) -> None:
     # When running on the CuDNN backend, two further options must be set
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.benchmark = True
     # Set a fixed value for the hash seed
     os.environ["PYTHONHASHSEED"] = str(seed)
     print(f"Random seed set as {seed}")
@@ -1175,14 +1315,15 @@ class T5FineTuner(pl.LightningModule):
     Fine tune a pre-trained T5 model
     """
 
-    def __init__(self, config, tfm_model, tokenizer, args):
+    def __init__(self, args, tfm_model, tokenizer, train):
         super().__init__()
         self.save_hyperparameters(ignore=['tfm_model'])
-        self.config = config
         self.model = tfm_model
         self.tokenizer = tokenizer
         self.test_dataset = args.test_dataset
+        self.token_ids = TOKEN_IDS[args.model_name_or_path]
         self.args = args
+        self.train_ds = train
         
         self.precompute_tokens()
 
@@ -1221,7 +1362,7 @@ class T5FineTuner(pl.LightningModule):
         # get f1
         outs = self.model.generate(input_ids=batch['source_ids'],
                                    attention_mask=batch['source_mask'],
-                                   max_length=self.config.max_seq_length,
+                                   max_length=self.args.max_seq_length,
                                    return_dict_in_generate=True,
                                    output_scores=True,
                                    num_beams=1)
@@ -1234,9 +1375,9 @@ class T5FineTuner(pl.LightningModule):
             self.tokenizer.decode(ids, skip_special_tokens=True)
             for ids in batch["target_ids"]
         ]
-        scores, _, _ = compute_scores(dec, target, verbose=False, task=self.args.task)
+        scores, _, _ = compute_scores_trainer(dec, target, self.args.lang, verbose=False, task=self.args.task)
         # f1 = torch.tensor(scores['f1'], dtype=torch.float64)
-        f1 = torch.tensor(scores[4]['Micro-AVG']['f1'], dtype=torch.float64)
+        f1 = torch.tensor(scores['f1'], dtype=torch.float64)
         
         # get loss
         loss = self._step(batch)
@@ -1270,7 +1411,7 @@ class T5FineTuner(pl.LightningModule):
                     if not any(nd in n for nd in no_decay)
                 ],
                 "weight_decay":
-                self.config.weight_decay,
+                self.args.weight_decay,
             },
             {
                 "params": [
@@ -1282,31 +1423,49 @@ class T5FineTuner(pl.LightningModule):
             },
         ]
         optimizer = AdamW(optimizer_grouped_parameters,
-                          lr=self.config.learning_rate,
-                          eps=self.config.adam_epsilon)
+                          lr=self.args.learning_rate,
+                          eps=self.args.adam_epsilon)
         scheduler = {
             "scheduler":
             get_linear_schedule_with_warmup(optimizer,
-                                            **self.config.lr_scheduler_init),
+                                            **self.args.lr_scheduler_init),
             "interval":
             "step",
         }
         return [optimizer], [scheduler]
-
-    def train_dataloader(self, train_dataset):
-        print("load training data.")
-        adjusted_batch = int(self.config.train_batch_size/self.config.gradient_accumulation_steps) # CLI batch scales with gradient steps
         
-        dataloader = DataLoader(self.train_dataset, batch_size=adjusted_batch,
-                                drop_last=True, shuffle=True, num_workers=4)
+    def train_dataloader(self):
+        train_dataset = ABSADataset(tokenizer=self.tokenizer,
+                              dataset=self.train_ds,
+                              lang=self.args.lang,
+                              data_type='train',
+                              top_k=self.args.top_k,
+                              args=args,
+                              max_len=self.args.max_seq_length)
+
+        adjusted_batch = int(self.args.train_batch_size / self.args.gradient_accumulation_steps)
+
+        dataloader = DataLoader(
+            train_dataset,
+            batch_size=adjusted_batch,
+            drop_last=True
+            if self.args.data_ratio > 0.3 else False, # don't drop on few-shot
+            shuffle=True,
+            num_workers=8,
+            pin_memory=True,  # Pinne Speicher für effizienteren GPU-Transfer
+            prefetch_factor=2  # Lasse 4 Batches vorausladen
+        )
 
         return dataloader
-
+        
     def val_dataloader(self):
 
-        return DataLoader(self.test_dataset,
-                          batch_size=self.config.eval_batch_size,
-                          num_workers=4)
+        return DataLoader(self.args.test_dataset,
+                          batch_size=self.args.eval_batch_size,
+                          num_workers=4,  # Setze eine moderate Anzahl an Worker-Prozessen
+                          pin_memory=True,
+                          prefetch_factor=2
+                         )
 
 
     @staticmethod
@@ -1329,7 +1488,7 @@ class T5FineTuner(pl.LightningModule):
                 tokenize_res.extend(self.tokenizer(w, return_tensors='pt')['input_ids'].tolist()[0]) 
             dic["cate_tokens"][str(k)] = tokenize_res
         sp_tokenize_res = []
-        for sp in ['great', 'ok', 'bad', 'gut', 'ok', 'schlecht']:
+        for sp in POLARITY_MAPPINGS_TERM_TO_POL[self.args.lang].keys():
             sp_tokenize_res.extend(self.tokenizer(sp, return_tensors='pt')['input_ids'].tolist()[0])
         for task in force_words.keys():
             dic['sentiment_tokens'][str(task)] = sp_tokenize_res
@@ -1337,13 +1496,10 @@ class T5FineTuner(pl.LightningModule):
         special_tokens_tokenize_res = []
         for w in ['[O','[A','[S','[C','[SS']:
             special_tokens_tokenize_res.extend(self.tokenizer(w, return_tensors='pt')['input_ids'].tolist()[0]) 
-        if self.args.model_name_or_path == 'google/mt5-small':
-            special_tokens_tokenize_res = [r for r in special_tokens_tokenize_res if r != 491]
-        else:
-            special_tokens_tokenize_res = [r for r in special_tokens_tokenize_res if r != 784]
+        special_tokens_tokenize_res = [r for r in special_tokens_tokenize_res if r != self.token_ids['['][0]]
+
         dic['special_tokens'] = special_tokens_tokenize_res
 
-        print(dic)
         self.force_tokens = dic 
     
     def prefix_allowed_tokens_fn(self, task, data_name, source_ids, batch_id,
@@ -1352,24 +1508,10 @@ class T5FineTuner(pl.LightningModule):
         Constrained Decoding
         # ids = self.tokenizer("text", return_tensors='pt')['input_ids'].tolist()[0]
         """
-            
+        
         force_tokens = self.force_tokens
         
-        # google/mt5-small
-        ### TODO
-        to_id = {
-            'OT': [646],
-            'AT': [357],
-            'SP': [399],
-            'AC': [424],
-            'SS': [399],
-            'EP': [155719],
-            '[': [491],
-            ']': [439],
-            'it': [609],
-            # 'es': [3, 15, 7],
-            'null': [259, 1181]
-        }
+        to_id = self.token_ids
     
         left_brace_index = (input_ids == to_id['['][0]).nonzero()
         right_brace_index = (input_ids == to_id[']'][0]).nonzero()
@@ -1383,12 +1525,18 @@ class T5FineTuner(pl.LightningModule):
     
         if cur_id in to_id['[']:
             return force_tokens['special_tokens']
-        elif cur_id in to_id['AT'] + to_id['OT'] + to_id['EP'] + to_id['SP'] + to_id['AC']:  
-            # return to_id[']']  
-            ### MT5 ONLY
-            return to_id[']'] + to_id['EP']  
+        elif cur_id in to_id['AT'] + to_id['OT'] + (to_id['P'] if self.args.model_name_or_path in ['ai-forever/ruT5-base', 'yhavinga/t5-v1.1-base-dutch-cased'] else to_id['EP']) + to_id['SP'] + to_id['AC']:  
+            if self.args.model_name_or_path == 'google/mt5-base':
+                return to_id[']'] + to_id['EP']  
+            else:
+                return to_id[']']
         elif cur_id in to_id['SS']:  
-            return to_id['EP'] 
+            if self.args.model_name_or_path in ['ai-forever/ruT5-base', 'yhavinga/t5-v1.1-base-dutch-cased']:
+                return to_id['E']
+            else:
+                return to_id['EP']
+        elif self.args.model_name_or_path in ['ai-forever/ruT5-base', 'yhavinga/t5-v1.1-base-dutch-cased'] and cur_id in to_id['E']:
+            return to_id['P']
        
         # get cur_term
         if last_left_brace_pos == -1:
@@ -1400,21 +1548,19 @@ class T5FineTuner(pl.LightningModule):
             cur_term = input_ids[last_left_brace_pos + 1]
     
         ret = []
+        
         if cur_term in to_id['SP']:  # SP
-            ret = force_tokens['sentiment_tokens'][str(task)]
+            if not (self.args.model_name_or_path == 'google/mt5-base' and input_ids[last_left_brace_pos + 2] in to_id['EP']):
+                ret = force_tokens['sentiment_tokens'][str(task)]
+                
         elif cur_term in to_id['AT']:  # AT
             force_list = source_ids[batch_id].tolist()
             if task != 'aste': 
-                if True:
-                # if data_name == 'rest-16':
-                    force_list.extend(to_id['it'] + [1])  
-                # elif data_name == 'GERestaurant':
-                #     force_list.extend(to_id['es'] + [1])  
+                force_list.extend(IT_TOKEN_IDS[self.args.model_name_or_path][self.args.lang] + [1])  
+
             ret = force_list  
         elif cur_term in to_id['SS']:
-            #ret = [3] + to_id[']'] + [1]
-            ### MT5 ONLY
-            ret = [259] + to_id[']'] + [1]
+            ret = [to_id['start']] + to_id[']'] + [1]
         elif cur_term in to_id['AC']:  # AC
             ret = force_tokens['cate_tokens'][str(data_name)]
         elif cur_term in to_id['OT']:  # OT
@@ -1450,17 +1596,8 @@ def evaluate(model, task, lang, data_setting, dataset, args, data_type):
     if task in ['aste', 'tasd']:
         num_path = min(5, num_path)
         
-    dataset = ABSADataset(tokenizer=model.tokenizer,
-                                  task_name=task,
-                                  data_setting=data_setting,
-                                    data_name=dataset,
-                                    language=lang,
-                                    data_type=data_type,
-                                  top_k=num_path,
-                                  args=args,
-                                  max_len=args.max_seq_length)
     
-    data_loader = DataLoader(dataset,
+    data_loader = DataLoader(args.test_dataset,
                              batch_size=args.eval_batch_size,
                              num_workers=2)
     
@@ -1527,8 +1664,7 @@ def evaluate(model, task, lang, data_setting, dataset, args, data_type):
             elif args.agg_strategy == 'vote':
                 all_quads = []
                 for s in multi_outputs:
-                    all_quads.extend(
-                        extract_spans_para(seq=s, seq_type='pred'))
+                    all_quads.extend(extract_spans_para(seq=s, lang= args.lang, seq_type='pred'))
 
                 output_quads = []
                 counter = dict(Counter(all_quads))
@@ -1554,8 +1690,7 @@ def evaluate(model, task, lang, data_setting, dataset, args, data_type):
                     else:
                         raise NotImplementedError
 
-                target_quads = extract_spans_para(seq=targets[i],
-                                                seq_type='gold')
+                target_quads = extract_spans_para(seq=targets[i], lang=args.lang, seq_type='gold')
 
                 # if no output, use the first path
                 output_str = " [SSEP] ".join(
@@ -1572,10 +1707,8 @@ def evaluate(model, task, lang, data_setting, dataset, args, data_type):
     print('Golds')
     print(targets[:5])
     
-    scores, all_labels, preds = compute_scores(outputs,
-                                                   targets,
-                                                   verbose=True, task=args.task)
-    return scores, preds
+    scores, all_labels, all_preds = compute_scores(outputs, targets, args.lang, verbose=True, task=args.task)
+    return scores, all_labels, all_preds
 
 
 import signal
@@ -1594,14 +1727,11 @@ def train_function_mvp(args):
     train, test, _ = splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
     args.dataset = f'rest-{args.lang}'
     args.lang = 'en' if args.lang_setting != 'adapted' else args.lang
-    
-    train_dataset = ABSADataset(tokenizer=tokenizer,
-                              dataset=train,
-                              lang=args.lang,
-                              data_type='train',
-                              top_k=args.top_k,
-                              args=args,
-                              max_len=args.max_seq_length)
+
+    if args.lang != 'nl':
+        tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
+    else:
+        tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
     
     args.test_dataset = ABSADataset(tokenizer=tokenizer,
                               dataset=test,
@@ -1611,86 +1741,119 @@ def train_function_mvp(args):
                               args=args,
                               max_len=args.max_seq_length)
     
-    # training process
-    if args.do_train:
-        tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
-        print("\n****** Conduct Training ******")
-
         
-        
-        # initialize the T5 model
-        tfm_model = MyT5ForConditionalGeneration.from_pretrained(
-            args.model_name_or_path)
-        model = T5FineTuner(args, tfm_model, tokenizer, args)
+    print("\n****** Conduct Training ******")
 
-        # load data
-        train_loader = model.train_dataloader(train_dataset)
+    
+    
+    # initialize the T5 model
+    tfm_model = MyT5ForConditionalGeneration.from_pretrained(
+        args.model_name_or_path)
+    model = T5FineTuner(args, tfm_model, tokenizer, train)
 
-        # No gradient steps due to 'adjusted_batch' in trainer
-        t_total = ((len(train_loader.dataset) / (args.train_batch_size * max(1, args.n_gpu))) * float(args.num_train_epochs))
+    # load data
+    train_loader = model.train_dataloader()
 
-        args.lr_scheduler_init = {
-            "num_warmup_steps": args.warmup_steps,
-            "num_training_steps": t_total
-        }
+    # No gradient steps due to 'adjusted_batch' in trainer
+    t_total = (len(train_loader.dataset) / (args.train_batch_size * max(1, args.n_gpu))) * float(args.num_train_epochs)
+    print("Total steps: ", t_total)
 
-        checkpoint_callback = pl.callbacks.ModelCheckpoint(
-            dirpath=args.output_dir,
-            filename='{epoch}-{val_f1:.2f}-{val_loss:.2f}',
-            monitor='val_f1',
-            mode='max',
-            save_top_k=args.save_top_k,
-            save_last=False)
+    args.lr_scheduler_init = {
+        "num_warmup_steps": args.warmup_steps,
+        "num_training_steps": t_total
+    }
 
-        early_stop_callback = EarlyStopping(monitor="val_f1",
-                                            min_delta=0.00,
-                                            patience=20,
-                                            verbose=True,
-                                            mode="max")
-        lr_monitor = LearningRateMonitor(logging_interval='step')
+    checkpoint_callback = pl.callbacks.ModelCheckpoint(
+        dirpath=args.output_dir,
+        filename='{epoch}-{val_f1:.2f}-{val_loss:.2f}',
+        monitor='val_f1',
+        mode='max',
+        save_top_k=args.save_top_k,
+        save_last=False)
 
-        # prepare for trainer
-        train_params = dict(
-            accelerator="gpu",
-            devices=1,
-            default_root_dir=args.output_dir,
-            accumulate_grad_batches=args.gradient_accumulation_steps,
-            gradient_clip_val=1.0,
-            max_epochs=args.num_train_epochs,
-            check_val_every_n_epoch=args.check_val_every_n_epoch,
-            callbacks=[
-                checkpoint_callback, early_stop_callback,
-                TQDMProgressBar(refresh_rate=10), lr_monitor
-            ],
-        )
+    early_stop_callback = EarlyStopping(monitor="val_f1",
+                                        min_delta=0.00,
+                                        patience=20,
+                                        verbose=True,
+                                        mode="max")
+    lr_monitor = LearningRateMonitor(logging_interval='step')
 
-        trainer = pl.Trainer(**train_params)
+    class LogLREpochEndCallback(pl.Callback):
+        def on_train_epoch_end(self, trainer, pl_module):
+            opt = trainer.optimizers[0]  # Erster Optimizer
+            lr = opt.param_groups[0]['lr']
+            print(f"Epoch {trainer.current_epoch} - Learning Rate: {lr:.6f}")
+    
+    # prepare for trainer
+    train_params = dict(
+        accelerator="gpu",
+        devices=1,
+        default_root_dir=args.output_dir,
+        accumulate_grad_batches=args.gradient_accumulation_steps,
+        gradient_clip_val=1.0,
+        max_epochs=args.num_train_epochs,
+        check_val_every_n_epoch=args.check_val_every_n_epoch,
+        callbacks=[
+            checkpoint_callback, early_stop_callback,
+            TQDMProgressBar(refresh_rate=10), lr_monitor, LogLREpochEndCallback()
+        ],
+    )
+    
+    train_params["precision"] = "bf16"
+    
+    start_time = time.time()
 
-        try:
-            trainer.fit(model)
-        except KeyboardInterrupt:
-            print("Training has been stopped manually.")
-            
-        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    trainer = pl.Trainer(**train_params)
+    
+    trainer_args = {}
+    trainer_args.update({
+        "model_name": args.model_name_or_path,
+        "task": args.task,
+        "data_setting": args.data_setting,
+        "lang": args.lang,
+        "lang_setting": args.lang_setting,
+        "per_device_train_batch_size": args.train_batch_size,
+        "gradient_accumulation_steps": args.gradient_accumulation_steps,
+        "learning_rate": args.learning_rate,
+        "num_path": args.num_path,
+        "ctrl_token": args.ctrl_token,
+        "top_k": args.top_k,
+        "num_train_epochs": args.num_train_epochs,
+        "eval_type": args.eval_type
+    })
+    
+    try:
+        trainer.fit(model)
+    except KeyboardInterrupt:
+        print("Training has been stopped manually.")
 
-        model.to(device)
+    end_time = time.time()
+    training_duration = end_time - start_time
+    
+    trainer_args.update({
+        "train_runtime": training_duration
+    })
+    
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-        # save the final model
-        #model.model.save_pretrained(os.path.join(args.output_dir, "final"))
-        #tokenizer.save_pretrained(os.path.join(args.output_dir, "final"))
-        print("Finish training and saving the model!")
+    model.to(device)
 
-        if 'multi' in args.data_setting:
-            scores_balanced, preds_balanced = evaluate(model, args.task, args.lang, 'balanced', args.dataset, args,
-                                data_type=args.eval_type)
-            scores_orig, preds_orig = evaluate(model, args.task, args.lang, 'orig', args.dataset, args,
-                                data_type=args.eval_type)
-            return (scores_balanced, preds_balanced), (scores_orig, preds_orig)
-        else:
-            scores, preds = evaluate(model, args.task, args.lang, args.data_setting, args.dataset, args,
-                                data_type=args.eval_type)
-            return scores, preds
-        return None
+    # save the final model
+    #model.model.save_pretrained(os.path.join(args.output_dir, "final"))
+    #tokenizer.save_pretrained(os.path.join(args.output_dir, "final"))
+    print("Finish training and saving the model!")
+
+    if 'multi' in args.data_setting:
+        scores_balanced, golds_balanced, preds_balanced = evaluate(model, args.task, args.lang, 'balanced', args.dataset, args,
+                            data_type=args.eval_type)
+        scores_orig, golds_orig, preds_orig = evaluate(model, args.task, args.lang, 'orig', args.dataset, args,
+                            data_type=args.eval_type)
+        return (scores_balanced, golds_balanced, preds_balanced), (scores_orig, golds_orig, preds_orig), trainer_args
+    else:
+        scores, golds, preds = evaluate(model, args.task, args.lang, args.data_setting, args.dataset, args,
+                            data_type=args.eval_type)
+        return scores, golds, preds, trainer_args
+    return None
     
 def init_args():
     parser = argparse.ArgumentParser()
@@ -1711,7 +1874,6 @@ def init_args():
     parser.add_argument(
         "--eval_type",
         default='test',
-        choices=["test", "dev"],
         type=str,
     )
     parser.add_argument(
@@ -1739,9 +1901,6 @@ def init_args():
                         default=None,
                         type=str,
                         help="load ckpt path")
-    parser.add_argument("--do_train",
-                        action='store_true',
-                        help="Whether to run training.")
     parser.add_argument(
         "--do_inference",
         default=False,
@@ -1820,9 +1979,8 @@ if __name__ == '__main__':
     args = init_args()
     set_seed(args.seed)
     if 'multi' in args.data_setting:
-        (f1_balanced, preds_balanced), (f1_orig, preds_orig) = train_function_mvp(args)
+        (f1_balanced, golds_balanced, preds_balanced), (f1_orig, golds_orig, preds_orig), trainer_args = train_function_mvp(args)
     
-        # f1_str = "F1: {}".format(f1_res['f1'])
         output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting.replace("_","-")}-b_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
         os.makedirs(output_path, exist_ok=True)
     
@@ -1831,9 +1989,17 @@ if __name__ == '__main__':
         pd.DataFrame.from_dict(f1_balanced[2]).transpose().to_csv(output_path + '/metrics_pairs.tsv', sep = "\t")
         pd.DataFrame.from_dict(f1_balanced[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
         pd.DataFrame.from_dict(f1_balanced[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
-        
-        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-            json.dump({'predictions': preds_balanced}, f, indent=4, ensure_ascii=False)
+
+        try:
+            matched_samples = [
+                {"predictions": pred, "gold_labels": gold}
+                for pred, gold in zip(preds_balanced, golds_balanced)
+            ]
+            with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
+                json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
+
+        except:
+            pass
             
         output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting.replace("_","-")}-o_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
         os.makedirs(output_path, exist_ok=True)
@@ -1844,13 +2010,20 @@ if __name__ == '__main__':
         pd.DataFrame.from_dict(f1_orig[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
         pd.DataFrame.from_dict(f1_orig[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
 
-        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-            json.dump({'predictions': preds_orig}, f, indent=4, ensure_ascii=False)
-            
+        try:
+            matched_samples = [
+                {"predictions": pred, "gold_labels": gold}
+                for pred, gold in zip(preds_orig, golds_orig)
+            ]
+            with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
+                json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
+
+        except:
+            pass
+        
     else:
-        f1_res, preds = train_function_mvp(args)
+        f1_res, golds, preds, trainer_args = train_function_mvp(args)
     
-        # f1_str = "F1: {}".format(f1_res['f1'])
         output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting}_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
         os.makedirs(output_path, exist_ok=True)
     
@@ -1860,8 +2033,20 @@ if __name__ == '__main__':
         pd.DataFrame.from_dict(f1_res[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
         pd.DataFrame.from_dict(f1_res[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
 
-        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-            json.dump({'predictions': preds}, f, indent=4, ensure_ascii=False)
+        try:
+            matched_samples = [
+                {"predictions": pred, "gold_labels": gold}
+                for pred, gold in zip(preds, golds)
+            ]
+            with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
+                json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
+
+        except:
+            pass
+
+    with open(os.path.join(output_path, 'config.json'), "w", encoding="utf-8") as f:
+        json.dump(trainer_args, f, indent=4, ensure_ascii=False)
+        
 
 ####################################################################################
 ####################################################################################

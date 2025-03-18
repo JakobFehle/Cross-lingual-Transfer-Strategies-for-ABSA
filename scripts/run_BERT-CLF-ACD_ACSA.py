@@ -17,16 +17,16 @@ SEED = 5
 # Hyperparameter Validation Phase
 ###
 
-for SPLIT in [2]:
+for SPLIT in [2,3,4,5]:
     EVAL_TYPE = f'eval_{SPLIT}'
     for DATA_SETTING in ['balanced']:
-        for LANG_SETTING in ['orig']:
+        for LANG_SETTING in ['adapted']:
             for index, (LANGUAGE, MODEL_NAME) in enumerate([['de', 'deepset/gbert-base'],['en', 'google-bert/bert-base-cased'],['nl', 'GroNLP/bert-base-dutch-cased'], ['ru', 'DeepPavlov/rubert-base-cased'], ['cs', 'UWB-AIR/Czert-B-base-cased'], ['fr', 'dbmdz/bert-base-french-europeana-cased'], ['es', 'dccuchile/bert-base-spanish-wwm-cased']] + ([['tr', 'dbmdz/bert-base-turkish-cased']] if DATA_SETTING != 'balanced' else [])):
                 for TASK in ['acsa', 'acd']:
                     for BASE_EPOCHS in [30, 35, 40, 45, 50]:
                         for LEARNING_RATE in [5e-5]:
                             for BATCH_SIZE in [16]:
-                                if DATA_SETTING == 'balanced':
+                                if DATA_SETTING == 'balanced' and LANG_SETTING == 'orig':
                                     MODEL_NAME = 'google-bert/bert-base-multilingual-cased'
                 
                                 # if index%2 == int(sys.argv[1]):

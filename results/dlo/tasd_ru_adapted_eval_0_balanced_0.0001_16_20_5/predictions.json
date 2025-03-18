@@ -1,0 +1,5377 @@
+{
+    "test": [
+        {
+            "predictions": [
+                [
+                    "drinks prices",
+                    "пиво",
+                    "positive"
+                ],
+                [
+                    "drinks prices",
+                    "пиво",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks prices",
+                    "пиво",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "меню",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "меню",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "сок",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "ресторан",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "ресторан",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "заведение",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "NULL",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "заведение",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NULL",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "гардероб",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "кальян",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "кальян",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NULL",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "location general",
+                    "месторасположение",
+                    "neutral"
+                ],
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "организация работы",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "месторасположение",
+                    "neutral"
+                ],
+                [
+                    "ambience general",
+                    "интерьер",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "neutral"
+                ],
+                [
+                    "service general",
+                    "организация работы",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "пива",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "кондитерская",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "пива",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "еды",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "роллы Филадельфия",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "греческий салат",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "пиво",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "роллы Филадельфия",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "греческий салат",
+                    "neutral"
+                ],
+                [
+                    "drinks quality",
+                    "пиво",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "еды",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "сервис",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "сервис",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "вина",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "коктейльным напитком",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "шашлык",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "салатов",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "алкоголя",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "шашлык",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "салатов",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "алкоголя",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "вино",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "вино",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "NULL",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "атмосфера",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NULL",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "атмосфера",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "NULL",
+                    "negative"
+                ],
+                [
+                    "food prices",
+                    "ужина",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "ужин",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "барная карта",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "кальян",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "барная карта",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "кальян",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "кафе",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "кафе",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "кухне",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "кафе",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "тарелки",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "тарелки",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "ребята",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "тарелки",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "место",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "место",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "официанты",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "еде",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "судака с овощами и рисом",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "кофе Борджиа",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "еде",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "судака с овощами и рисом",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "кофе Борджиа",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Свежевыжатый сок",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "хлеб",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "Свежевыжатый сок",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "хлеб",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "хлеба",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "стейк рибай",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "свиную рульку",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "стейк рибай",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "свиную рульку",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "Капрезе",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "медальоны",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "Цезарь",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "ролл",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Капрезе",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "медальоны",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "Цезарь",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "фирменный ролл",
+                    "neutral"
+                ],
+                [
+                    "ambience general",
+                    "атмосфера",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "пиццу",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "пиццу",
+                    "neutral"
+                ],
+                [
+                    "food style_options",
+                    "допинга",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "китайский антураж",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "аппаратура",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "аппаратура",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "Интерьер",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "диванчики",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "Интерьер",
+                    "neutral"
+                ],
+                [
+                    "ambience general",
+                    "диванчики",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "food quality",
+                    "gangster bar_options",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "gangster bar_options",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "gangster bar_options",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "gangster bar-а",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "помещение",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "декором",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NULL",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "декором",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "зоны для некурящих",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "зоны для некурящих",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "посуда",
+                    "neutral"
+                ],
+                [
+                    "food style_options",
+                    "сервировка стола",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "посуда",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "сервировка",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "Пирожных",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "Пирожных",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "красной рыбы",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "красной рыбы",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "десерт",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "фруктов",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "блюда",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "блюда",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "горячего",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "рыба",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "порции",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "вкус",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "горячего",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "порции",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "порции",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NULL",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "антуража",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "антуража",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "ресторан",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "ресторан",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "Глобуса",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "Глобуса",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "место",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "место",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "заведению",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "заведению",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "заведение",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "заведение",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "Ресторан",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "ресторан",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "ресторан",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "ресторанчик",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "ресторанчик",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "заведения",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "заведения",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "заведении",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "заведении",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "заведение",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "заведение",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "местечка",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "сервировка столов",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "оформлением",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "сервировка столов",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "оформлением",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "суши",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "роллов",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "салатов",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "супов",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "горячих блюд",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "суши",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "роллов",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "салатов",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "супов",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "горячих блюд",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "блюдо садж",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "мясо",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "говядина",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "телятина",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "грибами и овощами",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "блюдо садж",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "блюдо садж",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Кухня",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "порций",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Кухня",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "порций",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "выбор десертов",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "десертов",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "Меню",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "Меню",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Меню",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "Меню",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "салат с креветками и листьями",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "рулетики из баклажан",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "начинка",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "грецкие орехи",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "холодный рыбный рулет",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "корюшка",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "блюдо",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "салат с креветками и листьями",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "рулетики из баклажанов",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "начинка",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "грецкие орехи",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "холодный рыбный рулет",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "корюшка, фаршированная рисом и овощами",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "блюдо",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "блюдо",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "Порции",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Кухня",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "порции",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Кухня",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "порции",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Шоколадный фонтан",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "Шоколадный фонтан",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Шоколадный фонтан",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "Шоколадный фонтан",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "Места",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "меню",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "зал",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "Места",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "меню",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "зал",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "меню",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "блюд",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "блюд",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "Набережную",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "официантка",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "стейка",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "официантка",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "Встреча гостей",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "официантов",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "офицантка",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "офицантка",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "администраторы",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "младшего персонала",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "администраторы",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "младшего персонала",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "официантка",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "официантка",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "Обслуживание",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "Обслуживание",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "обслуживания",
+                    "negative"
+                ],
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "шашлык",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "шашлык",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "мужчина",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "вкус",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "официантка",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "официантка",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "супа",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "работе официантов",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "блюдах",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "официантов",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "блюдах",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "борща",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "бульон с капустой",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "сметаны",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "борща",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "бульон с капустой",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "капусты",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Паста",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "макароны с соусом",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "суши",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Паста",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "макароны",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "соусом",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "суши",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "еда",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "рыба",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "мясо",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "соусом",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "еда",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "рыба",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "мясо",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "соусом",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "кухни",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "кухни",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Свинина",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Свинина",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "шаверму с курицей",
+                    "neutral"
+                ],
+                [
+                    "food style_options",
+                    "теста",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "картофель фри",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "шаверму с курицей",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "теста",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "картофель фри",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Салат",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Салат",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "соусом",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Горячее",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Горячее",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "кухня",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "обслуживание",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "кухня",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "обслуживание",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "суши",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Еда",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Еда",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Кухня",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Кухня",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Чайном доме",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "картины",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "занавесочки из бисера",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "картины",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "занавесочки",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "заведения",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "музыка",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "музыка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "атмосфера",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "роллов",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "заведение",
+                    "neutral"
+                ],
+                [
+                    "ambience general",
+                    "веранда",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "роллов",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "заведение",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "веранда",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "живая музыка",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "живая музыка",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "свет",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "музыка",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "приглушенный свет",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "музыка",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "живая музыка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "голос солистки",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "живая музыка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "голос солистки",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "кухня",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "обслуживание",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "атмосфера",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "кухня",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "обслуживание",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "атмосфера",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "location general",
+                    "центр города",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "диваны с россыпью подушек",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "диваны",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "подушек",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "Оч",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "еда",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "зал",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "еда",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "зал",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "обстановке",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "обстановке",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "музыка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "обстановка",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "Музыка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "обстановка",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "Интерьер",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "Интерьер",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "Деревянные столы",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "стулья",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "столы",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "стулья",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "атмосферу",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "интерьероом",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "тонах",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "интерьероом",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "зал",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "фонтаны из шариков",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "подсветка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "стульчик",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "большом зале",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "фонтаны из шариков",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "потолка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "в красных тонах",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "подсветка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "цветы на столе",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "украшение",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "стульчик",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "табачного дыма",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "заведении",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "свободных мест",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "заведении",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "кухней",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "сервисом",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "обстановкой",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "интерьером",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "кухней",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухней",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "сервисом",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "обстановкой",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "Интерьер",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "Интерьер",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "Империю",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "залы",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "живая музыка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "место",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "Империю",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "залы",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "танцпол",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "живая музыка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "обстановкой",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "официантка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "заведение",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "официантка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "заведение",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "руководству",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "обслуживающему персоналу",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "сотрудникам",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "руководству ресторана",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "обслуживающему персоналу",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "сотрудникам",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "блюда",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "ресторан",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "ресторан",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "заведении",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "Марчеллисе",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "заведении",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "Марчеллисе",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "заведение",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "заведение",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "заведение",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "заведение",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "ресторан",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "ресторан",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "ресторана",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "ресторана",
+                    "positive"
+                ],
+                [
+                    "restaurant prices",
+                    "ресторана",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "Манго",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "Манго",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "ресторан Веритас",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "ресторан Веритас",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "Восточный Экспресс",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "Восточный Экспресс",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "местом",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "местом",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "заведении",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "свободный столик",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "заведении",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "обслуживание",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "персонал",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "обслуживание",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "этажа",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "чай",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "чай",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "официантки",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "официантки",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "официант",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "официант",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "Обслуживание",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "Обслуживание",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "обслуживающий персонал",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "обслуживающий персонал",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "официантка",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "пиво",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "закуски",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "официантка",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "посуда",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "блюда",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "напитки",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "залы",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "девушка",
+                    "positive"
+                ],
+                [
+                    "drinks prices",
+                    "меню",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "залы",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "веранде",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "молодой человек",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "девушка",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "администратор",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "официанта",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "официанта",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "обслуживания",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "фондю",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "блюда",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "фондю",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "стол с холодными закусками",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "официантка Алёна",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "официантка",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "Персонал",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "Персонал",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "организация",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "обсуждение меню",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "подача блюд",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "зал",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "официанта",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "официанта",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "обслуживание",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "обслуживание",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "атмосфера",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "обслуживание",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "атмосфера",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "обслуживание",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухни",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "мужчина",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "мужчина",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "обстановка",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "сервис",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "обстановка",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "сервис",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "кухня",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "девушка",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "салатиков",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "горячее",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "девушка",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "блюда",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Повара",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Повара",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "пиццы",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "пиццы",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Кухня",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "сервис",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "обслуживание",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Кухня",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "сервис",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "обслуживание",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Бизнес ланч",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "Бизнес ланч",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Бизнес ланч",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Кухня",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Кухня",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "сухарики из хлеба",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "сухарики из собственного вкусного хлеба",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "китайской кухней",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "говядину",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "свинину",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "рис",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "порции",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "еда",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "говядину",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "свинину",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "рис",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "закусок",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "порции",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "еда",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "блюда",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "повару",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "блюда",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "ресторанов",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "food prices",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "BELLINI",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "блюда",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "блюда",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "кухня",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "кухня",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "блюда на пару",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "блюда на пару",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "блюда из меню",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "цезарь со шпинатным соусом",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "чай облепиховый и тирамису от шеф повара",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "цезарь с курицей",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "лосось со шпинатным соусом",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "чай облепиховый",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "тирамису",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "блюдо",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "фирменное блюдо",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Еда",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "оформление блюд",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Еда",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "оформление блюд",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "тыквенный суп",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "булочки",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "кофе",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "тыквенный суп",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "булочки",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "бивштексы",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "бивштексы",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Гриль",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "пиво",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Гриль",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "пиво",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Овощи на гриле",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "Айдахо",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Овощи на гриле",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "Айдахо",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "повару",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "повару",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Лосось",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "салат Цезарь",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Лосось",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "салат Цезарь",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "котлетки из лосося",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "креветок",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "котлетки из лосося и креветок",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "место",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "салаты",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "салаты",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "мяса",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Качество мяса",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "десерт",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "миндальный рулет",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "десерт",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "миндальный рулет",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Горячее",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "стейк из белых грибов",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "прожарки",
+                    "neutral"
+                ],
+                [
+                    "food quality",
+                    "стейк из мраморной говядины с соусом",
+                    "neutral"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "стейк с соусом из белых грибов",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "прожарки",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "стейк из мраморной говядины",
+                    "neutral"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "утку по пекински с супом",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "едой",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "утку по пекински с супом",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "едой",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Еда",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "сервировку блюд",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Еда",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "сервировку блюд",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "блюда",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "продуктов",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "официант",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "блюда",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "продуктов",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "официант",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "Шашлык",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "Шашлык",
+                    "positive"
+                ]
+            ]
+        }
+    ]
+}

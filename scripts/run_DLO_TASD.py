@@ -7,26 +7,27 @@ import os
 # CV
 ###
 
-LEARNING_RATE = 3e-4
+LEARNING_RATE = 1e-4
 DATA_PATH = '../data/restaurant/'
 OUTPUT_PATH = '../results/dlo/'
 TASK = 'tasd'
 SEED = 5
 EPOCHS = 20
 BATCH_SIZE = 16
-GRADIENT_STEPS = 2
+GRADIENT_STEPS = 1
 
-LANGUAGE = 'en'
-
-for SPLIT in [1]:
+for SPLIT in [0]:
     EVAL_TYPE = f'eval_{SPLIT}'
     for SEED in [5]:
-        for DATA_SETTING in ['orig']:
+        for DATA_SETTING in ['balanced']:
             for LANG_SETTING in ['adapted']:
-                for BASE_EPOCHS in[2, 25, 30, 35, 40]:
-                    for index, (LANGUAGE, MODEL) in enumerate([['de', 't5-base'], ['en', 't5-base'], ['nl', 'yhavinga/t5-v1.1-base-dutch-cased'], ['ru', 'ai-forever/ruT5-base'], ['cs', 'google/mt5-base'], ['fr', 't5-base'], ['es', 'vgaraujov/t5-base-spanish']] + ([['tr', 'google/mt5-base']] if DATA_SETTING != 'balanced' else [])):
-                        if DATA_SETTING == 'balanced':
+                for BASE_EPOCHS in [15, 20, 25, 30]:
+                    for index, (LANGUAGE, MODEL) in enumerate([['de', 't5-base'], ['en', 't5-base'], ['nl', 'yhavinga/t5-v1.1-base-dutch-uncased'], ['ru', 'ai-forever/ruT5-base'], ['cs', 'google/mt5-base'], ['fr', 't5-base'], ['es', 'vgaraujov/t5-base-spanish']] + ([['tr', 'google/mt5-base']] if DATA_SETTING != 'balanced' else [])):
+                        if DATA_SETTING == 'balanced' and LANG_SETTING == 'orig':
                             MODEL = 'google/mt5-base'
+                        if LANGUAGE == 'cs': ## OOM
+                            BATCH_SIZE = 8
+                            GRADIENT_STEPS = 2
                         command = [
                             sys.executable,  # The Python interpreter
                             "../src/dlo/classifier.py",  # The script to run
@@ -42,7 +43,7 @@ for SPLIT in [1]:
                             "--top_k", "5",
                             "--seed", str(SEED),
                             "--train_batch_size", str(BATCH_SIZE),
-                            "--gradient_accumulation_steps", "2",
+                            "--gradient_accumulation_steps", str(GRADIENT_STEPS),
                             "--learning_rate", str(LEARNING_RATE),
                             "--eval_batch_size", "16",
                             "--max_seq_length", "200",

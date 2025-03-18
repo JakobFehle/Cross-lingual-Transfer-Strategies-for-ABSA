@@ -72,7 +72,9 @@ class MultiLabelABSA:
         
         if split:
             kf = KFold(n_splits=5, shuffle=True, random_state=42)
-            train_idx, val_idx = list(kf.split(train, None))[int(split)]
+            splits = list(kf.split(train, None))
+            print(len(splits))
+            train_idx, val_idx = splits[int(split) if int(split) != 5 else 0]
             train, test = train.iloc[train_idx], train.iloc[val_idx]
             print(f"Creating CV splits; using split {split} with random_state 42")
 

@@ -99,6 +99,9 @@ class ABSADataset(Dataset):
                                              self.data_type, self.top_k,
                                              self.args)
 
+        print(inputs[:2])
+        print(targets[:2])
+
         for i in range(len(inputs)):
             # change input and target to two strings
             input = ' '.join(inputs[i])
@@ -184,12 +187,14 @@ def choose_best_order_global_tasd(sents, labels, model, tokenizer, device, top_k
         for quad in label:
             at, ac, sp = quad  # Kein OT mehr
 
+            man_ot = POLARITY_MAPPINGS_POL_TO_TERM[lang][sp]  # 'positive' -> 'good'
+            
             if at == 'NULL':  # für implizite Aspekte
                 at = IT_TOKENS[lang]
 
             quad = [f"[AT] {at}",
                     f"[AC] {ac}",
-                    f"[SP] {sp}"]
+                    f"[SP] {man_ot}"]
             x = permutations(quad)
 
             permute_object = {}
@@ -233,6 +238,7 @@ def get_para_tasd_targets(sents, labels, top_k, args, lang):
     data_count = {}
     
     optim_orders = choose_best_order_global_tasd(sents, labels, model, tokenizer, device, top_k, lang)
+    print(optim_orders)
 
     for i in range(len(sents)):
         label = labels[i]
@@ -250,9 +256,11 @@ def get_para_tasd_targets(sents, labels, top_k, args, lang):
             if at == 'NULL':  # für implizite Aspekte
                 at = IT_TOKENS[lang]
 
+            man_ot = POLARITY_MAPPINGS_POL_TO_TERM[lang][sp]
+            
             quad = [f"[AT] {at}",
                     f"[AC] {ac}",
-                    f"[SP] {sp}"]
+                    f"[SP] {man_ot}"]
             x = permutations(quad)
             permute_object = {}
             for each in x:
@@ -287,11 +295,13 @@ def get_para_tasd_targets_test(sents, labels, lang):
         for triplet in label:
             at, ac, sp = triplet
 
+            man_ot = POLARITY_MAPPINGS_POL_TO_TERM[lang][sp]
+            
             if at == 'NULL':  # Für implizite Aspekte
                 at = IT_TOKENS[lang]
 
             # Triplet ohne OT (Opinion Term)
-            triplet_list = [f"[AT] {at}", f"[AC] {ac}", f"[SP] {sp}"]
+            triplet_list = [f"[AT] {at}", f"[AC] {ac}", f"[SP] {man_ot}"]
             one_triplet_sentence = " ".join(triplet_list)
             all_triplet_sentences.append(one_triplet_sentence)
 
@@ -445,13 +455,15 @@ def splitForEvalSetting(dataset, eval_type):
         """Handles dataset splitting and cross-validation settings."""
         train, test, label_space = dataset
         split = eval_type.split('_')[1] if '_' in eval_type else False
-        
         if split:
             kf = KFold(n_splits=5, shuffle=True, random_state=42)
             train_idx, val_idx = list(kf.split(train, None))[int(split)]
             train, test = train.iloc[train_idx], train.iloc[val_idx]
             print(f"Creating CV splits; using split {split} with random_state 42")
 
+        if bool(set(train_idx) & set(val_idx)):
+            return None
+            
         print(f"Train set size: {len(train)}, Test set size: {len(test)}")
         return train, test, label_space
 
@@ -618,6 +630,9 @@ def extract_spans_para(task, seq, seq_type, lang):
 
             ac, sp, at = result
 
+            if sp and sp.lower() in POLARITY_MAPPINGS_TERM_TO_POL[lang]:
+                sp = POLARITY_MAPPINGS_TERM_TO_POL[lang][sp]
+            
             # Wenn der Aspekt-Text implizit ist
             if at.lower() == IT_TOKENS[lang]:
                 at = 'NULL'
@@ -631,6 +646,7 @@ def extract_spans_para(task, seq, seq_type, lang):
             ac, at, sp = '', '', ''
 
         quads.append((ac, at, sp))  # Triplet für TASD speichern
+
     return quads
 
 
@@ -675,7 +691,7 @@ def compute_scores(pred_seqs, gold_seqs, task, lang):
     scores = compute_f1_scores(all_preds, all_labels)
     print('DLO F1-Micro: ', scores['f1'])
     
-    return scores_dfs, all_labels, pred_seqs
+    return scores_dfs, all_labels, all_preds
 
 
 def evaluate(data_loader, model, tokenizer, args):
@@ -702,9 +718,9 @@ def evaluate(data_loader, model, tokenizer, args):
         outputs.extend(dec)
         targets.extend(target)
 
-    scores, all_labels, preds = compute_scores(outputs, targets, args.task, args.lang)
+    scores, all_labels, all_preds = compute_scores(outputs, targets, args.task, args.lang)
 
-    return scores, preds
+    return scores, all_labels, all_preds
 
 
 def train_function_dlo(args):
@@ -757,6 +773,7 @@ def train_function_dlo(args):
             callbacks=[],
         )
 
+        start_time = time.time()
         trainer = pl.Trainer(**train_params)
         
         try:
@@ -764,12 +781,34 @@ def train_function_dlo(args):
         except KeyboardInterrupt:
             print("Training has been stopped manually.")
 
-        # save the final model
-        # model.model.save_pretrained(args.output_dir)
-        # tokenizer.save_pretrained(args.output_dir)
+        end_time = time.time()
+        training_duration = end_time - start_time
+        
+        trainer_args = {}
+        trainer_args.update({
+            "model_name": args.model_name_or_path,
+            "task": args.task,
+            "data_setting": args.data_setting,
+            "lang": args.lang,
+            "lang_setting": args.lang_setting,
+            "per_device_train_batch_size": args.train_batch_size,
+            "gradient_accumulation_steps": args.gradient_accumulation_steps,
+            "learning_rate": args.learning_rate,
+            "top_k": args.top_k,
+            "num_train_epochs": args.num_train_epochs,
+            "eval_type": args.eval_type,
+            "train_runtime": training_duration
+        })
         
         results = evaluate(test_loader, model, tokenizer, args)
-        return results
+        if 'multi' in args.data_setting:
+            scores_balanced, golds_balanced, preds_balanced = evaluate(test_loader, model, tokenizer, args)
+            scores_orig, golds_orig, preds_orig = evaluate(test_loader, model, tokenizer, args)
+            return (scores_balanced, golds_balanced, preds_balanced), (scores_orig, golds_orig, preds_orig), trainer_args
+        else:
+            scores, golds, preds = evaluate(test_loader, model, tokenizer, args)
+            return scores, golds, preds, trainer_args
+        return None
 
 def init_args():
     parser = argparse.ArgumentParser()
@@ -799,7 +838,7 @@ def init_args():
     parser.add_argument(
         "--eval_type",
         default='test',
-        choices=["test", "eval_1", "eval_2", "eval_3", "eval_4", "eval_5"],
+        choices=["test", "eval_0", "eval_1", "eval_2", "eval_3", "eval_4"],
         type=str,
     )
     parser.add_argument(
@@ -847,20 +886,28 @@ if __name__ == '__main__':
     set_seed(args.seed)
     
     if 'multi' in args.data_setting:
-        (f1_balanced, preds_balanced), (f1_orig, preds_orig) = train_function_dlo(args)
-    # f1_str = "F1: {}".format(f1_res['f1'])
+        (f1_balanced, golds_balanced, preds_balanced), (f1_orig, golds_orig, preds_orig), trainer_args = train_function_dlo(args)
+        
         output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting.replace("_","-")}-b_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
         os.makedirs(output_path, exist_ok=True)
-    
+        
         pd.DataFrame.from_dict(f1_balanced[0]).transpose().to_csv(output_path + '/metrics_asp.tsv', sep = "\t")
         pd.DataFrame.from_dict(f1_balanced[1]).transpose().to_csv(output_path + '/metrics_asp_pol.tsv', sep = "\t")
         pd.DataFrame.from_dict(f1_balanced[2]).transpose().to_csv(output_path + '/metrics_pairs.tsv', sep = "\t")
         pd.DataFrame.from_dict(f1_balanced[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
         pd.DataFrame.from_dict(f1_balanced[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
-
-        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-            json.dump({'predictions': preds_balanced}, f, indent=4, ensure_ascii=False)
-
+        
+        try:
+            matched_samples = [
+                {"predictions": pred, "gold_labels": gold}
+                for pred, gold in zip(preds_balanced, golds_balanced)
+            ]
+            with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
+                json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
+        
+        except:
+            pass
+            
         output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting.replace("_","-")}-o_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
         os.makedirs(output_path, exist_ok=True)
     
@@ -870,12 +917,20 @@ if __name__ == '__main__':
         pd.DataFrame.from_dict(f1_orig[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
         pd.DataFrame.from_dict(f1_orig[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
 
-        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-                json.dump({'predictions': preds_orig}, f, indent=4, ensure_ascii=False)
+        try:
+            matched_samples = [
+                {"predictions": pred, "gold_labels": gold}
+                for pred, gold in zip(preds_orig, golds_orig)
+            ]
+            with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
+                json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
+
+        except:
+            pass
+        
     else:
-        f1_res, preds = train_function_dlo(args)
+        f1_res, golds, preds, trainer_args = train_function_dlo(args)
     
-        # f1_str = "F1: {}".format(f1_res['f1'])
         output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting}_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
         os.makedirs(output_path, exist_ok=True)
     
@@ -885,5 +940,16 @@ if __name__ == '__main__':
         pd.DataFrame.from_dict(f1_res[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
         pd.DataFrame.from_dict(f1_res[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
 
-        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-            json.dump({'predictions': preds}, f, indent=4, ensure_ascii=False)
+        try:
+            matched_samples = [
+                {"predictions": pred, "gold_labels": gold}
+                for pred, gold in zip(preds, golds)
+            ]
+            with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
+                json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
+
+        except:
+            pass
+
+    with open(os.path.join(output_path, 'config.json'), "w", encoding="utf-8") as f:
+        json.dump(trainer_args, f, indent=4, ensure_ascii=False)
