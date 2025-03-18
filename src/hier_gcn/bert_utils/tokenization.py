@@ -29,7 +29,7 @@ from transformers import CamembertTokenizer
 logger = logging.getLogger(__name__)
 
 PRETRAINED_VOCAB_ARCHIVE_MAP = {
-    'google-bert/bert-base-uncased': "https://huggingface.co/google-bert/bert-base-uncased/resolve/main/vocab.txt?download=true",
+    'google-bert/bert-base-cased': "https://huggingface.co/google-bert/bert-base-cased/resolve/main/vocab.txt?download=true",
     'bert-large-uncased': "https://huggingface.co/google-bert/bert-large-uncased/resolve/main/vocab.txt?download=true",
     'bert-base-cased': "https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-cased-vocab.txt",
     'bert-large-cased': "https://s3.amazonaws.com/models.huggingface.co/bert/bert-large-cased-vocab.txt",
@@ -48,9 +48,10 @@ PRETRAINED_VOCAB_ARCHIVE_MAP = {
     'DeepPavlov/rubert-base-cased': 'https://huggingface.co/DeepPavlov/rubert-base-cased/resolve/main/vocab.txt',
     'UWB-AIR/Czert-B-base-cased' : 'https://huggingface.co/UWB-AIR/Czert-B-base-cased/resolve/main/vocab.txt',
     'dbmdz/bert-base-french-europeana-cased': 'https://huggingface.co/dbmdz/bert-base-french-europeana-cased/resolve/main/vocab.txt',
-    'dccuchile/bert-base-spanish-wwm-uncased': 'https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased/resolve/main/vocab.txt',
+    'dccuchile/bert-base-spanish-wwm-cased': 'https://huggingface.co/dccuchile/bert-base-spanish-wwm-cased/resolve/main/vocab.txt',
     'google-bert/bert-base-multilingual-cased': 'https://huggingface.co/google-bert/bert-base-multilingual-cased/resolve/main/vocab.txt',
     'google-bert/bert-base-multilingual-uncased': 'https://huggingface.co/google-bert/bert-base-multilingual-uncased/resolve/main/vocab.txt',
+    'dbmdz/bert-base-turkish-cased': 'https://huggingface.co/dbmdz/bert-base-turkish-cased/resolve/main/vocab.txt'
     
 }
 PRETRAINED_VOCAB_POSITIONAL_EMBEDDINGS_SIZE_MAP = {
@@ -73,7 +74,8 @@ PRETRAINED_VOCAB_POSITIONAL_EMBEDDINGS_SIZE_MAP = {
     'DeepPavlov/rubert-base-cased': 512,
     'UWB-AIR/Czert-B-base-cased': 512,
     'dbmdz/bert-base-french-europeana-cased': 512,
-    'dccuchile/bert-base-spanish-wwm-uncased': 512
+    'dccuchile/bert-base-spanish-wwm-uncased': 512,
+    'dbmdz/bert-base-turkish-cased': 512
 }
 VOCAB_NAME = 'vocab.txt'
 

@@ -37,27 +37,29 @@ from bert_utils.file_utils import cached_path, WEIGHTS_NAME, CONFIG_NAME
 logger = logging.getLogger(__name__)
 
 PRETRAINED_MODEL_ARCHIVE_MAP = {
-    'google-bert/bert-base-uncased': "https://huggingface.co/google-bert/bert-base-uncased/resolve/main/pytorch_model.bin",
+    'google-bert/bert-base-cased': "https://huggingface.co/google-bert/bert-base-cased/resolve/main/pytorch_model.bin",
     'deepset/gbert-base': "https://huggingface.co/deepset/gbert-base/resolve/main/pytorch_model.bin",
     'GroNLP/bert-base-dutch-cased': 'https://huggingface.co/GroNLP/bert-base-dutch-cased/resolve/main/pytorch_model.bin',
     'DeepPavlov/rubert-base-cased': 'https://huggingface.co/DeepPavlov/rubert-base-cased/resolve/main/pytorch_model.bin',
     'UWB-AIR/Czert-B-base-cased': 'https://huggingface.co/UWB-AIR/Czert-B-base-cased/resolve/main/pytorch_model.bin',
     'dbmdz/bert-base-french-europeana-cased': 'https://huggingface.co/dbmdz/bert-base-french-europeana-cased/resolve/main/pytorch_model.bin',
-    'dccuchile/bert-base-spanish-wwm-uncased': 'https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased/resolve/main/pytorch_model.bin',
+    'dccuchile/bert-base-spanish-wwm-cased': 'https://huggingface.co/dccuchile/bert-base-spanish-wwm-cased/resolve/main/pytorch_model.bin',
     'google-bert/bert-base-multilingual-uncased': 'https://huggingface.co/google-bert/bert-base-multilingual-uncased/resolve/main/pytorch_model.bin',
-    'google-bert/bert-base-multilingual-cased': 'https://huggingface.co/google-bert/bert-base-multilingual-cased/resolve/main/pytorch_model.bin'
+    'google-bert/bert-base-multilingual-cased': 'https://huggingface.co/google-bert/bert-base-multilingual-cased/resolve/main/pytorch_model.bin',
+    'dbmdz/bert-base-turkish-cased': 'https://huggingface.co/dbmdz/bert-base-turkish-cased/resolve/main/pytorch_model.bin'
 
 }
 PRETRAINED_CONFIG_ARCHIVE_MAP = {
-    'google-bert/bert-base-uncased': "https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json",
+    'google-bert/bert-base-cased': "https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-cased-config.json",
     'deepset/gbert-base': "https://huggingface.co/deepset/gbert-base/resolve/main/config.json",
     'GroNLP/bert-base-dutch-cased': "https://huggingface.co/GroNLP/bert-base-dutch-cased/resolve/main/config.json",
     'DeepPavlov/rubert-base-cased': 'https://huggingface.co/DeepPavlov/rubert-base-cased/resolve/main/config.json',
     'UWB-AIR/Czert-B-base-cased': 'https://huggingface.co/UWB-AIR/Czert-B-base-cased/resolve/main/config.json',
     'dbmdz/bert-base-french-europeana-cased': 'https://huggingface.co/dbmdz/bert-base-french-europeana-cased/resolve/main/config.json',
-    'dccuchile/bert-base-spanish-wwm-uncased': 'https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased/resolve/main/config.json',
+    'dccuchile/bert-base-spanish-wwm-cased': 'https://huggingface.co/dccuchile/bert-base-spanish-wwm-cased/resolve/main/config.json',
     'google-bert/bert-base-multilingual-cased': 'https://huggingface.co/google-bert/bert-base-multilingual-cased/resolve/main/config.json',
     'google-bert/bert-base-multilingual-uncased': 'https://huggingface.co/google-bert/bert-base-multilingual-uncased/resolve/main/config.json',
+    'dbmdz/bert-base-turkish-cased': 'https://huggingface.co/dbmdz/bert-base-turkish-cased/resolve/main/config.json'
 }
 BERT_CONFIG_NAME = 'bert_config.json'
 TF_WEIGHTS_NAME = 'model.ckpt'
