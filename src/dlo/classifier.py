@@ -17,13 +17,13 @@ utils = os.path.abspath('../src/utils/') # Relative path to utils scripts
 sys.path.append(utils)
 
 from evaluation import createResults, convertLabels
-from preprocessing import loadDataset, CATEGORY_MAPPINGS, POLARITY_MAPPINGS_POL_TO_TERM, POLARITY_MAPPINGS_TERM_TO_POL, TEXT_TEMPLATES, TEXT_PATTERNS, IT_TOKENS
+from preprocessing import loadDataset, CATEGORY_MAPPINGS, POLARITY_MAPPINGS_POL_TO_TERM, POLARITY_MAPPINGS_TERM_TO_POL, TEXT_TEMPLATES, TEXT_PATTERNS, IT_TOKENS, LABEL_SPACE
 import numpy as np
 import torch
 import pandas as pd
 
 from transformers.models.t5.modeling_t5 import *
-from transformers import AdamW, T5Tokenizer
+from transformers import AdamW, T5Tokenizer, AutoTokenizer
 from t5_score import MyT5ForConditionalGenerationScore
 from t5 import MyT5ForConditionalGeneration
 
@@ -33,9 +33,6 @@ from transformers import get_linear_schedule_with_warmup
 import pytorch_lightning as pl
 
 from tqdm import tqdm
-
-LABEL_SPACE = ['ambience general:POSITIVE', 'ambience general:NEUTRAL', 'ambience general:NEGATIVE', 'drinks prices:POSITIVE', 'drinks prices:NEUTRAL', 'drinks prices:NEGATIVE', 'drinks quality:POSITIVE', 'drinks quality:NEUTRAL', 'drinks quality:NEGATIVE', 'drinks style_options:POSITIVE', 'drinks style_options:NEUTRAL', 'drinks style_options:NEGATIVE', 'food prices:POSITIVE', 'food prices:NEUTRAL', 'food prices:NEGATIVE', 'food quality:POSITIVE', 'food quality:NEUTRAL', 'food quality:NEGATIVE', 'food style_options:POSITIVE', 'food style_options:NEUTRAL', 'food style_options:NEGATIVE', 'location general:POSITIVE', 'location general:NEUTRAL', 'location general:NEGATIVE', 'restaurant general:POSITIVE', 'restaurant general:NEUTRAL', 'restaurant general:NEGATIVE', 'restaurant miscellaneous:POSITIVE', 'restaurant miscellaneous:NEUTRAL', 'restaurant miscellaneous:NEGATIVE', 'restaurant prices:POSITIVE', 'restaurant prices:NEUTRAL', 'restaurant prices:NEGATIVE', 'service general:POSITIVE', 'service general:NEUTRAL', 'service general:NEGATIVE']
-
 
 def set_seed(seed: int = 42) -> None:
     np.random.seed(seed)
@@ -117,7 +114,7 @@ class ABSADataset(Dataset):
             # for ACOS Restaurant and Laptop dataset
             # the max target length is much longer than 200
             # we need to set a larger max length for inference
-            target_max_length = 1024 if self.data_type == "test" else self.max_len
+            target_max_length = 1024 if (self.data_type == "test" or 'eval' in self.data_type) else self.max_len
 
             tokenized_target = self.tokenizer.batch_encode_plus(
                 [target],
@@ -158,7 +155,6 @@ def get_transformed_io(dataset, data_type, top_k, args):
     sents, labels = read_line_examples_from_df(
         dataset, args.lowercase)
 
-    # the input is just the raw sentence
     inputs = [s.copy() for s in sents]
     if data_type == "train":
         new_inputs, targets = get_para_tasd_targets(inputs, labels, top_k, args, args.lang)
@@ -167,17 +163,32 @@ def get_transformed_io(dataset, data_type, top_k, args):
         return inputs, targets
     print(len(inputs), len(new_inputs), len(targets))
     return new_inputs, targets
-         
-def choose_best_order_global_tasd(sents, labels, model, tokenizer, device, top_k, lang):
-    q = ["[AT]", "[AC]", "[SP]"]  # Reihenfolge ohne OT
-    all_orders = permutations(q)
-    all_orders_list = []
-    scores = []
 
-    for each_order in all_orders:
-        cur_order = " ".join(each_order)
-        all_orders_list.append(cur_order)
-        scores.append(0)
+def load_cached_orders(cache_path):
+    if os.path.exists(cache_path):
+        with open(cache_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def save_cached_orders(cache_path, cached_orders):
+    with open(cache_path, "w", encoding="utf-8") as f:
+        json.dump(cached_orders, f, indent=4)
+
+def choose_best_order_global_tasd(sents, labels, model, tokenizer, device, top_k, lang):
+    cache_path = './orders.json'
+    cached_orders = load_cached_orders(cache_path)
+
+    config_key = f"{model.name_or_path}_{lang}_{len(sents)}"
+
+    if config_key in cached_orders:
+        print(f"Using cached orders for configuration: {config_key}")
+        return cached_orders[config_key]
+
+    print(f"Computing new orders for configuration: {config_key}")
+    q = ["[AT]", "[AC]", "[SP]"]
+    all_orders = permutations(q)
+    all_orders_list = [" ".join(each) for each in all_orders]
+    scores = [0] * len(all_orders_list)
 
     for i in range(len(sents)):
         label = labels[i]
@@ -185,11 +196,10 @@ def choose_best_order_global_tasd(sents, labels, model, tokenizer, device, top_k
 
         quad_list = []
         for quad in label:
-            at, ac, sp = quad  # Kein OT mehr
-
-            man_ot = POLARITY_MAPPINGS_POL_TO_TERM[lang][sp]  # 'positive' -> 'good'
-            
-            if at == 'NULL':  # für implizite Aspekte
+            at, ac, sp = quad
+            man_ot = POLARITY_MAPPINGS_POL_TO_TERM[lang][sp]
+    
+            if at == 'NULL':
                 at = IT_TOKENS[lang]
 
             quad = [f"[AT] {at}",
@@ -215,10 +225,11 @@ def choose_best_order_global_tasd(sents, labels, model, tokenizer, device, top_k
             index = all_orders_list.index(e)
             scores[index] += order_scores[e]['entropy']
 
-    indexes = np.argsort(np.array(scores))[0:top_k]  # Entropie minimieren
-    returned_orders = []
-    for i in indexes:
-        returned_orders.append(all_orders_list[i])
+    indexes = np.argsort(np.array(scores))[:top_k]
+    returned_orders = [all_orders_list[i] for i in indexes]
+
+    cached_orders[config_key] = returned_orders
+    save_cached_orders(cache_path, cached_orders)
     return returned_orders
 
 
@@ -230,7 +241,10 @@ def get_para_tasd_targets(sents, labels, top_k, args, lang):
         device = torch.device('cuda:0')
     else:
         device = torch.device("cpu")
-    tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
+    if lang == 'nl':
+        tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
+    else:
+        tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
     model = MyT5ForConditionalGenerationScore.from_pretrained(args.model_name_or_path).to(device)
 
     targets = []
@@ -251,9 +265,9 @@ def get_para_tasd_targets(sents, labels, top_k, args, lang):
 
         quad_list = []
         for quad in label:
-            at, ac, sp = quad  # Kein OT mehr
+            at, ac, sp = quad
 
-            if at == 'NULL':  # für implizite Aspekte
+            if at == 'NULL':
                 at = IT_TOKENS[lang]
 
             man_ot = POLARITY_MAPPINGS_POL_TO_TERM[lang][sp]
@@ -297,10 +311,9 @@ def get_para_tasd_targets_test(sents, labels, lang):
 
             man_ot = POLARITY_MAPPINGS_POL_TO_TERM[lang][sp]
             
-            if at == 'NULL':  # Für implizite Aspekte
+            if at == 'NULL':
                 at = IT_TOKENS[lang]
 
-            # Triplet ohne OT (Opinion Term)
             triplet_list = [f"[AT] {at}", f"[AC] {ac}", f"[SP] {man_ot}"]
             one_triplet_sentence = " ".join(triplet_list)
             all_triplet_sentences.append(one_triplet_sentence)
@@ -325,23 +338,22 @@ def order_scores_function(quad_list, cur_sent, model, tokenizer, device, task):
     Returns:
         results: Ein Dictionary mit Scores für jede Reihenfolge.
     """
-    # Definiere mögliche Reihenfolgen basierend auf dem Task
 
-    q = ["[AT]", "[AC]", "[SP]"]  # Keine OT-Komponente in TASD
+    q = ["[AT]", "[AC]", "[SP]"]
 
     all_orders = permutations(q)
     all_orders_list = []
 
     all_targets = []
     all_inputs = []
-    cur_sent = " ".join(cur_sent)  # Satz als String zusammenfügen
+    cur_sent = " ".join(cur_sent)
 
     for each_order in all_orders:
         cur_order = " ".join(each_order)
         all_orders_list.append(cur_order)
         cur_target = []
         for each_q in quad_list:
-            cur_target.append(each_q[cur_order][0])  # Extrahiere die entsprechende Zielsequenz
+            cur_target.append(each_q[cur_order][0])
 
         all_inputs.append(cur_sent)
         all_targets.append(" ".join(cur_target))
@@ -358,10 +370,8 @@ def order_scores_function(quad_list, cur_sent, model, tokenizer, device, task):
 
     target_ids = tokenized_target["input_ids"].to(device)
 
-    # Maskiere Padding-Tokens
     target_ids[target_ids[:, :] == tokenizer.pad_token_id] = -100
 
-    # Modell-Ausgabe
     outputs = model(
         input_ids=tokenized_input["input_ids"].to(device),
         attention_mask=tokenized_input["attention_mask"].to(device),
@@ -372,7 +382,6 @@ def order_scores_function(quad_list, cur_sent, model, tokenizer, device, task):
     loss, entropy = outputs[0]
     results = {}
 
-    # Ergebnisse speichern
     for i, _ in enumerate(all_orders_list):
         cur_order = all_orders_list[i]
         results[cur_order] = {"loss": loss[i], "entropy": entropy[i]}
@@ -446,7 +455,6 @@ def formatText(text):
     text = re.sub(r'([(".,!?;:/)])', r" \1", text)
     text = re.sub(r'(["„“…])', r'', text)
     text = re.sub(r'([\'])', r' \1', text)
-    # text = re.sub(r'([-])', r' \1 ', text)
     text = re.sub(r'([\s\s])', r' ', text)
     text = re.sub(r"\b(I|You|We|They|He|She|It|Don|Didn|Doesn|Can|Couldn|Wouldn|Shouldn|Won|Would|Wasn|Aren|Ain|Isn|Hasn|Haven|Weren|Mightn|Mustn)('|’)(m|t|ll|ve|re|s|d)\b", r"\1 \2\3", text)
     return re.sub(r"\s+", " ", text).strip()
@@ -461,8 +469,8 @@ def splitForEvalSetting(dataset, eval_type):
             train, test = train.iloc[train_idx], train.iloc[val_idx]
             print(f"Creating CV splits; using split {split} with random_state 42")
 
-        if bool(set(train_idx) & set(val_idx)):
-            return None
+            if bool(set(train_idx) & set(val_idx)):
+                return None
             
         print(f"Train set size: {len(train)}, Test set size: {len(test)}")
         return train, test, label_space
@@ -650,7 +658,7 @@ def extract_spans_para(task, seq, seq_type, lang):
     return quads
 
 
-def compute_scores(pred_seqs, gold_seqs, task, lang):
+def compute_scores(pred_seqs, gold_seqs, task, lang, label_space):
     """
     Compute model performance by extracting predicted and gold spans,
     formatting them, and calculating evaluation metrics.
@@ -686,7 +694,7 @@ def compute_scores(pred_seqs, gold_seqs, task, lang):
     print(preds[:5])
     print(golds[:5])
 
-    scores_dfs = createResults(preds, golds, LABEL_SPACE, task)
+    scores_dfs = createResults(preds, golds, label_space, task)
     
     scores = compute_f1_scores(all_preds, all_labels)
     print('DLO F1-Micro: ', scores['f1'])
@@ -718,7 +726,7 @@ def evaluate(data_loader, model, tokenizer, args):
         outputs.extend(dec)
         targets.extend(target)
 
-    scores, all_labels, all_preds = compute_scores(outputs, targets, args.task, args.lang)
+    scores, all_labels, all_preds = compute_scores(outputs, targets, args.task, args.lang, args.label_space)
 
     return scores, all_labels, all_preds
 
@@ -726,11 +734,41 @@ def evaluate(data_loader, model, tokenizer, args):
 def train_function_dlo(args):
     set_seed(args.seed)
 
-    tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
-    train, test, _ = splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
+    if args.lang == 'nl':
+        tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
+        args.lowercase = True # Necessary due to aspect terms being lowercased by default
+    else:
+        tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
 
-    args.lang = 'en' if args.lang_setting != 'adapted' else args.lang
-    
+    if args.data_setting == 'balanced':
+        train, test_balanced, args.label_space = splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
+        _, test_orig, _ = loadDataset(args.data_path, args.lang, 'orig')
+
+        if 'eval' in args.eval_type:
+            test = ABSADataset(tokenizer=tokenizer,
+                          dataset=test_balanced,
+                          lang=args.lang,
+                          data_type=args.eval_type,
+                          top_k=args.top_k,
+                          args=args,
+                          max_len=args.max_seq_length)
+            
+    elif args.data_setting == 'orig':
+        train, test_orig, args.label_space = splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
+        if args.lang != 'tr':
+            _, test_balanced, _ = loadDataset(args.data_path, args.lang, 'balanced')
+        
+        if 'eval' in args.eval_type:
+            test = ABSADataset(tokenizer=tokenizer,
+                          dataset=test_orig,
+                          lang=args.lang,
+                          data_type=args.eval_type,
+                          top_k=args.top_k,
+                          args=args,
+                          max_len=args.max_seq_length)
+
+
+
     train_dataset = ABSADataset(tokenizer=tokenizer,
                               dataset=train,
                               lang=args.lang,
@@ -738,79 +776,101 @@ def train_function_dlo(args):
                               top_k=args.top_k,
                               args=args,
                               max_len=args.max_seq_length)
-    
-    test_dataset = ABSADataset(tokenizer=tokenizer,
-                              dataset=test,
-                              lang=args.lang,
-                              data_type=args.eval_type,
-                              top_k=args.top_k,
-                              args=args,
-                              max_len=args.max_seq_length)
-    
-    test_loader = DataLoader(test_dataset, batch_size=args.eval_batch_size, num_workers=4)
-    
-    
-    # training process
-    if args.do_train:
 
-        # initialize the T5 model
-        tfm_model = MyT5ForConditionalGeneration.from_pretrained(args.model_name_or_path)
-        model = T5FineTuner(args, tfm_model, tokenizer, train_dataset)
+    if 'eval' not in args.eval_type:
+        if args.lang != 'tr':
+            test_dataset_balanced = ABSADataset(tokenizer=tokenizer,
+                                  dataset=test_balanced,
+                                  lang=args.lang,
+                                  data_type=args.eval_type,
+                                  top_k=args.top_k,
+                                  args=args,
+                                  max_len=args.max_seq_length)
+    
+        test_dataset_orig = ABSADataset(tokenizer=tokenizer,
+                                  dataset=test_orig,
+                                  lang=args.lang,
+                                  data_type=args.eval_type,
+                                  top_k=args.top_k,
+                                  args=args,
+                                  max_len=args.max_seq_length)
 
-        # prepare for trainer
-        if torch.cuda.is_available():
-            gpus = 1
-        else:
-            gpus = None
-        train_params = dict(
-            default_root_dir=args.output_dir,
-            accumulate_grad_batches=args.gradient_accumulation_steps,
-            gpus=gpus,  # args.n_gpu,
-            gradient_clip_val=1.0,
-            max_epochs=args.num_train_epochs,
-            logger=False,
-            checkpoint_callback=True,
-            callbacks=[],
-        )
+    
+    
+    
+    
+    # initialize the T5 model
+    tfm_model = MyT5ForConditionalGeneration.from_pretrained(args.model_name_or_path)
+    model = T5FineTuner(args, tfm_model, tokenizer, train_dataset)
 
-        start_time = time.time()
-        trainer = pl.Trainer(**train_params)
+    # prepare for trainer
+    if torch.cuda.is_available():
+        gpus = 1
+    else:
+        gpus = None
+    train_params = dict(
+        default_root_dir=args.output_dir,
+        accumulate_grad_batches=args.gradient_accumulation_steps,
+        gpus=gpus,  # args.n_gpu,
+        gradient_clip_val=1.0,
+        max_epochs=args.num_train_epochs,
+        logger=False,
+        checkpoint_callback=True,
+        callbacks=[],
+    )
+
+    start_time = time.time()
+    trainer = pl.Trainer(**train_params)
+    
+    try:
+        trainer.fit(model)
+    except KeyboardInterrupt:
+        print("Training has been stopped manually.")
+
+    end_time = time.time()
+    training_duration = end_time - start_time
+    
+    trainer_args = {}
+    trainer_args.update({
+        "model_name": args.model_name_or_path,
+        "task": args.task,
+        "data_setting": args.data_setting,
+        "lang": args.lang,
+        "lang_setting": args.lang_setting,
+        "per_device_train_batch_size": args.train_batch_size,
+        "gradient_accumulation_steps": args.gradient_accumulation_steps,
+        "learning_rate": args.learning_rate,
+        "top_k": args.top_k,
+        "num_train_epochs": args.num_train_epochs,
+        "eval_type": args.eval_type,
+        "train_runtime": training_duration
+    })
+
+    if 'eval' in args.eval_type:
+        test_loader = DataLoader(test, batch_size=args.eval_batch_size, num_workers=4)
+        scores, golds, preds = evaluate(test_loader, model, tokenizer, args)
+        if args.data_setting == 'balanced':
+            return (scores, golds, preds), (None, None, None), trainer_args
+        else: # Orig test set
+            return (None, None, None), (scores, golds, preds), trainer_args
+    else:
+        if args.lang != 'tr':
+            test_loader_balanced = DataLoader(test_dataset_balanced, batch_size=args.eval_batch_size, num_workers=4)
+        test_loader_orig = DataLoader(test_dataset_orig, batch_size=args.eval_batch_size, num_workers=4)
+        scores_orig, golds_orig, preds_orig = evaluate(test_loader_orig, model, tokenizer, args)
+
+        if args.lang != 'tr':
+            scores_balanced, golds_balanced, preds_balanced = evaluate(test_loader_balanced, model, tokenizer, args)
         
-        try:
-            trainer.fit(model)
-        except KeyboardInterrupt:
-            print("Training has been stopped manually.")
-
-        end_time = time.time()
-        training_duration = end_time - start_time
-        
-        trainer_args = {}
-        trainer_args.update({
-            "model_name": args.model_name_or_path,
-            "task": args.task,
-            "data_setting": args.data_setting,
-            "lang": args.lang,
-            "lang_setting": args.lang_setting,
-            "per_device_train_batch_size": args.train_batch_size,
-            "gradient_accumulation_steps": args.gradient_accumulation_steps,
-            "learning_rate": args.learning_rate,
-            "top_k": args.top_k,
-            "num_train_epochs": args.num_train_epochs,
-            "eval_type": args.eval_type,
-            "train_runtime": training_duration
-        })
-        
-        results = evaluate(test_loader, model, tokenizer, args)
-        if 'multi' in args.data_setting:
-            scores_balanced, golds_balanced, preds_balanced = evaluate(test_loader, model, tokenizer, args)
-            scores_orig, golds_orig, preds_orig = evaluate(test_loader, model, tokenizer, args)
             return (scores_balanced, golds_balanced, preds_balanced), (scores_orig, golds_orig, preds_orig), trainer_args
         else:
-            scores, golds, preds = evaluate(test_loader, model, tokenizer, args)
-            return scores, golds, preds, trainer_args
-        return None
+            return (None, None, None), (scores_orig, golds_orig, preds_orig), trainer_args
+
+    return None
+
 
 def init_args():
+    
     parser = argparse.ArgumentParser()
     # basic settings
     parser.add_argument("--data_path", default="../data/", type=str)
@@ -820,10 +880,6 @@ def init_args():
                         help="The name of the dataset, selected from: [rest15, rest16]")
     parser.add_argument("--model_name_or_path", default='t5-base', type=str,
                         help="Path to pre-trained model or shortcut name")
-    parser.add_argument("--do_train", default=False, action='store_true',
-                        help="Whether to run training.")
-    parser.add_argument("--do_inference", default=True,
-                        help="Whether to run inference with trained checkpoints")
     parser.add_argument("--output_dir",
                         default='outputs/temp',
                         type=str,
@@ -881,75 +937,36 @@ def init_args():
 
     return args
 
+def savePredictions(f1, golds, preds, args, config, eval_type):
+    output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting.replace("_","-")}-{"b" if eval_type == "balanced" else "o"}_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
+    
+    os.makedirs(output_path, exist_ok=True)
+
+    for idx, name in enumerate(["asp", "asp_pol", "pairs", "pol", "phrases"]):
+        pd.DataFrame.from_dict(f1[idx]).transpose().to_csv(os.path.join(output_path, f"metrics_{name}.tsv"), sep="\t")
+    
+    try:
+        matched_samples = [
+            {"predictions": pred, "gold_labels": gold}
+            for pred, gold in zip(preds, golds)
+        ]
+        print(matched_samples[:5])
+        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
+            json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
+
+    except:
+        pass
+
+    with open(os.path.join(output_path, 'config.json'), "w", encoding="utf-8") as f:
+        json.dump(config, f, indent=4, ensure_ascii=False)
+
 if __name__ == '__main__':
     args = init_args()
     set_seed(args.seed)
-    
-    if 'multi' in args.data_setting:
-        (f1_balanced, golds_balanced, preds_balanced), (f1_orig, golds_orig, preds_orig), trainer_args = train_function_dlo(args)
         
-        output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting.replace("_","-")}-b_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
-        os.makedirs(output_path, exist_ok=True)
-        
-        pd.DataFrame.from_dict(f1_balanced[0]).transpose().to_csv(output_path + '/metrics_asp.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_balanced[1]).transpose().to_csv(output_path + '/metrics_asp_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_balanced[2]).transpose().to_csv(output_path + '/metrics_pairs.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_balanced[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_balanced[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
-        
-        try:
-            matched_samples = [
-                {"predictions": pred, "gold_labels": gold}
-                for pred, gold in zip(preds_balanced, golds_balanced)
-            ]
-            with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-                json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
-        
-        except:
-            pass
-            
-        output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting.replace("_","-")}-o_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
-        os.makedirs(output_path, exist_ok=True)
-    
-        pd.DataFrame.from_dict(f1_orig[0]).transpose().to_csv(output_path + '/metrics_asp.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_orig[1]).transpose().to_csv(output_path + '/metrics_asp_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_orig[2]).transpose().to_csv(output_path + '/metrics_pairs.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_orig[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_orig[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
+    (f1_balanced, golds_balanced, preds_balanced), (f1_orig, golds_orig, preds_orig), trainer_args = train_function_dlo(args)
 
-        try:
-            matched_samples = [
-                {"predictions": pred, "gold_labels": gold}
-                for pred, gold in zip(preds_orig, golds_orig)
-            ]
-            with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-                json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
-
-        except:
-            pass
-        
-    else:
-        f1_res, golds, preds, trainer_args = train_function_dlo(args)
-    
-        output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting}_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
-        os.makedirs(output_path, exist_ok=True)
-    
-        pd.DataFrame.from_dict(f1_res[0]).transpose().to_csv(output_path + '/metrics_asp.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_res[1]).transpose().to_csv(output_path + '/metrics_asp_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_res[2]).transpose().to_csv(output_path + '/metrics_pairs.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_res[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_res[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
-
-        try:
-            matched_samples = [
-                {"predictions": pred, "gold_labels": gold}
-                for pred, gold in zip(preds, golds)
-            ]
-            with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-                json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
-
-        except:
-            pass
-
-    with open(os.path.join(output_path, 'config.json'), "w", encoding="utf-8") as f:
-        json.dump(trainer_args, f, indent=4, ensure_ascii=False)
+    if f1_balanced is not None:
+        savePredictions(f1_balanced, golds_balanced, preds_balanced, args, trainer_args, 'balanced')
+    if f1_orig is not None:
+        savePredictions(f1_orig, golds_orig, preds_orig, args, trainer_args, 'orig')

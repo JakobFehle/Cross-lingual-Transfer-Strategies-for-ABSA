@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:POSITIVE	0.8017	0.8455	0.823	0.6992	133.0
+ambience general:NEUTRAL	0.2222	0.3333	0.2667	0.1538	13.0
+ambience general:NEGATIVE	0.641	0.6757	0.6579	0.4902	51.0
+drinks prices:POSITIVE	0.4	0.6667	0.5	0.3333	6.0
+drinks prices:NEUTRAL	0.0	0.0	0.0	0.0	2.0
+drinks prices:NEGATIVE	0.75	0.3	0.4286	0.2727	11.0
+drinks quality:POSITIVE	0.8305	0.7538	0.7903	0.6533	75.0
+drinks quality:NEUTRAL	0.25	0.1	0.1429	0.0769	13.0
+drinks quality:NEGATIVE	0.4091	0.6429	0.5	0.3333	27.0
+drinks style_options:POSITIVE	0.6667	0.75	0.7059	0.5455	22.0
+drinks style_options:NEUTRAL	0.0	0.0	0.0	0.0	2.0
+drinks style_options:NEGATIVE	0.0	0.0	0.0	0.0	4.0
+food prices:POSITIVE	0.4615	0.5455	0.5	0.3333	18.0
+food prices:NEUTRAL	0.2	0.0909	0.125	0.0667	15.0
+food prices:NEGATIVE	0.4444	0.3636	0.4	0.25	32.0
+food quality:POSITIVE	0.8459	0.8537	0.8498	0.7388	379.0
+food quality:NEUTRAL	0.3659	0.3947	0.3797	0.2344	64.0
+food quality:NEGATIVE	0.5461	0.7264	0.6235	0.4529	170.0
+food style_options:POSITIVE	0.5366	0.5789	0.557	0.386	57.0
+food style_options:NEUTRAL	0.1111	0.0909	0.1	0.0526	19.0
+food style_options:NEGATIVE	0.5217	0.5106	0.5161	0.3478	69.0
+location general:POSITIVE	0.9	0.5625	0.6923	0.5294	17.0
+location general:NEUTRAL	0	0	0	0	0
+location general:NEGATIVE	0.0	0.0	0.0	0.0	4.0
+restaurant general:POSITIVE	0.6547	0.8111	0.7246	0.5681	257.0
+restaurant general:NEUTRAL	0.1111	0.0588	0.0769	0.04	25.0
+restaurant general:NEGATIVE	0.6966	0.6139	0.6526	0.4844	128.0
+restaurant miscellaneous:POSITIVE	0.0	0.0	0.0	0.0	15.0
+restaurant miscellaneous:NEUTRAL	0.3	0.25	0.2727	0.1579	19.0
+restaurant miscellaneous:NEGATIVE	0.25	0.2917	0.2692	0.1556	45.0
+restaurant prices:POSITIVE	0.7083	0.68	0.6939	0.5312	32.0
+restaurant prices:NEUTRAL	0.2	0.2222	0.2105	0.1176	17.0
+restaurant prices:NEGATIVE	0.4444	0.5714	0.5	0.3333	24.0
+service general:POSITIVE	0.8914	0.9017	0.8966	0.8125	192.0
+service general:NEUTRAL	0.4167	0.2	0.2703	0.1562	32.0
+service general:NEGATIVE	0.7478	0.735	0.7414	0.589	146.0
+Micro-AVG	0.6828	0.7035	0.693	0.5302	2135.0
+Macro-AVG	0.4257	0.42	0.413		2135
