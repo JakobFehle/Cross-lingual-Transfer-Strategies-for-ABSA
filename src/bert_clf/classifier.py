@@ -3,6 +3,7 @@ import numpy as np
 import torch
 import os, sys
 import json
+import time
 
 utils = os.path.abspath('../src/utils/') # Relative path to utils scripts
 sys.path.append(utils)
@@ -12,15 +13,14 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trai
 from scipy.special import expit
 from torch.utils.data import Dataset as TorchDataset
 from transformers import DataCollatorWithPadding
-from preprocessing import loadDataset
+from preprocessing import loadDataset, splitForEvalSetting
 from evaluation import createResults, convertLabels
 from sklearn.preprocessing import MultiLabelBinarizer
-from sklearn.model_selection import train_test_split, StratifiedKFold, KFold
+from sklearn.model_selection import KFold
 
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning, module="transformers.optimization")
 
-OUTPUT_KEYS = ['per_device_train_batch_size', 'gradient_accumulation_steps', 'learning_rate', 'weight_decay', 'adam_beta1', 'adam_beta2', 'adam_epsilon', 'max_grad_norm', 'num_train_epochs', 'lr_scheduler_type', 'warmup_steps', 'seed', 'bf16', 'fp16', 'group_by_length', '_n_gpu']
 
 def set_seed(seed: int = 42) -> None:
     np.random.seed(seed)
@@ -56,30 +56,11 @@ class MultiLabelABSA:
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name_or_path)
         self.gpu_count = torch.cuda.device_count()
         
-        train, evaluation, self.label_space = self.splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
-        self.train, self.evaluation = self.preprocessData(train, True), self.preprocessData(evaluation)
-        
         self.model = self.createModel(len(self.train[0]['label']))
         
         self.data_collator = DataCollatorWithPadding(tokenizer=self.tokenizer)
         
         print("Device count: ", torch.cuda.device_count())
-
-    def splitForEvalSetting(self, dataset, eval_type):
-        """Handles dataset splitting and cross-validation settings."""
-        train, test, label_space = dataset
-        split = eval_type.split('_')[1] if '_' in eval_type else False
-        
-        if split:
-            kf = KFold(n_splits=5, shuffle=True, random_state=42)
-            splits = list(kf.split(train, None))
-            print(len(splits))
-            train_idx, val_idx = splits[int(split) if int(split) != 5 else 0]
-            train, test = train.iloc[train_idx], train.iloc[val_idx]
-            print(f"Creating CV splits; using split {split} with random_state 42")
-
-        print(f"Train set size: {len(train)}, Test set size: {len(test)}")
-        return train, test, label_space
     
     def preprocessData(self, data, train = False):
         """Tokenizes text and processes labels."""
@@ -119,17 +100,15 @@ class MultiLabelABSA:
             
         pred_labels = [[p.split(':') if ':' in p else p for p in pred] for pred in predictions_decoded]
         gold_labels = [[g.split(':') if ':' in g else g for g in gt] for gt in ground_truth_decoded]
-
-        self.predictions = pred_labels
         
         pred_labels, _ = convertLabels(pred_labels, self.task, self.label_space)
         gold_labels, _ = convertLabels(gold_labels, self.task, self.label_space)
         
-        self.results = createResults(pred_labels, gold_labels, self.label_space, self.task)
+        results = createResults(pred_labels, gold_labels, self.label_space, self.task)
 
-        return self.results[0] if self.task == 'acd' else self.results[1]
+        return results, pred_labels, gold_labels
 
-    def trainModel(self):
+    def trainModel(self, train_dataset):
         """Trains the model with given hyperparameters."""
 
         adjusted_batch = int(self.args.per_device_train_batch_size/self.gpu_count)
@@ -152,8 +131,7 @@ class MultiLabelABSA:
         trainer = Trainer(
             model=self.model,
             args=training_args,
-            train_dataset=self.train,
-            eval_dataset=self.evaluation,
+            train_dataset=train_dataset,
             data_collator=self.data_collator,
             tokenizer=self.tokenizer,
             compute_metrics=self.computeMetrics,
@@ -161,47 +139,108 @@ class MultiLabelABSA:
         
         print("Using the following hyperparameters: lr=" + str(self.args.learning_rate) + " - epochs=" + str(self.args.num_train_epochs) + " - batch=" + str(self.args.per_device_train_batch_size))
         
+        start_time = time.time()
+
         trainer.train()
 
-        return trainer
+        end_time = time.time()
+        training_duration = end_time - start_time
+
+        trainer_args = {}
+        trainer_args.update({
+            "model_name": self.model_name_or_path,
+            "task": self.task,
+            "data_setting": self.args.data_setting,
+            "lang": self.args.lang,
+            "lang_setting": self.args.lang_setting,
+            "per_device_train_batch_size": self.args.per_device_train_batch_size,
+            "learning_rate": self.args.learning_rate,
+            "num_train_epochs": self.args.num_train_epochs,
+            "eval_type": self.args.eval_type,
+            "train_runtime": training_duration
+        })
+
+        return trainer, trainer_args
 
 
-    def savePredictions(self, trainer, results_path, test = True):
+    def savePredictions(self, result, preds, golds, args, config, eval_type):
         """Evaluates the model and saves results."""
-        # Save results as tsv
-        os.makedirs(results_path, exist_ok=True)
-        results = trainer.evaluate()
+
+        output_path = f"{args.output_dir}{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}-{eval_type[0]}_{args.data_setting}_{round(args.learning_rate,9)}_{args.per_device_train_batch_size}_{args.num_train_epochs}_{args.seed}/" 
+        os.makedirs(output_path, exist_ok=True)
         
         if self.task == 'acd':
-            pd.DataFrame.from_dict(self.results[0]).transpose().to_csv(f"{results_path}metrics_asp.tsv", sep="\t")
+            pd.DataFrame.from_dict(result[0]).transpose().to_csv(f"{output_path}metrics_asp.tsv", sep="\t")
                 
         else:
             for idx, name in enumerate(["asp", "asp_pol", "pairs", "pol"]):
-                pd.DataFrame.from_dict(self.results[idx]).transpose().to_csv(f"{results_path}metrics_{name}.tsv", sep="\t")
+                pd.DataFrame.from_dict(result[idx]).transpose().to_csv(f"{output_path}metrics_{name}.tsv", sep="\t")
 
-        with open(os.path.join(results_path, 'config.json'), "w", encoding="utf-8") as f:
-            trainer_args = {key: vars(trainer.args)[key] for key in OUTPUT_KEYS}
+        try:
+            matched_samples = [
+                {"predictions": pred, "gold_labels": gold}
+                for pred, gold in zip(preds, golds)
+            ]
+            print(matched_samples[:5])
+            with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
+                json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
 
-            trainer_args.update({
-                "model_name": self.model_name_or_path,
-                "task": self.task,
-                "data_setting": self.args.data_setting,
-                "lang": self.args.lang,
-                "lang_setting": self.args.lang_setting,
-                "eval_type": self.args.eval_type
-            })
-            json.dump(trainer_args, f, indent=4, ensure_ascii=False)
-        
-        with open(os.path.join(results_path, 'predictions.json'), "w", encoding="utf-8") as f:
-            json.dump({'predictions': self.predictions}, f, indent=4, ensure_ascii=False)
+        except:
+            pass
+
+        with open(os.path.join(output_path, 'config.json'), "w", encoding="utf-8") as f:
+            json.dump(config, f, indent=4, ensure_ascii=False)
                 
     def train_eval(self):
 
-        trainer = self.trainModel()
+        args = self.args
 
-        results_path = f"{self.args.output_dir}{self.task}_{self.args.lang}_{self.args.lang_setting}_{self.args.eval_type.replace('_', '-')}_{self.args.data_setting}_{round(self.args.learning_rate,9)}_{self.args.per_device_train_batch_size}_{self.args.num_train_epochs}_{self.args.seed}/" 
+        train_df, eval_df, self.label_space = self.splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
+        train = self.preprocessData(train_df, True)
+
+        if args.data_setting == 'balanced':
+            
+            eval_balanced = self.preprocessData(eval_df)
+
+            trainer, trainer_args = self.trainModel(train)
+
+            if 'eval' in args.eval_type:
+
+                results_balanced, preds, golds = trainer.evaluate(eval_dataset=eval_balanced)
+                self.savePredictions(results_balanced, preds, golds, args, trainer_args, 'balanced')
+            
+            else:
+
+                results_balanced, preds, golds = trainer.evaluate(eval_dataset=eval_balanced)
+                self.savePredictions(results_balanced, preds, golds, args, trainer_args, 'balanced')
+
+                _, eval_df, _ = self.splitForEvalSetting(loadDataset(args.data_path, args.lang, 'orig'), args.eval_type)
+                eval_orig = self.preprocessData(eval_df)
+                results_orig, preds, golds = trainer.evaluate(eval_dataset=eval_orig)
+                self.savePredictions(results_orig, preds, golds, args, trainer_args, 'orig')
         
-        self.savePredictions(trainer, results_path)
+        else:
+
+            eval_orig = self.preprocessData(eval_df)
+
+            trainer, trainer_args = self.trainModel(train)
+
+            if 'eval' in args.eval_type:
+
+                results_orig, preds, golds = trainer.evaluate(eval_dataset=eval_orig)
+                self.savePredictions(results_orig, preds, golds, args, trainer_args, 'orig')
+
+            else:
+                if args.lang != 'tr':
+                    _, eval_df, _ = self.splitForEvalSetting(loadDataset(args.data_path, args.lang, 'balanced'), args.eval_type)
+                    eval_balanced = self.preprocessData(eval_df)
+
+                    results_balanced, preds, golds = trainer.evaluate(eval_dataset=eval_balanced)
+                    self.savePredictions(results_balanced, preds, golds, args, trainer_args, 'balanced')
+
+                results_orig, preds, golds = trainer.evaluate(eval_dataset=eval_orig)
+                self.savePredictions(results_orig, preds, golds, args, trainer_args, 'orig')
+        
 
 if __name__ == "__main__":
     config = Config()
