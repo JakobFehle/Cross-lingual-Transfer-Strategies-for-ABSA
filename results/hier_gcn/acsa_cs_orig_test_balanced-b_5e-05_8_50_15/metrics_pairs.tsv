@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:positive	0.7067	0.8548	0.7737	0.631	84.0
+ambience general:neutral	0.0	0.0	0.0	0.0	10.0
+ambience general:negative	0.4615	0.3529	0.4	0.25	24.0
+drinks prices:positive	0.0	0.0	0.0	0.0	4.0
+drinks prices:neutral	0.0	0.0	0.0	0.0	1.0
+drinks prices:negative	1.0	0.625	0.7692	0.625	8.0
+drinks quality:positive	0.6316	0.8276	0.7164	0.5581	43.0
+drinks quality:neutral	0.0	0.0	0.0	0.0	12.0
+drinks quality:negative	0.25	0.1111	0.1538	0.0833	12.0
+drinks style_options:positive	0.8	0.8	0.8	0.6667	12.0
+drinks style_options:neutral	0.0	0.0	0.0	0.0	3.0
+drinks style_options:negative	0.0	0.0	0.0	0.0	3.0
+food prices:positive	0.5	0.3	0.375	0.2308	13.0
+food prices:neutral	0.3333	0.1111	0.1667	0.0909	11.0
+food prices:negative	0.5714	0.5333	0.5517	0.381	21.0
+food quality:positive	0.8095	0.9067	0.8553	0.7473	182.0
+food quality:neutral	0.0	0.0	0.0	0.0	17.0
+food quality:negative	0.449	0.4783	0.4632	0.3014	73.0
+food style_options:positive	0.6364	0.6176	0.6269	0.4565	46.0
+food style_options:neutral	0.2	0.1111	0.1429	0.0769	13.0
+food style_options:negative	0.5625	0.4091	0.4737	0.3103	29.0
+location general:positive	0.0	0.0	0.0	0.0	12.0
+location general:neutral	0	0	0	0	0
+location general:negative	0.0	0.0	0.0	0.0	4.0
+restaurant general:positive	0.6186	0.73	0.6697	0.5034	145.0
+restaurant general:neutral	0.2857	0.2	0.2353	0.1333	15.0
+restaurant general:negative	0.5833	0.3559	0.4421	0.2838	74.0
+restaurant miscellaneous:positive	0.0	0.0	0.0	0.0	7.0
+restaurant miscellaneous:neutral	0.0	0.0	0.0	0.0	12.0
+restaurant miscellaneous:negative	0.0	0.0	0.0	0.0	15.0
+restaurant prices:positive	0.625	0.8824	0.7317	0.5769	26.0
+restaurant prices:neutral	0.375	0.3333	0.3529	0.2143	14.0
+restaurant prices:negative	0.3684	0.5833	0.4516	0.2917	24.0
+service general:positive	0.8333	0.8929	0.8621	0.7576	132.0
+service general:neutral	0.0	0.0	0.0	0.0	12.0
+service general:negative	0.7474	0.7889	0.7676	0.6228	114.0
+Micro-AVG	0.6592	0.6399	0.6494	0.4808	1227.0
+Macro-AVG	0.343	0.3279	0.3273		1227

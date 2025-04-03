@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:positive	0.8378	0.775	0.8052	0.6739	46.0
+ambience general:neutral	0.0	0.0	0.0	0.0	4.0
+ambience general:negative	0.25	1.0	0.4	0.25	8.0
+drinks prices:positive	0	0	0	0	0
+drinks prices:neutral	0	0	0	0	0
+drinks prices:negative	0.0	0.0	0.0	0.0	3.0
+drinks quality:positive	0.6667	0.2857	0.4	0.25	16.0
+drinks quality:neutral	0	0	0	0	0
+drinks quality:negative	0.0	0.0	0.0	0.0	3.0
+drinks style_options:positive	1.0	0.4286	0.6	0.4286	7.0
+drinks style_options:neutral	0	0	0	0	0
+drinks style_options:negative	0.0	0.0	0.0	0.0	1.0
+food prices:positive	0.5	0.8333	0.625	0.4545	11.0
+food prices:neutral	0.0	0.0	0.0	0.0	3.0
+food prices:negative	0.4	0.4615	0.4286	0.2727	22.0
+food quality:positive	0.7583	0.875	0.8125	0.6842	133.0
+food quality:neutral	0.0	0.0	0.0	0.0	14.0
+food quality:negative	0.4634	0.6786	0.5507	0.38	50.0
+food style_options:positive	0.5357	0.6	0.566	0.3947	38.0
+food style_options:neutral	1.0	0.375	0.5455	0.375	8.0
+food style_options:negative	0.4	0.2667	0.32	0.1905	21.0
+location general:positive	0.8	0.5	0.6154	0.4444	9.0
+location general:neutral	0.5	0.5	0.5	0.3333	3.0
+location general:negative	0	0	0	0	0
+restaurant general:positive	0.5938	0.5846	0.5891	0.4176	91.0
+restaurant general:neutral	0.0	0.0	0.0	0.0	2.0
+restaurant general:negative	0.5556	0.4412	0.4918	0.3261	46.0
+restaurant miscellaneous:positive	0.75	0.375	0.5	0.3333	9.0
+restaurant miscellaneous:neutral	0.0	0.0	0.0	0.0	4.0
+restaurant miscellaneous:negative	0.0	0.0	0.0	0.0	11.0
+restaurant prices:positive	0.4444	0.6667	0.5333	0.3636	11.0
+restaurant prices:neutral	0.0	0.0	0.0	0.0	2.0
+restaurant prices:negative	0.4286	0.2727	0.3333	0.2	15.0
+service general:positive	0.7164	0.7059	0.7111	0.5517	87.0
+service general:neutral	0.0	0.0	0.0	0.0	9.0
+service general:negative	0.6866	0.7541	0.7188	0.561	82.0
+Micro-AVG	0.6319	0.6074	0.6194	0.4486	769.0
+Macro-AVG	0.3413	0.3161	0.3068		769

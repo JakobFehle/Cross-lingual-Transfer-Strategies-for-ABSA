@@ -28,6 +28,7 @@ import json
 from manager import *
 import matplotlib.pyplot as plt
 import math
+import time
 from sklearn.model_selection import KFold
 
 gm = GPUManager()
@@ -185,7 +186,6 @@ def main():
 
     if args.task == 'acsa':
         args.domain_type = 'restaurant'
-        # args.model_name_or_path = 'bert-base-uncased'
 
     if args.local_rank == -1 or args.no_cuda:
         device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
@@ -216,9 +216,6 @@ def main():
     if n_gpu > 0:
         torch.cuda.manual_seed_all(args.seed)
 
-    if not args.do_train and not args.do_eval:
-        raise ValueError("At least one of `do_train` or `do_eval` must be True.")
-
     # if os.path.exists(args.output_dir) and os.listdir(args.output_dir) and args.do_train and not args.overwrite_output_dir:
     #     raise ValueError("Output directory ({}) already exists and is not empty.".format(args.output_dir))
     if not os.path.exists(args.output_dir) and args.local_rank in [-1, 0]:
@@ -238,7 +235,7 @@ def main():
     if args.local_rank not in [-1, 0]:
         torch.distributed.barrier()  # Make sure only the first process in distributed training will download model & vocab
 
-    tokenizer = BertTokenizer.from_pretrained(args.model_name_or_path, do_lower_case=args.do_lower_case)
+    tokenizer = BertTokenizer.from_pretrained(args.model_name_or_path, do_lower_case=False)
         
     model_dict = {
         'GCN': GCNclassification,
@@ -248,147 +245,199 @@ def main():
     nb_tr_steps = 0
     tr_loss = 0
 
-    if args.do_train:
+    def createDataLoader(category_map, features, sampler_class, per_device_train_batch_size):
+        input_ids = torch.tensor([f.input_ids for f in features], dtype=torch.long)
+        input_mask = torch.tensor([f.input_mask for f in features], dtype=torch.long)
+        segment_ids = torch.tensor([f.segment_ids for f in features], dtype=torch.long)
 
-        # Prepare data loader
-        train_examples, test_examples, label_space = processor.get_examples(args.data_dir, args.data_setting, args.lang, args.eval_type)
-        
-        train_category_map, train_features = convert_examples_to_features(
-            train_examples, label_list, args.max_seq_length, tokenizer, output_mode,task)
-        
-        # plt.matshow(train_category_map)
-        # plt.show()
-        # pdb.set_trace()
-        input_ids = torch.tensor([f.input_ids for f in train_features], dtype=torch.long)
-        input_mask = torch.tensor([f.input_mask for f in train_features], dtype=torch.long)
-        segment_ids = torch.tensor([f.segment_ids for f in train_features], dtype=torch.long)
+        category_label_ids = torch.tensor([f.category_label_id for f in features], dtype=torch.long)
+        sentiment_label_ids = torch.tensor([f.sentiment_label_ids for f in features], dtype=torch.long)
 
-        if output_mode == "classification":
-            category_label_ids = torch.tensor([f.category_label_id for f in train_features], dtype=torch.long)
-            sentiment_label_ids = torch.tensor([f.sentiment_label_ids for f in train_features], dtype=torch.long)
+        data = TensorDataset(input_ids, input_mask, segment_ids, category_label_ids, sentiment_label_ids)
 
-        train_data = TensorDataset(input_ids, input_mask, segment_ids, category_label_ids, sentiment_label_ids)
-        
-        eval_category_map, eval_features = convert_examples_to_features(
-            test_examples, label_list, args.max_seq_length, tokenizer, output_mode,task)
+        sampler = sampler_class(data)
+        return DataLoader(data, sampler=sampler, batch_size=per_device_train_batch_size)
 
-        all_input_ids = torch.tensor([f.input_ids for f in eval_features], dtype=torch.long)
-        all_input_mask = torch.tensor([f.input_mask for f in eval_features], dtype=torch.long)
-        all_segment_ids = torch.tensor([f.segment_ids for f in eval_features], dtype=torch.long)
+    # Prepare data loader
+    train_examples, test_examples, label_space = processor.get_examples(args.data_dir, args.data_setting, args.lang, args.eval_type)
+    
+    train_category_map, train_features = convert_examples_to_features(
+        train_examples, label_list, args.max_seq_length, tokenizer, output_mode,task)
+    
+    eval_category_map, eval_features = convert_examples_to_features(
+        test_examples, label_list, args.max_seq_length, tokenizer, output_mode,task)
 
-        if output_mode == "classification":
-            all_category_label_ids = torch.tensor([f.category_label_id for f in eval_features], dtype=torch.long)
-            all_sentiment_label_ids = torch.tensor([f.sentiment_label_ids for f in eval_features], dtype=torch.long)
+    train_dataloader = createDataLoader(train_category_map, train_features, RandomSampler, args.per_device_train_batch_size)
+    eval_dataloader = createDataLoader(eval_category_map, eval_features, SequentialSampler, args.per_device_train_batch_size)
+    
+    # Prepare optimizer
 
-        eval_data = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_category_label_ids, all_sentiment_label_ids)
-        # Run prediction for full data
-        if args.local_rank == -1:
-            eval_sampler = SequentialSampler(eval_data)
-        else:
-            eval_sampler = DistributedSampler(eval_data)  # Note that this sampler samples randomly
-        eval_dataloader = DataLoader(eval_data, sampler=eval_sampler, batch_size=args.per_device_eval_batch_size)
+    logger.info("***** Running training *****")
+    logger.info("  Num examples = %d", len(train_examples))
+    logger.info("  Batch size = %d", args.per_device_train_batch_size)
+    
+    model = model_dict[args.model_type].from_pretrained(args.model_name_or_path, num_labels=num_labels)
+    if args.local_rank == 0:
+        torch.distributed.barrier()
 
-        # Prepare optimizer
+    if args.fp16:
+        model.half()
 
-        logger.info("***** Running training *****")
-        logger.info("  Num examples = %d", len(train_examples))
-        logger.info("  Batch size = %d", args.per_device_train_batch_size)
-        
-        model = model_dict[args.model_type].from_pretrained(args.model_name_or_path, num_labels=num_labels)
-        if args.local_rank == 0:
-            torch.distributed.barrier()
+    model.to(device)
+    num_train_optimization_steps = math.ceil(len(train_dataloader) / args.gradient_accumulation_steps) * args.num_train_epochs
 
-        if args.fp16:
-            model.half()
+    param_optimizer = list(model.named_parameters())
+    no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
+    optimizer_grouped_parameters = [
+        {'params': [p for n, p in param_optimizer if not any(nd in n for nd in no_decay)], 'weight_decay': 0.01},
+        {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay': 0.0}
+        ]
 
-        model.to(device)
+    optimizer = BertAdam(optimizer_grouped_parameters,
+                         lr=args.learning_rate,
+                         warmup=args.warmup_proportion,
+                         t_total=num_train_optimization_steps)
 
-        if args.local_rank == -1:
-            train_sampler = RandomSampler(train_data)
-        else:
-            train_sampler = DistributedSampler(train_data)
-        train_dataloader = DataLoader(train_data, sampler=train_sampler, batch_size=args.per_device_train_batch_size)
+    train_category_map_gpu = [torch.tensor(train_category_map[i], dtype=torch.float).to(device) for i in range(len(train_category_map))]
 
-        num_train_optimization_steps = math.ceil(len(train_dataloader) / args.gradient_accumulation_steps) * args.num_train_epochs
+    start_time = time.time()
 
-        param_optimizer = list(model.named_parameters())
-        no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
-        optimizer_grouped_parameters = [
-            {'params': [p for n, p in param_optimizer if not any(nd in n for nd in no_decay)], 'weight_decay': 0.01},
-            {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay': 0.0}
-            ]
+    for _e in trange(int(args.num_train_epochs), desc="Epoch", disable=args.local_rank not in [-1, 0]):
+        model.train()
+        tr_loss = 0
+        nb_tr_examples, nb_tr_steps = 0, 0
+        for step, batch in enumerate(train_dataloader):
 
-        optimizer = BertAdam(optimizer_grouped_parameters,
-                             lr=args.learning_rate,
-                             warmup=args.warmup_proportion,
-                             t_total=num_train_optimization_steps)
+            batch = tuple(t.to(device) for t in batch)
+            _input_ids, _input_mask, _segment_ids, _category_label_ids, _sentiment_label_ids = batch
 
-        train_category_map_gpu = [torch.tensor(train_category_map[i], dtype=torch.float).to(device) for i in range(len(train_category_map))]
-        for _e in trange(int(args.num_train_epochs), desc="Epoch", disable=args.local_rank not in [-1, 0]):
-            model.train()
-            tr_loss = 0
-            nb_tr_examples, nb_tr_steps = 0, 0
-            for step, batch in enumerate(train_dataloader):
+            # define a new function to compute loss values for both output_modes
+            if args.model_type != 'Baseline_1' and args.model_type != 'AddOD':
+                loss, c_loss, s_loss, category_logits, sentiment_logits = model(_e, train_category_map_gpu, _input_ids, token_type_ids=_segment_ids, attention_mask=_input_mask,
+                    cate_labels=_category_label_ids, senti_labels=_sentiment_label_ids)
+            else:
+                logits, loss = model(_input_ids, token_type_ids=_segment_ids, attention_mask=_input_mask, senti_labels=_sentiment_label_ids)
+                c_loss = None
+                s_loss = None
 
-                batch = tuple(t.to(device) for t in batch)
-                _input_ids, _input_mask, _segment_ids, _category_label_ids, _sentiment_label_ids = batch
+            if step % 30 == 0:
+                print('Loss is {} .'.format(loss))
+                print('cate_loss is {} .'.format(c_loss))
+                print('senti_loss is {} .\n'.format(s_loss))
+            step += 1
+            if n_gpu > 1:
+                loss = loss.mean() # mean() to average on multi-gpu.
+            else:
+                loss = loss
+            if args.gradient_accumulation_steps > 1:
+                loss = loss / args.gradient_accumulation_steps
 
-                # define a new function to compute loss values for both output_modes
-                if args.model_type != 'Baseline_1' and args.model_type != 'AddOD':
-                    loss, c_loss, s_loss, category_logits, sentiment_logits = model(_e, train_category_map_gpu, _input_ids, token_type_ids=_segment_ids, attention_mask=_input_mask,
-                        cate_labels=_category_label_ids, senti_labels=_sentiment_label_ids)
-                else:
-                    logits, loss = model(_input_ids, token_type_ids=_segment_ids, attention_mask=_input_mask, senti_labels=_sentiment_label_ids)
-                    c_loss = None
-                    s_loss = None
+            if args.fp16:
+                optimizer.backward(loss)
+            else:
+                loss.backward()
 
-                if step % 30 == 0:
-                    print('Loss is {} .'.format(loss))
-                    print('cate_loss is {} .'.format(c_loss))
-                    print('senti_loss is {} .\n'.format(s_loss))
-                step += 1
-                if n_gpu > 1:
-                    loss = loss.mean() # mean() to average on multi-gpu.
-                else:
-                    loss = loss
-                if args.gradient_accumulation_steps > 1:
-                    loss = loss / args.gradient_accumulation_steps
-
+            tr_loss += loss.item()
+            nb_tr_examples += _input_ids.size(0)
+            nb_tr_steps += 1
+            if (step + 1) % args.gradient_accumulation_steps == 0:
                 if args.fp16:
-                    optimizer.backward(loss)
-                else:
-                    loss.backward()
+                    # modify learning rate with special warm up BERT uses
+                    # if args.fp16 is False, BertAdam is used that handles this automatically
+                    lr_this_step = args.learning_rate * warmup_linear.get_lr(global_step, args.warmup_proportion)
+                    for param_group in optimizer.param_groups:
+                        param_group['lr'] = lr_this_step
+                optimizer.step()
+                optimizer.zero_grad()
+                global_step += 1
 
-                tr_loss += loss.item()
-                nb_tr_examples += _input_ids.size(0)
-                nb_tr_steps += 1
-                if (step + 1) % args.gradient_accumulation_steps == 0:
-                    if args.fp16:
-                        # modify learning rate with special warm up BERT uses
-                        # if args.fp16 is False, BertAdam is used that handles this automatically
-                        lr_this_step = args.learning_rate * warmup_linear.get_lr(global_step, args.warmup_proportion)
-                        for param_group in optimizer.param_groups:
-                            param_group['lr'] = lr_this_step
-                    optimizer.step()
-                    optimizer.zero_grad()
-                    global_step += 1
+    end_time = time.time()
+    training_duration = end_time - start_time
 
-        model.eval()
+    model.eval()
+
+    trainer_args = {}
+    trainer_args.update({
+        "model_name": args.model_name_or_path,
+        "task": args.task,
+        "data_setting": args.data_setting,
+        "lang": args.lang,
+        "lang_setting": args.lang_setting,
+        "per_device_train_batch_size": args.per_device_train_batch_size,
+        "gradient_accumulation_steps": args.gradient_accumulation_steps,
+        "learning_rate": args.learning_rate,
+        "num_train_epochs": args.num_train_epochs,
+        "eval_type": args.eval_type,
+        "train_runtime": training_duration
+    })
+
+    if args.data_setting == 'balanced' or 'multi' in args.data_setting:
         
-        result, predictions = hier_pred_eval(args, 1, train_category_map_gpu, logger, model, eval_dataloader, device, task, label_list, label_space, eval_type='test')
+        eval_dataloader_balanced = eval_dataloader
 
-        torch.cuda.empty_cache()
-        gc.collect()
+        if 'eval' in args.eval_type:
+            result, preds, golds = hier_pred_eval(args, 1, train_category_map_gpu, logger, model, eval_dataloader_balanced, device, task, label_list, label_space, eval_type='test')
+            savePredictions(result, preds, golds, args, trainer_args, 'balanced')
+            
+        else:
+            _, test_examples_orig, _ = processor.get_examples(args.data_dir, 'orig', args.lang, args.eval_type)
+            
+            eval_category_map, eval_features = convert_examples_to_features(
+                test_examples_orig, label_list, args.max_seq_length, tokenizer, output_mode, task)
 
-        output_dir = f'{args.output_dir}/{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type.replace("_", "-")}_{args.data_setting}_{args.learning_rate}_{args.per_device_train_batch_size}_{int(args.num_train_epochs)}_{args.seed}/'
-        
-        os.makedirs(output_dir, exist_ok=True)
-        
-        for idx, name in enumerate(["asp", "asp_pol", "pairs", "pol"]):
-            pd.DataFrame.from_dict(result[idx]).transpose().to_csv(f"{output_dir}metrics_{name}.tsv", sep="\t")
+            eval_dataloader_orig = createDataLoader(eval_category_map, eval_features, SequentialSampler, args.per_device_train_batch_size)
+            
+            result, preds, golds = hier_pred_eval(args, 1, train_category_map_gpu, logger, model, eval_dataloader_balanced, device, task, label_list, label_space, eval_type='test')
+            savePredictions(result, preds, golds, args, trainer_args, 'balanced')
+            
+            result, preds, golds = hier_pred_eval(args, 1, train_category_map_gpu, logger, model, eval_dataloader_orig, device, task, label_list, label_space, eval_type='test')
+            savePredictions(result, preds, golds, args, trainer_args, 'orig')
 
-        with open(os.path.join(output_dir, 'predictions.json'), "w", encoding="utf-8") as f:
-            json.dump({'predictions': predictions}, f, indent=4, ensure_ascii=False)
+    else:
+        eval_dataloader_orig = eval_dataloader
+        if 'eval' in args.eval_type:
+            result, preds, golds = hier_pred_eval(args, 1, train_category_map_gpu, logger, model, eval_dataloader_orig, device, task, label_list, label_space, eval_type='test')
+            savePredictions(result, preds, golds, args, trainer_args, 'orig')
+
+        else:
+            if args.lang != 'tr':
+                _, test_examples_balanced, _ = processor.get_examples(args.data_dir, 'balanced', args.lang, args.eval_type)
+            
+                eval_category_map, eval_features = convert_examples_to_features(
+                    test_examples_balanced, label_list, args.max_seq_length, tokenizer, output_mode, task)
+
+                eval_dataloader_balanced = createDataLoader(eval_category_map, eval_features, SequentialSampler, args.per_device_train_batch_size)
+
+                result, preds, golds = hier_pred_eval(args, 1, train_category_map_gpu, logger, model, eval_dataloader_balanced, device, task, label_list, label_space, eval_type='test')
+                savePredictions(result, preds, golds, args, trainer_args, 'balanced')
+            
+            result, preds, golds = hier_pred_eval(args, 1, train_category_map_gpu, logger, model, eval_dataloader_orig, device, task, label_list, label_space, eval_type='test')
+            savePredictions(result, preds, golds, args, trainer_args, 'orig')
+    
+    torch.cuda.empty_cache()
+    gc.collect()
+
+def savePredictions(result, preds, golds, args, config, eval_type):
+    output_path = f'{args.output_dir}/{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting}-{eval_type[0]}_{args.learning_rate}_{args.per_device_train_batch_size}_{int(args.num_train_epochs)}_{args.seed}/'
+    os.makedirs(output_path, exist_ok=True)
+
+    for idx, name in enumerate(["asp", "asp_pol", "pairs", "pol"]):
+        pd.DataFrame.from_dict(result[idx]).transpose().to_csv(f"{output_path}metrics_{name}.tsv", sep="\t")
+
+    try:
+        matched_samples = [
+            {"predictions": pred, "gold_labels": gold}
+            for pred, gold in zip(preds, golds)
+        ]
+        print(matched_samples[:5])
+        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
+            json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
+
+    except:
+        pass
+
+    with open(os.path.join(output_path, 'config.json'), "w", encoding="utf-8") as f:
+        json.dump(config, f, indent=4, ensure_ascii=False)
 
 if __name__ == "__main__":
     main()
