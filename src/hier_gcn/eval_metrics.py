@@ -89,7 +89,7 @@ def hier_pred_eval(args, _e, category_map, logger, model, dataloader, device, ta
     preds = (preds > 0).astype(int)
     out_label_ids = (out_label_ids > 0).astype(int)
 
-    result, predictions = compute_metrics(preds, out_label_ids, label_list, label_space)
+    result, predictions, golds = compute_metrics(preds, out_label_ids, label_list, label_space)
     # pdb.set_trace()
 
     # logger.info("***** Valid results *****")
@@ -110,4 +110,4 @@ def hier_pred_eval(args, _e, category_map, logger, model, dataloader, device, ta
     #         logger.info("  %s = %s", key, str(fix_result[key]))
     #     return result, fix_result
 
-    return result, predictions
+    return result, predictions, golds

@@ -381,7 +381,7 @@ def compute_metrics(preds, golds, label_list, label_space):
     label_list_adj = [f"{label.replace('#', ' ').lower()}:{pol}" for label in label_list[0] for pol in ['negative', 'neutral', 'positive']]
     preds_labels = convert_features_to_labels(preds, label_list_adj)
     golds_labels = convert_features_to_labels(golds, label_list_adj)
-    return createResults(preds_labels, golds_labels, label_space, 'acsa'), preds_labels
+    return createResults(preds_labels, golds_labels, label_space, 'acsa'), preds_labels, golds_labels
 
 processors = {
     "acsa": ACSAProcessor,
