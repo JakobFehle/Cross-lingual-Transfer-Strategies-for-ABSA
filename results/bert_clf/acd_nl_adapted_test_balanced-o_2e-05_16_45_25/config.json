@@ -1,0 +1,12 @@
+{
+    "model_name": "GroNLP/bert-base-dutch-cased",
+    "task": "acd",
+    "data_setting": "balanced",
+    "lang": "nl",
+    "lang_setting": "adapted",
+    "per_device_train_batch_size": 16,
+    "learning_rate": 2e-05,
+    "num_train_epochs": 45,
+    "eval_type": "test",
+    "train_runtime": 181.43911051750183
+}

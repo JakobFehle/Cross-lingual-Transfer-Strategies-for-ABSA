@@ -56,8 +56,6 @@ class MultiLabelABSA:
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name_or_path)
         self.gpu_count = torch.cuda.device_count()
         
-        self.model = self.createModel(len(self.train[0]['label']))
-        
         self.data_collator = DataCollatorWithPadding(tokenizer=self.tokenizer)
         
         print("Device count: ", torch.cuda.device_count())
@@ -68,9 +66,10 @@ class MultiLabelABSA:
         
         if self.task == 'acd':
             self.label_space = set([label.split(':')[0] for label in self.label_space])
-        labels = [[label[0] if self.task == 'acd' else ':'.join(label[:2]) for label in labels] for labels in data['labels']]
+        labels = [[asp if self.task == 'acd' else ':'.join([asp, pol.upper()]) for asp, pol, phr in labels] for labels in data['labels']]
 
         if train:
+            # self.label_space = [l.lower() for l in self.label_space]
             self.mlb = MultiLabelBinarizer()
             self.mlb.fit([self.label_space])
                     
@@ -97,21 +96,24 @@ class MultiLabelABSA:
         
         predictions_decoded = self.mlb.inverse_transform(predictions_raw)
         ground_truth_decoded = self.mlb.inverse_transform(ground_truth)
-            
+        
         pred_labels = [[p.split(':') if ':' in p else p for p in pred] for pred in predictions_decoded]
         gold_labels = [[g.split(':') if ':' in g else g for g in gt] for gt in ground_truth_decoded]
         
         pred_labels, _ = convertLabels(pred_labels, self.task, self.label_space)
         gold_labels, _ = convertLabels(gold_labels, self.task, self.label_space)
-        
+
         results = createResults(pred_labels, gold_labels, self.label_space, self.task)
 
-        return results, pred_labels, gold_labels
+        return {'results': results, 'predictions': pred_labels, 'golds': gold_labels}
 
     def trainModel(self, train_dataset):
         """Trains the model with given hyperparameters."""
 
         adjusted_batch = int(self.args.per_device_train_batch_size/self.gpu_count)
+
+        self.model = self.createModel(len(train_dataset[0]['label']))
+        print(len(train_dataset[0]['label']))
         
         training_args = TrainingArguments(
             output_dir = 'bert_clf/outputs/',
@@ -166,7 +168,7 @@ class MultiLabelABSA:
     def savePredictions(self, result, preds, golds, args, config, eval_type):
         """Evaluates the model and saves results."""
 
-        output_path = f"{args.output_dir}{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}-{eval_type[0]}_{args.data_setting}_{round(args.learning_rate,9)}_{args.per_device_train_batch_size}_{args.num_train_epochs}_{args.seed}/" 
+        output_path = f"{args.output_dir}{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting}-{eval_type[0]}_{round(args.learning_rate,9)}_{args.per_device_train_batch_size}_{args.num_train_epochs}_{args.seed}/" 
         os.makedirs(output_path, exist_ok=True)
         
         if self.task == 'acd':
@@ -195,28 +197,30 @@ class MultiLabelABSA:
 
         args = self.args
 
-        train_df, eval_df, self.label_space = self.splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
+        train_df, eval_df, self.label_space = splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
+
         train = self.preprocessData(train_df, True)
 
-        if args.data_setting == 'balanced':
+        if args.data_setting == 'balanced' or 'multi' in args.data_setting:
             
             eval_balanced = self.preprocessData(eval_df)
 
             trainer, trainer_args = self.trainModel(train)
 
             if 'eval' in args.eval_type:
-
-                results_balanced, preds, golds = trainer.evaluate(eval_dataset=eval_balanced)
+                res = trainer.evaluate(eval_dataset=eval_balanced)
+                results_balanced, preds, golds = res['eval_results'], res['eval_predictions'], res['eval_golds']
                 self.savePredictions(results_balanced, preds, golds, args, trainer_args, 'balanced')
             
             else:
-
-                results_balanced, preds, golds = trainer.evaluate(eval_dataset=eval_balanced)
+                res = trainer.evaluate(eval_dataset=eval_balanced)
+                results_balanced, preds, golds = res['eval_results'], res['eval_predictions'], res['eval_golds']
                 self.savePredictions(results_balanced, preds, golds, args, trainer_args, 'balanced')
 
-                _, eval_df, _ = self.splitForEvalSetting(loadDataset(args.data_path, args.lang, 'orig'), args.eval_type)
+                _, eval_df, _ = splitForEvalSetting(loadDataset(args.data_path, args.lang, 'orig'), args.eval_type)
                 eval_orig = self.preprocessData(eval_df)
-                results_orig, preds, golds = trainer.evaluate(eval_dataset=eval_orig)
+                res = trainer.evaluate(eval_dataset=eval_orig)
+                results_orig, preds, golds = res['eval_results'], res['eval_predictions'], res['eval_golds']
                 self.savePredictions(results_orig, preds, golds, args, trainer_args, 'orig')
         
         else:
@@ -226,19 +230,21 @@ class MultiLabelABSA:
             trainer, trainer_args = self.trainModel(train)
 
             if 'eval' in args.eval_type:
-
-                results_orig, preds, golds = trainer.evaluate(eval_dataset=eval_orig)
+                res = trainer.evaluate(eval_dataset=eval_orig)
+                results_orig, preds, golds = res['eval_results'], res['eval_predictions'], res['eval_golds']
                 self.savePredictions(results_orig, preds, golds, args, trainer_args, 'orig')
 
             else:
                 if args.lang != 'tr':
-                    _, eval_df, _ = self.splitForEvalSetting(loadDataset(args.data_path, args.lang, 'balanced'), args.eval_type)
+                    _, eval_df, _ = splitForEvalSetting(loadDataset(args.data_path, args.lang, 'balanced'), args.eval_type)
                     eval_balanced = self.preprocessData(eval_df)
 
-                    results_balanced, preds, golds = trainer.evaluate(eval_dataset=eval_balanced)
+                    res = trainer.evaluate(eval_dataset=eval_balanced)
+                    results_balanced, preds, golds = res['eval_results'], res['eval_predictions'], res['eval_golds']
                     self.savePredictions(results_balanced, preds, golds, args, trainer_args, 'balanced')
 
-                results_orig, preds, golds = trainer.evaluate(eval_dataset=eval_orig)
+                res = trainer.evaluate(eval_dataset=eval_orig)
+                results_orig, preds, golds = res['eval_results'], res['eval_predictions'], res['eval_golds']
                 self.savePredictions(results_orig, preds, golds, args, trainer_args, 'orig')
         
 

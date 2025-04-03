@@ -1,0 +1,12 @@
+{
+    "model_name": "dbmdz/bert-base-turkish-cased",
+    "task": "acd",
+    "data_setting": "orig",
+    "lang": "tr",
+    "lang_setting": "adapted",
+    "per_device_train_batch_size": 16,
+    "learning_rate": 2e-05,
+    "num_train_epochs": 40,
+    "eval_type": "test",
+    "train_runtime": 141.87305808067322
+}
