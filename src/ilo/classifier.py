@@ -23,7 +23,7 @@ import torch
 import pandas as pd
 
 from transformers.models.t5.modeling_t5 import *
-from transformers import AdamW, T5Tokenizer
+from transformers import AdamW, T5Tokenizer, AutoTokenizer
 from t5_score import MyT5ForConditionalGenerationScore
 from t5 import MyT5ForConditionalGeneration
 
@@ -172,7 +172,10 @@ def get_para_tasd_targets(sents, labels, top_k, args, lang):
         device = torch.device('cuda:0')
     else:
         device = torch.device("cpu")
-    tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
+    if args.lang == 'nl':
+        tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
+    else:
+        tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
     model = MyT5ForConditionalGenerationScore.from_pretrained(args.model_name_or_path).to(device)
 
     targets = []
@@ -654,7 +657,10 @@ def evaluate(data_loader, model, tokenizer, args):
 def train_function_ilo(args):
     set_seed(args.seed)
 
-    tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
+    if args.lang == 'nl':
+        tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
+    else:
+        tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
     train, test, _ = splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
     
     args.dataset = f'rest-{args.lang}'
@@ -713,7 +719,20 @@ def train_function_ilo(args):
         # tokenizer.save_pretrained(args.output_dir)
         
         results = evaluate(test_loader, model, tokenizer, args)
-        return results
+
+        if 'eval' in args.eval_type:
+            scores, golds, preds = evaluate(model, args.task, args.lang, args.data_setting, args.dataset, args, data_type=args.eval_type)
+            if args.data_setting == 'balanced':
+                return (scores, golds, preds), (None, None, None)
+            else: # Orig test set
+                return (None, None, None), (scores, golds, preds)
+        else:
+            scores_balanced, golds_balanced, preds_balanced = evaluate(model, args.task, args.lang, 'balanced', args.dataset, args,
+                            data_type=args.eval_type)
+            scores_orig, golds_orig, preds_orig = evaluate(model, args.task, args.lang, 'orig', args.dataset, args,
+                            data_type=args.eval_type)
+            
+        return (scores_balanced, golds_balanced, preds_balanced), (scores_orig, golds_orig, preds_orig), trainer_args
 
 def init_args():
     parser = argparse.ArgumentParser()
@@ -786,48 +805,36 @@ def init_args():
 
     return args
 
+def savePredictions(f1, golds, preds, args, config, eval_setting):
+    output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting.replace("_","-")}-{'b' if eval_setting == 'balanced' else 'o'}_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
+    
+    os.makedirs(output_path, exist_ok=True)
+
+    for idx, name in enumerate(["asp", "asp_pol", "pairs", "pol", "phrases"]):
+        pd.DataFrame.from_dict(f1[idx]).transpose().to_csv(f"{output_path}metrics_{name}.tsv", sep="\t")
+
+    try:
+        matched_samples = [
+            {"predictions": pred, "gold_labels": gold}
+            for pred, gold in zip(preds, golds)
+        ]
+        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
+            json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
+
+    except:
+        pass
+
+    with open(os.path.join(output_path, 'config.json'), "w", encoding="utf-8") as f:
+        json.dump(config, f, indent=4, ensure_ascii=False)
+
 if __name__ == '__main__':
     args = init_args()
     set_seed(args.seed)
     
-    if 'multi' in args.data_setting:
-        (f1_balanced, preds_balanced), (f1_orig, preds_orig) = train_function_ilo(args)
-    # f1_str = "F1: {}".format(f1_res['f1'])
-        output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting.replace("_","-")}-b_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
-        os.makedirs(output_path, exist_ok=True)
-    
-        pd.DataFrame.from_dict(f1_balanced[0]).transpose().to_csv(output_path + '/metrics_asp.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_balanced[1]).transpose().to_csv(output_path + '/metrics_asp_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_balanced[2]).transpose().to_csv(output_path + '/metrics_pairs.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_balanced[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_balanced[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
+    (f1_balanced, golds_balanced, preds_balanced), (f1_orig, golds_orig, preds_orig), trainer_args = train_function_ilo(args)
 
-        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-            json.dump({'predictions': preds_balanced}, f, indent=4, ensure_ascii=False)
-
-        output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting.replace("_","-")}-o_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
-        os.makedirs(output_path, exist_ok=True)
-    
-        pd.DataFrame.from_dict(f1_orig[0]).transpose().to_csv(output_path + '/metrics_asp.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_orig[1]).transpose().to_csv(output_path + '/metrics_asp_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_orig[2]).transpose().to_csv(output_path + '/metrics_pairs.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_orig[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_orig[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
-
-        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-                json.dump({'predictions': preds_orig}, f, indent=4, ensure_ascii=False)
-    else:
-        f1_res, preds = train_function_ilo(args)
-    
-        # f1_str = "F1: {}".format(f1_res['f1'])
-        output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting}_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
-        os.makedirs(output_path, exist_ok=True)
-    
-        pd.DataFrame.from_dict(f1_res[0]).transpose().to_csv(output_path + '/metrics_asp.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_res[1]).transpose().to_csv(output_path + '/metrics_asp_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_res[2]).transpose().to_csv(output_path + '/metrics_pairs.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_res[3]).transpose().to_csv(output_path + '/metrics_pol.tsv', sep = "\t")
-        pd.DataFrame.from_dict(f1_res[4]).transpose().to_csv(output_path + '/metrics_phrases.tsv', sep = "\t")
-
-        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-            json.dump({'predictions': preds}, f, indent=4, ensure_ascii=False)
+    if f1_balanced:
+        savePredictions(f1_balanced, golds_balanced, preds_balanced, args, trainer_args, 'balanced')
+    if f1_orig:
+        savePredictions(f1_orig, golds_orig, preds_orig, args, trainer_args, 'orig')
+        

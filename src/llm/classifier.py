@@ -7,12 +7,13 @@ sys.path.append(utils)
 from tqdm import tqdm
 from preprocessing import loadDataset
 import numpy as np
-import torch
+import torch, subprocess, json
 from datasets import Dataset
 from prompts import *
 from transformers import TrainingArguments
 from unsloth import is_bfloat16_supported, FastModel
 
+from evaluation import createResults, convertLabels
 from trl import SFTTrainer
 
 from validator import validate_label, to_pred_list
@@ -59,7 +60,7 @@ def compute_f1_scores(pred_pt, gold_pt):
     return scores
 
 
-def compute_scores(pred_seqs, gold_seqs, task):
+def compute_scores(pred_seqs, gold_seqs, task, label_space):
     """
     Compute model performance
     """
@@ -78,7 +79,20 @@ def compute_scores(pred_seqs, gold_seqs, task):
 
     scores = compute_f1_scores(all_preds, all_labels)
 
-    return scores, all_labels, all_preds
+    preds = [
+        [f"{lbl[1]}:{lbl[0]}:{lbl[2]}"
+         for lbl in pred if f"{lbl[1]}::{lbl[0]}" != "::"]
+        for pred in all_preds
+    ]
+
+    golds = [
+        [f"{lbl[1]}:{lbl[0]}:{lbl[2]}" for lbl in gold if f"{lbl[1]}::{lbl[2]}" != "::"]
+        for gold in all_labels
+    ]
+
+    scores_dfs = createResults(preds, golds, label_space, task)
+    print('LLM F1-Micro Scuffed: ', scores['f1'])
+    return scores_dfs, all_labels, all_preds
 
 
 def get_prompt_header(language):
@@ -89,7 +103,7 @@ def get_model_and_tokenizer(max_seq_length, model_name_or_path, seed):
     load_in_4bit = True
     load_in_8bit = False
     model, tokenizer = FastModel.from_pretrained(
-        model_name=f"unsloth/{model_name_or_path}",
+        model_name=f"{model_name_or_path}",
         max_seq_length=max_seq_length,
         dtype=dtype,
         load_in_4bit=load_in_4bit,
@@ -140,7 +154,7 @@ def get_trainer(model, tokenizer, dataset, args):
             learning_rate=args.learning_rate,
             fp16=not is_bfloat16_supported(),
             bf16=is_bfloat16_supported(),
-            logging_steps=1,
+            logging_steps=50,
             optim="adamw_8bit",
             weight_decay=0.01,
             lr_scheduler_type="linear",
@@ -153,49 +167,20 @@ def get_trainer(model, tokenizer, dataset, args):
 def init_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_path", default="../data/", type=str)
-    parser.add_argument("--task", default='asqp', type=str,
-                        help="The name of the task, selected from: [asqp, tasd, aste]")
-    parser.add_argument("--dataset", default='rest15', type=str,
-                        help="The name of the dataset, selected from: [rest15, rest16]")
-    parser.add_argument("--model_name_or_path", default='t5-base', type=str,
-                        help="Path to pre-trained model or shortcut name")
-    parser.add_argument("--output_dir",
-                        default='outputs/temp',
-                        type=str,
-                        help="Output directory")
-    
-    parser.add_argument(
-        "--lang",
-        default='en',
-        choices=["de", "en", "nl", "ru", "cs", "fr", "es", "tr"],
-        type=str,
-        help="The name of the dataset, selected from: [rest15, rest16]")
-    parser.add_argument(
-        "--eval_type",
-        default='test',
-        choices=["test", "eval_0", "eval_1", "eval_2", "eval_3", "eval_4"],
-        type=str,
-    )
-    parser.add_argument(
-        "--data_setting",
-        default="orig",
-        choices=["orig", "balanced", "multi_id", "multi_od"],
-        type=str,
-    )
-    parser.add_argument(
-        "--lang_setting",
-        default="full",
-        choices=["orig", "adapted"],
-        type=str,
-    )
-    parser.add_argument('--seed',
-                        type=int,
-                        default=25,
-                        help="random seed for initialization")
+    parser.add_argument("--task", default='asqp', type=str)
+    parser.add_argument("--model_name_or_path", default='t5-base', type=str)
+    parser.add_argument("--output_dir", default='outputs/temp', type=str)
+    parser.add_argument("--lang", default='en', choices=["de", "en", "nl", "ru", "cs", "fr", "es", "tr"], type=str)
+    parser.add_argument("--eval_type", default='test', choices=["test", "eval_0"], type=str)
+    parser.add_argument("--data_setting", default="orig", choices=["orig", "balanced", "multi_id", "multi_od"], type=str)
+    parser.add_argument("--lang_setting", default="orig", choices=["orig", "adapted"],  type=str)
+    parser.add_argument('--seed', type=int, default=5)
     parser.add_argument("--max_seq_length", default=200, type=int)
     parser.add_argument("--max_new_tokens", default=200, type=int)
     parser.add_argument("--max_num_regenerations_eval", default=10, type=int)
     parser.add_argument("--temperature", default=1.0, type=float)
+    # parser.add_argument("--cond_name", default='', type=str)
+    parser.add_argument("--max_model_len", default=2048, type=int)
     parser.add_argument("--num_train_epochs", default=10, type=int)
     parser.add_argument("--train_batch_size", default=16, type=int)
     parser.add_argument("--eval_batch_size", default=16, type=int)
@@ -226,49 +211,6 @@ def savePredictions(f1, golds, preds, args, config, eval_type):
 
     with open(os.path.join(output_path, 'config.json'), "w", encoding="utf-8") as f:
         json.dump(config, f, indent=4, ensure_ascii=False)
-        
-def evaluate_llm(
-    tokenizer,
-    model,
-    inputs,
-    max_new_tokens,
-    temperature,
-    task,
-    max_num_regenerations_eval,
-    unique_aspect_categories,
-    test_text
-):
-
-    n_try = 0
-    found_valid_output = False
-    while n_try < max_num_regenerations_eval and not found_valid_output:
-        output_raw = tokenizer.batch_decode(
-            model.generate(
-                **inputs,
-                max_new_tokens=max_new_tokens,
-                use_cache=False,
-                do_sample=True,
-                temperature=temperature,
-            ),
-        )[0]
-        # filter label from predicted string
-        output_label = extract_output_as_list(output_raw, task)
-        if (len(output_label) == 0):
-            n_try += 1
-        else:
-           output_validated = validate_label([tuple(t) for t in output_label], test_text, unique_aspect_categories, task=task, is_string=False, allow_small_variations=True)
-           if len(output_validated) > 1:
-               n_try += 1
-           else:
-               output_label = output_validated[0]
-               output_label = [[_tuple[1], _tuple[0], *_tuple[2:]] for _tuple in output_label]
-               found_valid_output = True
-               
-    if n_try == max_num_regenerations_eval:
-        output_label = [[_tuple[1], _tuple[0], *_tuple[2:]] for _tuple in output_label]
-    
-
-    return output_label, output_raw
 
 def extract_output_as_list(output_raw, task):
     try:
@@ -289,18 +231,18 @@ if __name__ == '__main__':
     
     seed = args.seed
     model_name_or_path = args.model_name_or_path
-    ds_name = args.dataset
     task = args.task
     lanugage = args.lang
     max_seq_length = args.max_seq_length
     max_new_tokens = args.max_new_tokens
     max_num_regenerations_eval = args.max_num_regenerations_eval
     temperature = args.temperature
+    max_model_len = args.max_model_len
 
     set_seed(seed)
 
     train_ds, test_ds, label_space = loadDataset(args.data_path, args.lang, args.data_setting)
-
+    
     unique_aspect_categories = sorted(set([asp.split(':')[0] for asp in label_space]))
 
     prompt_header = (
@@ -309,91 +251,108 @@ if __name__ == '__main__':
         .replace("[[examples]]", "")[:-2]
     )
 
-    dataset = []
-    for idx, example in train_ds.iterrows():
-        dataset.append(
-            {
-                "input": example["text"],
-                "output": str([tuple(examples) for examples in example["labels"]]),
+    cache_config = f"cache_res_{args.task}_{args.lang}_{args.eval_type}_{args.data_setting}_{args.lang_setting}_{args.num_train_epochs}"
+    
+    if False:
+        dataset = []
+        for idx, example in train_ds.iterrows():
+            dataset.append(
+                {
+                    "input": example["text"],
+                    "output": str([tuple(s.strip() for s in examples) for examples in example["labels"]]),
+                }
+            )
+        dataset = Dataset.from_dict({key: [d[key] for d in dataset] for key in dataset[0]})
+        model, tokenizer = get_model_and_tokenizer(max_seq_length, model_name_or_path, seed)
+        EOS_TOKEN = tokenizer.eos_token  # Must add EOS_TOKEN
+    
+        def formatting_prompts_func(examples):
+            inputs = examples["input"]
+            outputs = examples["output"]
+            texts = []
+            for input, output in zip(inputs, outputs):
+                # Must add EOS_TOKEN, otherwise your generation will go on forever!
+                text = PROMPT_TEMPLATE.format(prompt_header, input, output) + EOS_TOKEN
+                texts.append(text)
+            return {
+                "text": texts,
             }
+    
+        dataset = dataset.map(
+            formatting_prompts_func,
+            batched=True,
         )
-    dataset = Dataset.from_dict({key: [d[key] for d in dataset] for key in dataset[0]})
-    model, tokenizer = get_model_and_tokenizer(max_seq_length, model_name_or_path, seed)
-    EOS_TOKEN = tokenizer.eos_token  # Must add EOS_TOKEN
-
-    def formatting_prompts_func(examples):
-        inputs = examples["input"]
-        outputs = examples["output"]
-        texts = []
-        for input, output in zip(inputs, outputs):
-            # Must add EOS_TOKEN, otherwise your generation will go on forever!
-            text = PROMPT_TEMPLATE.format(prompt_header, input, output) + EOS_TOKEN
-            texts.append(text)
-        return {
-            "text": texts,
-        }
-
-    dataset = dataset.map(
-        formatting_prompts_func,
-        batched=True,
-    )
+        
+        print(dataset[0])
+        
+        start_total_time = time.time()
     
-    print(dataset[0])
-    
-    start_total_time = time.time()
+        trainer = get_trainer(model, tokenizer, dataset, args)
+        trainer.train()
+        
+        end_total_time = time.time()
+        total_time = end_total_time - start_total_time
 
-    trainer = get_trainer(model, tokenizer, dataset, args)
-    trainer.train()
-    
-    end_total_time = time.time()
-    total_time = end_total_time - start_total_time
-    
+        model.save_pretrained(cache_config, maximum_memory_usage=0.9)
+    else:
+        total_time = 0
 
-    FastModel.for_inference(model)
+    predictions = {}
 
-    all_preds = []
+    all_prompts = []
     all_labels = []
-    all_raw_preds = []
 
     for idx, example in tqdm(test_ds.iterrows(), total=test_ds.shape[0]):
         test_text = example["text"]
-        inputs = tokenizer(
-            [
-                PROMPT_TEMPLATE.format(
-                    prompt_header,
-                    test_text,
-                    "",
-                )
-            ],
-            return_tensors="pt",
-        ).to("cuda")
+        all_prompts.append(
+            PROMPT_TEMPLATE.format(
+                prompt_header,
+                test_text,
+                "",
+            )
+        )
 
         tuple_list = [list(_tuple) for _tuple in [tuple(examples) for examples in example["labels"]]]
-        tuple_list = [[_tuple[1], _tuple[0], *_tuple[2:]] for _tuple in tuple_list]
+        tuple_list = [[_tuple[0], _tuple[1], *_tuple[2:]] for _tuple in tuple_list]
         all_labels.append(tuple_list)
 
-        output_label, output_raw = evaluate_llm(
-            tokenizer,
-            model,
-            inputs,
-            max_new_tokens,
-            temperature,
-            task,
-            max_num_regenerations_eval,
-            unique_aspect_categories,
-            test_text
-        )
-        
-        all_preds.append(output_label)
-        all_raw_preds.append(output_raw)
-        
+    print(all_prompts[0])
+    # save cache_res
 
-        print(f"{idx}/{len(test_ds)}\n### Pred:", output_label, "\nGold:", tuple_list)
+    
+    with open(f"{cache_config}.json", "w") as f:
+        json.dump({"all_prompts": all_prompts, "all_labels": all_labels}, f)
 
-    predictions = compute_f1_scores(all_preds, all_labels)
-    predictions["all_preds"] = (all_preds,)
+    result = subprocess.run(
+        [
+            "python", "../src/llm/test_llm.py",
+            "--max-new-tokens", str(max_new_tokens), 
+            "--max-model-len", str(max_model_len),
+            "--model-name-or-path", model_name_or_path,
+            "--seed", str(seed),
+            "--temperature", str(temperature),
+            "--evaluation_data", f"{cache_config}.json",
+            "--model_path", cache_config,
+            "--task", task,
+        ],
+        capture_output=True,
+        text=True,
+        # stderr=sys.stdout
+    )
+    try:
+        result = json.loads(result.stdout.split("#######\n")[1])
+    except:
+        print(result.stdout)
+
+    predictions["all_prompts"] = all_prompts
+    predictions["all_preds"] = result["all_preds"]
     predictions["all_labels"] = all_labels
-    predictions["all_raw_preds"] = all_raw_preds
+    total_time = end_total_time - start_total_time
     predictions["total_time"] = total_time
+    predictions["scores"] = result["scores"]
 
-    print(predictions)
+    scores_dfs = compute_scores(result["all_preds"], all_labels, task, label_space):
+
+    savePredictions(scores_dfs, golds, preds, args, config, eval_type):
+    
+    print(predictions["scores"])

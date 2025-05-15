@@ -6,8 +6,9 @@ import os
 
 from itertools import product
 from ast import literal_eval
+from sklearn.model_selection import KFold
 
-LABEL_SPACES = ['ambience general:positive', 'ambience general:neutral', 'ambience general:negative', 'drinks prices:positive', 'drinks prices:neutral', 'drinks prices:negative', 'drinks quality:positive', 'drinks quality:neutral', 'drinks quality:negative', 'drinks style_options:positive', 'drinks style_options:neutral', 'drinks style_options:negative', 'food prices:positive', 'food prices:neutral', 'food prices:negative', 'food quality:positive', 'food quality:neutral', 'food quality:negative', 'food style_options:positive', 'food style_options:neutral', 'food style_options:negative', 'location general:positive', 'location general:neutral', 'location general:negative', 'restaurant general:positive', 'restaurant general:neutral', 'restaurant general:negative', 'restaurant miscellaneous:positive', 'restaurant miscellaneous:neutral', 'restaurant miscellaneous:negative', 'restaurant prices:positive', 'restaurant prices:neutral', 'restaurant prices:negative', 'service general:positive', 'service general:neutral', 'service general:negative']
+LABEL_SPACE = ['ambience general:POSITIVE', 'ambience general:NEUTRAL', 'ambience general:NEGATIVE', 'drinks prices:POSITIVE', 'drinks prices:NEUTRAL', 'drinks prices:NEGATIVE', 'drinks quality:POSITIVE', 'drinks quality:NEUTRAL', 'drinks quality:NEGATIVE', 'drinks style_options:POSITIVE', 'drinks style_options:NEUTRAL', 'drinks style_options:NEGATIVE', 'food prices:POSITIVE', 'food prices:NEUTRAL', 'food prices:NEGATIVE', 'food quality:POSITIVE', 'food quality:NEUTRAL', 'food quality:NEGATIVE', 'food style_options:POSITIVE', 'food style_options:NEUTRAL', 'food style_options:NEGATIVE', 'location general:POSITIVE', 'location general:NEUTRAL', 'location general:NEGATIVE', 'restaurant general:POSITIVE', 'restaurant general:NEUTRAL', 'restaurant general:NEGATIVE', 'restaurant miscellaneous:POSITIVE', 'restaurant miscellaneous:NEUTRAL', 'restaurant miscellaneous:NEGATIVE', 'restaurant prices:POSITIVE', 'restaurant prices:NEUTRAL', 'restaurant prices:NEGATIVE', 'service general:POSITIVE', 'service general:NEUTRAL', 'service general:NEGATIVE']
 
 CATEGORY_MAPPINGS = {
 "CAT_EN_EN": {
@@ -296,11 +297,11 @@ def splitForEvalSetting(dataset, eval_type):
 
 def loadDataset(data_path, language, setting):
 
-    setting_str = '_b' if setting == 'balanced' else ''
-    
-    label_space = LABEL_SPACES
+    label_space = LABEL_SPACE
 
     if 'multi' not in setting:
+        setting_str = '_b' if setting == 'balanced' else ''
+        
         path_train = f'{data_path}/{language}/train{setting_str}.json'
         path_eval = f'{data_path}/{language}/test{setting_str}.json'
         
@@ -308,6 +309,8 @@ def loadDataset(data_path, language, setting):
         df_eval = pd.read_json(path_eval, orient="records", lines=True).set_index('id')
 
     else:
+        setting_str = '_b'
+        
         dfs = []
         for lang in [l for l in LANGS if l != language]:
             path_train = f'{data_path}/{lang}/train_b.json'

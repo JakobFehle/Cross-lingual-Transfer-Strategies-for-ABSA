@@ -14,11 +14,12 @@ OUTPUT_PATH = '../results/llm/'
 TASK = 'tasd'
 SEED = 5
 BATCH_SIZE = 16
-MODEL_NAME = "gemma-3-4b-it"
+MODEL_NAME = "google/gemma-3-4b-it"
 MAX_SEQ_LENGTH = 1024
 MAX_NEW_TOKENS = 256
 MAX_REG = 10
-TEMPERATURE = 0.8
+TEMPERATURE = 0.0
+MAX_MODEL_LEN = 8192
 
 for SPLIT in [0]:
     EVAL_TYPE = f'eval_{SPLIT}'
@@ -47,12 +48,14 @@ for SPLIT in [0]:
                         "--max_seq_length", str(MAX_SEQ_LENGTH),
                         "--max_new_tokens", str(MAX_NEW_TOKENS),
                         "--max_num_regenerations_eval", str(MAX_REG),
-                        "--temperature", str(TEMPERATURE)
+                        "--temperature", str(TEMPERATURE),
+                        "--max_model_len", str(MAX_MODEL_LEN)
                     ]
 
                     env = os.environ.copy()
                     env["CUDA_VISIBLE_DEVICES"] = sys.argv[1]
                     env["TOKENIZERS_PARALLELISM"] = 'true'
+                    env["VLLM_USE_V1"] = "0"
                     
                     # Run the subprocess
                     process = subprocess.Popen(command, env=env)

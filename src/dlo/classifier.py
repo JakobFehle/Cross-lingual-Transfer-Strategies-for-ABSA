@@ -27,12 +27,44 @@ from transformers import AdamW, T5Tokenizer, AutoTokenizer
 from t5_score import MyT5ForConditionalGenerationScore
 from t5 import MyT5ForConditionalGeneration
 
+from const import *
+
 from torch.utils.data import DataLoader
 from sklearn.model_selection import train_test_split, StratifiedKFold, KFold
 from transformers import get_linear_schedule_with_warmup
 import pytorch_lightning as pl
 
 from tqdm import tqdm
+
+TOKEN_IDS = {
+        'google/mt5-base': {
+        'OT': [19073],
+        'AT': [4330],
+        'SP': [13171],
+        'AC': [4112],
+        'S': [399],
+        'SEP': [155719],
+        '[': [491],
+        ']': [439],
+        'null': [259, 1181],
+        'start': 259,
+        '</s>': 1
+    }
+}
+
+IT_TOKEN_IDS = {
+    'google/mt5-base': {
+        'en':[609],
+        'de':[655],
+        'fr':[7211],
+        'es':[10351],
+        'ru':[1436],
+        'cs':[288],
+        'nl':[622],
+        'tr':[758]
+    }   
+}
+
 
 def set_seed(seed: int = 42) -> None:
     np.random.seed(seed)
@@ -159,7 +191,7 @@ def get_transformed_io(dataset, data_type, top_k, args):
     if data_type == "train":
         new_inputs, targets = get_para_tasd_targets(inputs, labels, top_k, args, args.lang)
     else:
-        targets = get_para_tasd_targets_test(inputs, labels, args.lang)
+        targets = get_para_tasd_targets_test(inputs, labels, args.lang if 'multi' not in args.data_setting else 'en')
         return inputs, targets
     print(len(inputs), len(new_inputs), len(targets))
     return new_inputs, targets
@@ -174,12 +206,14 @@ def save_cached_orders(cache_path, cached_orders):
     with open(cache_path, "w", encoding="utf-8") as f:
         json.dump(cached_orders, f, indent=4)
 
-def choose_best_order_global_tasd(sents, labels, model, tokenizer, device, top_k, lang):
+def choose_best_order_global_tasd(sents, labels, model, tokenizer, device, top_k, lang, args):
     cache_path = './orders.json'
     cached_orders = load_cached_orders(cache_path)
 
     config_key = f"{model.name_or_path}_{lang}_{len(sents)}"
 
+    lang = args.lang if 'multi' not in args.data_setting else 'en'
+    
     if config_key in cached_orders:
         print(f"Using cached orders for configuration: {config_key}")
         return cached_orders[config_key]
@@ -241,7 +275,7 @@ def get_para_tasd_targets(sents, labels, top_k, args, lang):
         device = torch.device('cuda:0')
     else:
         device = torch.device("cpu")
-    if lang == 'nl':
+    if lang == 'nl' and 'multi' not in args.data_setting:
         tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
     else:
         tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
@@ -251,7 +285,9 @@ def get_para_tasd_targets(sents, labels, top_k, args, lang):
     new_sents = []
     data_count = {}
     
-    optim_orders = choose_best_order_global_tasd(sents, labels, model, tokenizer, device, top_k, lang)
+    optim_orders = choose_best_order_global_tasd(sents, labels, model, tokenizer, device, top_k, lang, args)
+
+    lang = args.lang if 'multi' not in args.data_setting else 'en' # Adjust lang for multilingual setting
     print(optim_orders)
 
     for i in range(len(sents)):
@@ -389,67 +425,67 @@ def order_scores_function(quad_list, cur_sent, model, tokenizer, device, task):
     return results
 
 
-def choose_best_order_global(sents, labels, model, tokenizer, device, top_k, task, lang):
-    q = ["[AT]", "[AC]", "[SP]"]
-    all_orders = permutations(q)
-    all_orders_list = []
-    scores = []
+# def choose_best_order_global(sents, labels, model, tokenizer, device, top_k, task, lang):
+#     q = ["[AT]", "[AC]", "[SP]"]
+#     all_orders = permutations(q)
+#     all_orders_list = []
+#     scores = []
 
-    for each_order in all_orders:
-        cur_order = " ".join(each_order)
-        all_orders_list.append(cur_order)
-        scores.append(0)
+#     for each_order in all_orders:
+#         cur_order = " ".join(each_order)
+#         all_orders_list.append(cur_order)
+#         scores.append(0)
 
-    for i in range(len(sents)):
-        label = labels[i]
-        cur_sent = sents[i]
-
-
-        quad_list = []
-        for quad in label:
-            at, ac, sp, ot = quad
-
-            man_ot = POLARITY_MAPPINGS_POL_TO_TERM[lang][sp]
-
-            if at == 'NULL':  # for implicit aspect term
-                at = IT_TOKENS[lang]
-
-            quad = [f"[AT] {at}",
-                    f"[AC] {ac}",
-                    f"[SP] {man_ot}"]
-            x = permutations(quad)
-
-            permute_object = {}
-            for each in x:
-                order = []
-                content = []
-                for e in each:
-                    order.append(e[0:4])
-                    content.append(e[4:])
-                order_name = " ".join(order)
-                content = " ".join(content)
-                permute_object[order_name] = [content, " ".join(each)]
-
-            quad_list.append(permute_object)
-
-        order_scores = order_scores_function(quad_list, cur_sent, model, tokenizer, device, task)
-        for e in order_scores:
-            index = all_orders_list.index(e)
-            scores[index] += order_scores[e]['entropy']
+#     for i in range(len(sents)):
+#         label = labels[i]
+#         cur_sent = sents[i]
 
 
-    ###### !!!!!!!! IMPORTANT. control entropy min, entropy max, random
-    """ # random
-    indexes = list(range(len(scores)))
-    random.shuffle(indexes)
-    indexes = indexes[0:top_k]
-    """
-    indexes = np.argsort(np.array(scores))[0:top_k]#[::-1] #
+#         quad_list = []
+#         for quad in label:
+#             at, ac, sp, ot = quad
 
-    returned_orders = []
-    for i in indexes:
-        returned_orders.append(all_orders_list[i])
-    return returned_orders
+#             man_ot = POLARITY_MAPPINGS_POL_TO_TERM[lang][sp]
+
+#             if at == 'NULL':  # for implicit aspect term
+#                 at = IT_TOKENS[lang]
+
+#             quad = [f"[AT] {at}",
+#                     f"[AC] {ac}",
+#                     f"[SP] {man_ot}"]
+#             x = permutations(quad)
+
+#             permute_object = {}
+#             for each in x:
+#                 order = []
+#                 content = []
+#                 for e in each:
+#                     order.append(e[0:4])
+#                     content.append(e[4:])
+#                 order_name = " ".join(order)
+#                 content = " ".join(content)
+#                 permute_object[order_name] = [content, " ".join(each)]
+
+#             quad_list.append(permute_object)
+
+#         order_scores = order_scores_function(quad_list, cur_sent, model, tokenizer, device, task)
+#         for e in order_scores:
+#             index = all_orders_list.index(e)
+#             scores[index] += order_scores[e]['entropy']
+
+
+#     ###### !!!!!!!! IMPORTANT. control entropy min, entropy max, random
+#     """ # random
+#     indexes = list(range(len(scores)))
+#     random.shuffle(indexes)
+#     indexes = indexes[0:top_k]
+#     """
+#     indexes = np.argsort(np.array(scores))[0:top_k]#[::-1] #
+
+#     returned_orders = []
+#     for i in indexes:
+#         returned_orders.append(all_orders_list[i])
+#     return returned_orders
 
 def formatText(text):
     text = re.sub(r'([(".,!?;:/)])', r" \1", text)
@@ -485,6 +521,10 @@ class T5FineTuner(pl.LightningModule):
         self.model = tfm_model
         self.tokenizer = tokenizer
         self.train_dataset = train_dataset
+        self.token_ids = TOKEN_IDS[args.model_name_or_path]
+        self.args = args
+
+        self.precompute_tokens()
 
     def is_logger(self):
         return True
@@ -575,6 +615,102 @@ class T5FineTuner(pl.LightningModule):
         )
         self.lr_scheduler = scheduler
         return dataloader
+
+    def precompute_tokens(self):
+        dic = {"cate_tokens":{}, "all_tokens":{}, "sentiment_tokens":{}, 'special_tokens':[]}
+        for task in force_words.keys():
+            dic["all_tokens"][task] = {}
+            for dataset in force_words[task].keys():
+                cur_list = force_words[task][dataset]
+                tokenize_res = []
+                for w in cur_list:
+                    tokenize_res.extend(self.tokenizer(w, return_tensors='pt')['input_ids'].tolist()[0])
+                dic["all_tokens"][task][dataset] = tokenize_res
+        for k,v in cate_list.items():
+            tokenize_res = []
+            for w in v:
+                tokenize_res.extend(self.tokenizer(w, return_tensors='pt')['input_ids'].tolist()[0]) 
+            dic["cate_tokens"][str(k)] = tokenize_res
+        sp_tokenize_res = []
+        for sp in POLARITY_MAPPINGS_TERM_TO_POL[self.args.lang if 'multi' not in self.args.data_setting else 'en'].keys():
+            sp_tokenize_res.extend(self.tokenizer(sp, return_tensors='pt')['input_ids'].tolist()[0])
+        for task in force_words.keys():
+            dic['sentiment_tokens'][str(task)] = sp_tokenize_res
+        #dic['sentiment_tokens'] = sp_tokenize_res
+        special_tokens_tokenize_res = []
+        for w in ['[AT','[SP','[AC','[S']:
+            special_tokens_tokenize_res.extend(self.tokenizer(w, return_tensors='pt')['input_ids'].tolist()[0]) 
+        special_tokens_tokenize_res = [r for r in special_tokens_tokenize_res if r != self.token_ids['['][0]]
+
+        dic['special_tokens'] = special_tokens_tokenize_res
+
+        self.force_tokens = dic 
+        
+    def prefix_allowed_tokens_fn(self, task, data_name, source_ids, batch_id,
+                                 input_ids):
+        """
+        Constrained Decoding
+        # ids = self.tokenizer("text", return_tensors='pt')['input_ids'].tolist()[0]
+        """
+        
+        force_tokens = self.force_tokens
+        
+        to_id = self.token_ids
+    
+        left_brace_index = (input_ids == to_id['['][0]).nonzero()
+        right_brace_index = (input_ids == to_id[']'][0]).nonzero()
+        num_left_brace = len(left_brace_index)
+        num_right_brace = len(right_brace_index)
+        last_right_brace_pos = right_brace_index[-1][
+            0] if right_brace_index.nelement() > 0 else -1
+        last_left_brace_pos = left_brace_index[-1][
+            0] if left_brace_index.nelement() > 0 else -1
+        cur_id = input_ids[-1]
+    
+        if cur_id in to_id['[']:
+            return force_tokens['special_tokens']
+        elif cur_id in to_id['AT'] + to_id['SEP'] + to_id['SP'] + to_id['AC']:  
+            return to_id[']']
+        elif cur_id in to_id['S']:  
+            return to_id['SEP']
+       
+        # get cur_term
+        if last_left_brace_pos == -1:
+            return to_id['['] + [1]   # start of sentence: [
+        elif (last_left_brace_pos != -1 and last_right_brace_pos == -1) \
+            or last_left_brace_pos > last_right_brace_pos:
+            return to_id[']']  # ]
+        else:
+            cur_term = input_ids[last_left_brace_pos + 1]
+    
+        ret = []
+        
+        if cur_term in to_id['SP']:  # SP
+            ret = force_tokens['sentiment_tokens'][task]     
+        elif cur_term in to_id['AT']:  # AT
+            force_list = source_ids[batch_id].tolist()
+            force_list.extend(IT_TOKEN_IDS[self.args.model_name_or_path][self.args.lang if 'multi' not in self.args.data_setting else 'en'] + [1])  
+    
+            ret = force_list  
+        elif cur_term in to_id['S']:
+            ret = [to_id['start']] + to_id[']'] + [1]
+        elif cur_term in to_id['AC']:  # AC
+            ret = force_tokens['cate_tokens'][str(data_name)]
+        else:
+            raise ValueError(cur_term)    
+    
+        if num_left_brace == num_right_brace:
+            ret = set(ret)
+            ret.discard(to_id[']'][0]) # remove ]
+            for w in force_tokens['special_tokens']:
+                ret.discard(w)
+            ret = list(ret)
+        elif num_left_brace > num_right_brace:
+            ret += to_id[']'] 
+        else:
+            raise ValueError
+        ret.extend(to_id['['] + [1]) # add [
+        return ret
 
 def compute_f1_scores(pred_pt, gold_pt):
     """
@@ -697,7 +833,7 @@ def compute_scores(pred_seqs, gold_seqs, task, lang, label_space):
     scores_dfs = createResults(preds, golds, label_space, task)
     
     scores = compute_f1_scores(all_preds, all_labels)
-    print('DLO F1-Micro: ', scores['f1'])
+    print('DLO F1-Micro: ', scores['f1']) # Faulty
     
     return scores_dfs, all_labels, all_preds
 
@@ -718,7 +854,11 @@ def evaluate(data_loader, model, tokenizer, args):
         outs = model.model.generate(input_ids=batch['source_ids'].to(device),
                                     attention_mask=batch['source_mask'].to(device),
                                     max_length=args.max_seq_length,
-                                    num_beams=5)  # num_beams=5 num_beams=8, early_stopping=True)
+                                    num_beams=5,
+                                    prefix_allowed_tokens_fn=partial(
+                                       model.prefix_allowed_tokens_fn, args.task, "rest-en",
+                                       batch['source_ids']) if args.constrained_decode else None,
+                                )
 
         dec = [tokenizer.decode(ids, skip_special_tokens=True) for ids in outs]
         target = [tokenizer.decode(ids, skip_special_tokens=True) for ids in batch["target_ids"]]
@@ -726,7 +866,7 @@ def evaluate(data_loader, model, tokenizer, args):
         outputs.extend(dec)
         targets.extend(target)
 
-    scores, all_labels, all_preds = compute_scores(outputs, targets, args.task, args.lang, args.label_space)
+    scores, all_labels, all_preds = compute_scores(outputs, targets, args.task, args.lang if 'multi' not in args.data_setting else 'en', args.label_space)
 
     return scores, all_labels, all_preds
 
@@ -734,12 +874,12 @@ def evaluate(data_loader, model, tokenizer, args):
 def train_function_dlo(args):
     set_seed(args.seed)
 
-    if args.lang == 'nl':
+    if args.lang == 'nl' and 'multi' not in args.data_setting:
         tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
-        args.lowercase = True # Necessary due to aspect terms being lowercased by default
     else:
         tokenizer = T5Tokenizer.from_pretrained(args.model_name_or_path)
 
+    # Balanced Target Language Train; Both Test
     if args.data_setting == 'balanced':
         train, test_balanced, args.label_space = splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
         _, test_orig, _ = loadDataset(args.data_path, args.lang, 'orig')
@@ -752,7 +892,8 @@ def train_function_dlo(args):
                           top_k=args.top_k,
                           args=args,
                           max_len=args.max_seq_length)
-            
+
+    # Original Target Language Train; Both Test
     elif args.data_setting == 'orig':
         train, test_orig, args.label_space = splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
         if args.lang != 'tr':
@@ -766,7 +907,21 @@ def train_function_dlo(args):
                           top_k=args.top_k,
                           args=args,
                           max_len=args.max_seq_length)
+            
+    # Multi Language Train Dataset; Both Test
+    else: 
+        
+        train, test_balanced, args.label_space = splitForEvalSetting(loadDataset(args.data_path, args.lang, 'multi_balanced'), args.eval_type)
+        _, test_orig, _ = loadDataset(args.data_path, args.lang, 'orig')
 
+        # if 'eval' in args.eval_type:
+        #     test = ABSADataset(tokenizer=tokenizer,
+        #                   dataset=test_balanced,
+        #                   lang=args.lang,
+        #                   data_type=args.eval_type,
+        #                   top_k=args.top_k,
+        #                   args=args,
+        #                   max_len=args.max_seq_length)
 
 
     train_dataset = ABSADataset(tokenizer=tokenizer,
@@ -826,6 +981,7 @@ def train_function_dlo(args):
         trainer.fit(model)
     except KeyboardInterrupt:
         print("Training has been stopped manually.")
+        return None
 
     end_time = time.time()
     training_duration = end_time - start_time
@@ -846,27 +1002,30 @@ def train_function_dlo(args):
         "train_runtime": training_duration
     })
 
-    if 'eval' in args.eval_type:
-        test_loader = DataLoader(test, batch_size=args.eval_batch_size, num_workers=4)
-        scores, golds, preds = evaluate(test_loader, model, tokenizer, args)
-        if args.data_setting == 'balanced':
-            return (scores, golds, preds), (None, None, None), trainer_args
-        else: # Orig test set
-            return (None, None, None), (scores, golds, preds), trainer_args
-    else:
-        if args.lang != 'tr':
-            test_loader_balanced = DataLoader(test_dataset_balanced, batch_size=args.eval_batch_size, num_workers=4)
-        test_loader_orig = DataLoader(test_dataset_orig, batch_size=args.eval_batch_size, num_workers=4)
-        scores_orig, golds_orig, preds_orig = evaluate(test_loader_orig, model, tokenizer, args)
-
-        if args.lang != 'tr':
-            scores_balanced, golds_balanced, preds_balanced = evaluate(test_loader_balanced, model, tokenizer, args)
-        
-            return (scores_balanced, golds_balanced, preds_balanced), (scores_orig, golds_orig, preds_orig), trainer_args
+    try:
+        if 'eval' in args.eval_type:
+            test_loader = DataLoader(test, batch_size=args.eval_batch_size, num_workers=4)
+            scores, golds, preds = evaluate(test_loader, model, tokenizer, args)
+            if args.data_setting == 'balanced':
+                return (scores, golds, preds), (None, None, None), trainer_args
+            else: # Orig test set
+                return (None, None, None), (scores, golds, preds), trainer_args
         else:
-            return (None, None, None), (scores_orig, golds_orig, preds_orig), trainer_args
-
-    return None
+            if args.lang != 'tr':
+                test_loader_balanced = DataLoader(test_dataset_balanced, batch_size=args.eval_batch_size, num_workers=4)
+            test_loader_orig = DataLoader(test_dataset_orig, batch_size=args.eval_batch_size, num_workers=4)
+            scores_orig, golds_orig, preds_orig = evaluate(test_loader_orig, model, tokenizer, args)
+    
+            if args.lang != 'tr':
+                scores_balanced, golds_balanced, preds_balanced = evaluate(test_loader_balanced, model, tokenizer, args)
+            
+                return (scores_balanced, golds_balanced, preds_balanced), (scores_orig, golds_orig, preds_orig), trainer_args
+            else:
+                return (None, None, None), (scores_orig, golds_orig, preds_orig), trainer_args
+    
+        return None
+    except KeyboardInterrupt:
+        print("Training has been stopped manually.")
 
 
 def init_args():
@@ -932,7 +1091,10 @@ def init_args():
     parser.add_argument("--weight_decay", default=0.0, type=float)
     parser.add_argument("--adam_epsilon", default=1e-8, type=float)
     parser.add_argument("--warmup_steps", default=0.0, type=float)
-
+    parser.add_argument("--constrained_decode",
+                        action="store_true",
+                        help='constrained decoding when evaluating')
+    
     args = parser.parse_args()
 
     return args

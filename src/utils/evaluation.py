@@ -197,12 +197,12 @@ def createResults(pred_labels, gold_labels, label_space, task):
 
         # Group Aspect labels together ignoring their polarity
         label_space_grouped = [[label for label in label_space if label.split(':')[0] ==  aspect] for aspect in sorted(list(set([lab.split(':')[0] for lab in label_space])))]
-        
+        print(label_space_grouped)
         # Metrics by Aspects disregarding Polarities
         metrics_asp = []
         for i in range(len(label_space_grouped)):
-            pred_labels_subset = [[label.split(':')[0] for label in pred if label == label_space_grouped[i][0].split(':')[0]] for pred in pred_labels]
-            gold_labels_subset = [[label.split(':')[0] for label in gold if label == label_space_grouped[i][0].split(':')[0]] for gold in gold_labels]
+            pred_labels_subset = [[label.split(':')[0] for label in pred if label.split(':')[0] == label_space_grouped[i][0].split(':')[0]] for pred in pred_labels]
+            gold_labels_subset = [[label.split(':')[0] for label in gold if label.split(':')[0] == label_space_grouped[i][0].split(':')[0]] for gold in gold_labels]
             metrics_asp.append({'aspect': label_space_grouped[i][0].split(':')[0], 'metrics': calculateMetrics(pred_labels_subset, gold_labels_subset)})
     
         micro_asp = calculateMetrics([[label.split(':')[0] for label in pred] for pred in pred_labels], [[label.split(':')[0] for label in gold] for gold in gold_labels])

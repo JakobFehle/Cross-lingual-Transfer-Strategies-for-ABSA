@@ -4,11 +4,11 @@
             "predictions": [
                 [
                     "drinks prices",
-                    "krijtbord",
+                    "wijnsuggesties",
                     "positive"
                 ],
                 [
-                    "drinks style_options",
+                    "drinks prices",
                     "wijnsuggesties",
                     "positive"
                 ]
@@ -24,13 +24,13 @@
         {
             "predictions": [
                 [
-                    "food style_options",
+                    "food quality",
                     "pastrami",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "pastrami",
+                    "adresje",
                     "positive"
                 ]
             ],
@@ -56,7 +56,12 @@
             "predictions": [
                 [
                     "drinks prices",
-                    "huiswijn",
+                    "pilsje",
+                    "negative"
+                ],
+                [
+                    "drinks prices",
+                    "witte huiswijn",
                     "negative"
                 ]
             ],
@@ -78,7 +83,7 @@
                 [
                     "location general",
                     "ligging",
-                    "positive"
+                    "negative"
                 ],
                 [
                     "food prices",
@@ -144,15 +149,15 @@
         {
             "predictions": [
                 [
-                    "food style_options",
-                    "menu kaart",
+                    "ambience general",
+                    "Menu kaart",
                     "negative"
                 ]
             ],
             "gold_labels": [
                 [
                     "restaurant miscellaneous",
-                    "menu kaart",
+                    "Menu kaart",
                     "negative"
                 ]
             ]
@@ -160,7 +165,7 @@
         {
             "predictions": [
                 [
-                    "food quality",
+                    "food prices",
                     "schotels",
                     "positive"
                 ],
@@ -171,7 +176,12 @@
                 ],
                 [
                     "service general",
-                    "wachttijd",
+                    "bediening",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "interieur",
                     "positive"
                 ]
             ],
@@ -211,13 +221,8 @@
                     "positive"
                 ],
                 [
-                    "service general",
-                    "bediening",
-                    "positive"
-                ],
-                [
                     "food quality",
-                    "pizza's",
+                    "bediening",
                     "positive"
                 ]
             ],
@@ -330,12 +335,12 @@
                     "positive"
                 ],
                 [
-                    "food quality",
+                    "drinks quality",
                     "NULL",
                     "positive"
                 ],
                 [
-                    "ambience general",
+                    "food quality",
                     "NULL",
                     "positive"
                 ]
@@ -356,7 +361,7 @@
         {
             "predictions": [
                 [
-                    "restaurant prices",
+                    "ambience general",
                     "NULL",
                     "positive"
                 ]
@@ -373,19 +378,14 @@
             "predictions": [
                 [
                     "service general",
-                    "ober",
-                    "positive"
-                ],
-                [
-                    "service general",
-                    "ober",
+                    "ober Stijn",
                     "positive"
                 ]
             ],
             "gold_labels": [
                 [
                     "service general",
-                    "ober stijn",
+                    "ober Stijn",
                     "neutral"
                 ]
             ]
@@ -394,14 +394,14 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "NULL",
-                    "negative"
+                    "Italiaans rest",
+                    "neutral"
                 ]
             ],
             "gold_labels": [
                 [
                     "restaurant general",
-                    "italiaans rest",
+                    "Italiaans rest",
                     "neutral"
                 ]
             ]
@@ -450,6 +450,11 @@
         },
         {
             "predictions": [
+                [
+                    "drinks style_options",
+                    "wijnkeuze",
+                    "positive"
+                ],
                 [
                     "service general",
                     "bediening",
@@ -507,7 +512,7 @@
                     "negative"
                 ],
                 [
-                    "food style_options",
+                    "food quality",
                     "tongrolletjes",
                     "negative"
                 ]
@@ -533,19 +538,19 @@
         {
             "predictions": [
                 [
-                    "food prices",
+                    "food quality",
                     "eten",
                     "neutral"
                 ],
                 [
-                    "food quality",
+                    "food prices",
                     "eten",
                     "neutral"
                 ],
                 [
                     "restaurant general",
                     "NULL",
-                    "negative"
+                    "positive"
                 ]
             ],
             "gold_labels": [
@@ -624,16 +629,11 @@
                 [
                     "food style_options",
                     "eten",
-                    "neutral"
+                    "positive"
                 ],
                 [
                     "location general",
                     "locatie",
-                    "positive"
-                ],
-                [
-                    "service general",
-                    "ontvangst",
                     "positive"
                 ],
                 [
@@ -680,24 +680,24 @@
             "predictions": [
                 [
                     "food quality",
-                    "keuzemenu",
+                    "Keuzemenu",
                     "positive"
                 ],
                 [
-                    "restaurant prices",
-                    "keuzemenu",
+                    "food prices",
+                    "Keuzemenu",
                     "positive"
                 ]
             ],
             "gold_labels": [
                 [
                     "restaurant general",
-                    "keuzemenu",
+                    "Keuzemenu",
                     "positive"
                 ],
                 [
                     "restaurant prices",
-                    "keuzemenu",
+                    "Keuzemenu",
                     "positive"
                 ]
             ]
@@ -772,6 +772,11 @@
         },
         {
             "predictions": [
+                [
+                    "drinks quality",
+                    "koffie",
+                    "positive"
+                ],
                 [
                     "drinks quality",
                     "koffie",
@@ -795,7 +800,7 @@
             "predictions": [
                 [
                     "drinks style_options",
-                    "grand crus",
+                    "wijnen",
                     "positive"
                 ],
                 [
@@ -869,7 +874,7 @@
                 [
                     "food quality",
                     "eten",
-                    "neutral"
+                    "positive"
                 ],
                 [
                     "service general",
@@ -909,7 +914,7 @@
                 ],
                 [
                     "food quality",
-                    "gefrituurde peterselie",
+                    "peterselie",
                     "negative"
                 ]
             ],
@@ -953,11 +958,6 @@
                     "ambience general",
                     "NULL",
                     "negative"
-                ],
-                [
-                    "ambience general",
-                    "guide michelins",
-                    "negative"
                 ]
             ],
             "gold_labels": [
@@ -972,14 +972,14 @@
             "predictions": [
                 [
                     "service general",
-                    "basyl",
+                    "Basyl",
                     "negative"
                 ]
             ],
             "gold_labels": [
                 [
                     "ambience general",
-                    "fawlty towers tafereel",
+                    "Fawlty Towers tafereel",
                     "negative"
                 ]
             ]
@@ -1019,7 +1019,7 @@
         {
             "predictions": [
                 [
-                    "ambience general",
+                    "food quality",
                     "geur",
                     "negative"
                 ]
@@ -1052,7 +1052,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "decibels",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -1109,7 +1109,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "vent",
+                    "Vriendin",
                     "negative"
                 ]
             ],
@@ -1129,8 +1129,8 @@
                     "neutral"
                 ],
                 [
-                    "restaurant general",
-                    "mein",
+                    "food quality",
+                    "soepje van asperge",
                     "positive"
                 ]
             ],
@@ -1166,12 +1166,12 @@
         {
             "predictions": [
                 [
-                    "food quality",
+                    "food style_options",
                     "harmonie",
                     "negative"
                 ],
                 [
-                    "food style_options",
+                    "food quality",
                     "ingrediënten",
                     "negative"
                 ]
@@ -1192,7 +1192,7 @@
         {
             "predictions": [
                 [
-                    "food style_options",
+                    "food quality",
                     "sla",
                     "negative"
                 ]
@@ -1213,8 +1213,13 @@
                     "negative"
                 ],
                 [
-                    "food quality",
+                    "service general",
                     "eten",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "kip",
                     "negative"
                 ],
                 [
@@ -1270,7 +1275,7 @@
         {
             "predictions": [
                 [
-                    "service general",
+                    "restaurant general",
                     "NULL",
                     "negative"
                 ]
@@ -1350,9 +1355,9 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
+                    "ambience general",
                     "NULL",
-                    "neutral"
+                    "positive"
                 ]
             ],
             "gold_labels": [
@@ -1371,38 +1376,6 @@
                     "negative"
                 ],
                 [
-                    "restaurant prices",
-                    "NULL",
-                    "negative"
-                ]
-            ],
-            "gold_labels": [
-                [
-                    "restaurant general",
-                    "NULL",
-                    "negative"
-                ]
-            ]
-        },
-        {
-            "predictions": [
-                [
-                    "restaurant general",
-                    "NULL",
-                    "negative"
-                ]
-            ],
-            "gold_labels": [
-                [
-                    "restaurant general",
-                    "NULL",
-                    "negative"
-                ]
-            ]
-        },
-        {
-            "predictions": [
-                [
                     "service general",
                     "NULL",
                     "negative"
@@ -1435,8 +1408,40 @@
         {
             "predictions": [
                 [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
                     "service general",
-                    "personeelslid",
+                    "zaak",
                     "negative"
                 ]
             ],
@@ -1504,12 +1509,12 @@
             "predictions": [
                 [
                     "food style_options",
-                    "kip en scampi's",
+                    "kip",
                     "negative"
                 ],
                 [
                     "food quality",
-                    "NULL",
+                    "kip",
                     "neutral"
                 ]
             ],
@@ -1535,7 +1540,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "NULL",
+                    "eten",
                     "positive"
                 ]
             ],
@@ -1551,16 +1556,11 @@
             "predictions": [
                 [
                     "food style_options",
-                    "quiches",
+                    "maaltijd-gerechten",
                     "positive"
                 ],
                 [
-                    "food quality",
-                    "soepen",
-                    "positive"
-                ],
-                [
-                    "food quality",
+                    "food style_options",
                     "kazen",
                     "positive"
                 ]
@@ -1658,7 +1658,7 @@
                     "positive"
                 ],
                 [
-                    "food style_options",
+                    "food quality",
                     "kaart",
                     "positive"
                 ],
@@ -1751,8 +1751,8 @@
                     "positive"
                 ],
                 [
-                    "restaurant general",
-                    "NULL",
+                    "food style_options",
+                    "menu's",
                     "positive"
                 ]
             ],
@@ -1780,6 +1780,11 @@
                     "food style_options",
                     "kabeljauw met jonge spinazie en mousseline",
                     "positive"
+                ],
+                [
+                    "food style_options",
+                    "spinazie",
+                    "positive"
                 ]
             ],
             "gold_labels": [
@@ -1796,11 +1801,6 @@
                     "food quality",
                     "amuse",
                     "positive"
-                ],
-                [
-                    "food quality",
-                    "amuse",
-                    "positive"
                 ]
             ],
             "gold_labels": [
@@ -1824,8 +1824,8 @@
                     "positive"
                 ],
                 [
-                    "service general",
-                    "personeel",
+                    "food quality",
+                    "keuzes",
                     "positive"
                 ]
             ],
@@ -1846,11 +1846,6 @@
             "predictions": [
                 [
                     "food style_options",
-                    "voorgerecht",
-                    "positive"
-                ],
-                [
-                    "food quality",
                     "voorgerecht",
                     "positive"
                 ],
@@ -1875,6 +1870,11 @@
         },
         {
             "predictions": [
+                [
+                    "service general",
+                    "personeel",
+                    "positive"
+                ],
                 [
                     "service general",
                     "personeel",
@@ -1933,18 +1933,18 @@
         {
             "predictions": [
                 [
-                    "food quality",
-                    "huisapero",
-                    "positive"
-                ],
-                [
                     "service general",
                     "bediening",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "huisapero",
+                    "huisapero op basis van vlierbloesem+mandarine napoleon",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "keuken",
                     "positive"
                 ],
                 [
@@ -1997,14 +1997,14 @@
                 [
                     "ambience general",
                     "sfeer",
-                    ""
+                    "positive"
                 ]
             ]
         },
         {
             "predictions": [
                 [
-                    "food quality",
+                    "food style_options",
                     "NULL",
                     "negative"
                 ]
@@ -2079,7 +2079,7 @@
             "predictions": [
                 [
                     "service general",
-                    "heer",
+                    "dame",
                     "negative"
                 ],
                 [
@@ -2120,23 +2120,7 @@
         {
             "predictions": [
                 [
-                    "service general",
-                    "NULL",
-                    "negative"
-                ]
-            ],
-            "gold_labels": [
-                [
-                    "service general",
-                    "NULL",
-                    "negative"
-                ]
-            ]
-        },
-        {
-            "predictions": [
-                [
-                    "restaurant general",
+                    "ambience general",
                     "NULL",
                     "negative"
                 ]
@@ -2201,6 +2185,22 @@
             "predictions": [
                 [
                     "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NULL",
+                    "negative"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
                     "kok",
                     "negative"
                 ]
@@ -2247,7 +2247,7 @@
         {
             "predictions": [
                 [
-                    "food quality",
+                    "service general",
                     "NULL",
                     "negative"
                 ]
@@ -2262,6 +2262,11 @@
         },
         {
             "predictions": [
+                [
+                    "service general",
+                    "bediening",
+                    "negative"
+                ],
                 [
                     "service general",
                     "bediening",
@@ -2316,8 +2321,8 @@
                     "negative"
                 ],
                 [
-                    "food prices",
-                    "eten",
+                    "food style_options",
+                    "keuze",
                     "negative"
                 ]
             ],
@@ -2342,7 +2347,7 @@
         {
             "predictions": [
                 [
-                    "food style_options",
+                    "ambience general",
                     "schelpen",
                     "negative"
                 ]
@@ -2443,7 +2448,7 @@
         {
             "predictions": [
                 [
-                    "food quality",
+                    "food style_options",
                     "vetnaad",
                     "negative"
                 ]
@@ -2475,6 +2480,11 @@
         {
             "predictions": [
                 [
+                    "food style_options",
+                    "carpacio",
+                    "negative"
+                ],
+                [
                     "food quality",
                     "carpacio",
                     "negative"
@@ -2491,7 +2501,7 @@
         {
             "predictions": [
                 [
-                    "food quality",
+                    "service general",
                     "NULL",
                     "negative"
                 ]
@@ -2565,7 +2575,7 @@
         {
             "predictions": [
                 [
-                    "food quality",
+                    "ambience general",
                     "livebandje",
                     "positive"
                 ],
@@ -2597,12 +2607,7 @@
                 ],
                 [
                     "drinks quality",
-                    "eten",
-                    "positive"
-                ],
-                [
-                    "ambience general",
-                    "kader",
+                    "drank",
                     "positive"
                 ]
             ],
@@ -2627,8 +2632,8 @@
                     "positive"
                 ],
                 [
-                    "drinks quality",
-                    "koffie",
+                    "ambience general",
+                    "sfeer",
                     "positive"
                 ]
             ],
@@ -2649,7 +2654,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "plaats",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -2665,12 +2670,12 @@
             "predictions": [
                 [
                     "ambience general",
-                    "tuin met vijver",
+                    "achterliggende tuin met vijver",
                     "positive"
                 ],
                 [
                     "ambience general",
-                    "tuin met vijver",
+                    "lederen salon",
                     "positive"
                 ]
             ],
@@ -2707,12 +2712,12 @@
             "predictions": [
                 [
                     "ambience general",
-                    "tuin",
+                    "restaurant",
                     "positive"
                 ],
                 [
                     "ambience general",
-                    "restaurant",
+                    "tuin",
                     "positive"
                 ]
             ],
@@ -2733,7 +2738,12 @@
             "predictions": [
                 [
                     "ambience general",
-                    "sfeer muziek",
+                    "sfeer",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -2785,14 +2795,14 @@
             "predictions": [
                 [
                     "ambience general",
-                    "terras",
+                    "Terras",
                     "positive"
                 ]
             ],
             "gold_labels": [
                 [
                     "ambience general",
-                    "terras",
+                    "Terras",
                     "positive"
                 ]
             ]
@@ -2801,7 +2811,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "tafels",
+                    "zaak",
                     "positive"
                 ]
             ],
@@ -2816,8 +2826,8 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
-                    "fonduehuis",
+                    "food quality",
+                    "Fonduehuis",
                     "positive"
                 ]
             ],
@@ -2829,7 +2839,7 @@
                 ],
                 [
                     "ambience general",
-                    "fonduehuis",
+                    "Fonduehuis",
                     "positive"
                 ]
             ]
@@ -2871,6 +2881,11 @@
                 [
                     "ambience general",
                     "restaurant",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "plaatsen",
                     "positive"
                 ]
             ],
@@ -2992,11 +3007,6 @@
             "predictions": [
                 [
                     "service general",
-                    "ontvangst",
-                    "positive"
-                ],
-                [
-                    "restaurant general",
                     "restaurantje",
                     "positive"
                 ]
@@ -3017,7 +3027,7 @@
         {
             "predictions": [
                 [
-                    "location general",
+                    "ambience general",
                     "interieur",
                     "positive"
                 ],
@@ -3106,7 +3116,7 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
+                    "food style_options",
                     "concept",
                     "positive"
                 ]
@@ -3138,12 +3148,12 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
+                    "food quality",
                     "ontbijt",
                     "positive"
                 ],
                 [
-                    "food quality",
+                    "drinks quality",
                     "bruch en /of koffie",
                     "positive"
                 ]
@@ -3175,7 +3185,7 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
+                    "food quality",
                     "NULL",
                     "positive"
                 ]
@@ -3239,7 +3249,7 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
+                    "food quality",
                     "NULL",
                     "positive"
                 ]
@@ -3310,7 +3320,7 @@
                 [
                     "restaurant general",
                     "NULL",
-                    "negative"
+                    "neutral"
                 ]
             ],
             "gold_labels": [
@@ -3437,14 +3447,14 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "the  Village",
+                    "The Village",
                     "positive"
                 ]
             ],
             "gold_labels": [
                 [
                     "restaurant general",
-                    "the village",
+                    "The Village",
                     "positive"
                 ]
             ]
@@ -3453,22 +3463,6 @@
             "predictions": [
                 [
                     "food quality",
-                    "eten",
-                    "positive"
-                ]
-            ],
-            "gold_labels": [
-                [
-                    "restaurant general",
-                    "NULL",
-                    "positive"
-                ]
-            ]
-        },
-        {
-            "predictions": [
-                [
-                    "restaurant general",
                     "NULL",
                     "positive"
                 ]
@@ -3501,6 +3495,22 @@
             "predictions": [
                 [
                     "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NULL",
+                    "positive"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
                     "restaurant",
                     "positive"
                 ]
@@ -3552,7 +3562,7 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
+                    "food quality",
                     "NULL",
                     "positive"
                 ],
@@ -3606,7 +3616,7 @@
             "predictions": [
                 [
                     "service general",
-                    "NULL",
+                    "huis",
                     "positive"
                 ]
             ],
@@ -3679,13 +3689,8 @@
                     "positive"
                 ],
                 [
-                    "drinks quality",
-                    "wijnen",
-                    "positive"
-                ],
-                [
-                    "service general",
-                    "patron",
+                    "food quality",
+                    "gerechten",
                     "positive"
                 ]
             ],
@@ -3752,7 +3757,7 @@
         {
             "predictions": [
                 [
-                    "service general",
+                    "restaurant general",
                     "peter",
                     "positive"
                 ]
@@ -3774,12 +3779,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "vlees en vis",
+                    "Vlees en vis",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "vlees en vis",
+                    "Vlees en vis",
                     "positive"
                 ]
             ],
@@ -3796,7 +3801,7 @@
                 ],
                 [
                     "food quality",
-                    "vlees",
+                    "Vlees",
                     "positive"
                 ]
             ]
@@ -3805,14 +3810,14 @@
             "predictions": [
                 [
                     "service general",
-                    "bediening",
+                    "Bediening",
                     "positive"
                 ]
             ],
             "gold_labels": [
                 [
                     "service general",
-                    "bediening",
+                    "Bediening",
                     "positive"
                 ]
             ]
@@ -3853,7 +3858,12 @@
             "predictions": [
                 [
                     "service general",
-                    "restaurant /café",
+                    "restaurant",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "restaurant",
                     "positive"
                 ]
             ],
@@ -3869,7 +3879,7 @@
             "predictions": [
                 [
                     "service general",
-                    "dienster",
+                    "Dienster",
                     "positive"
                 ]
             ],
@@ -3881,7 +3891,7 @@
                 ],
                 [
                     "service general",
-                    "dienster",
+                    "Dienster",
                     "positive"
                 ]
             ]
@@ -3906,19 +3916,14 @@
             "predictions": [
                 [
                     "service general",
-                    "tine",
-                    "positive"
-                ],
-                [
-                    "food quality",
-                    "smaken",
+                    "chef",
                     "positive"
                 ]
             ],
             "gold_labels": [
                 [
                     "service general",
-                    "tine",
+                    "Tine",
                     "positive"
                 ],
                 [
@@ -3948,7 +3953,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "maaltijden",
+                    "huwelijkstaart",
                     "positive"
                 ],
                 [
@@ -3958,7 +3963,7 @@
                 ],
                 [
                     "food quality",
-                    "huwelijkskoppel",
+                    "maaltijden",
                     "positive"
                 ]
             ],
@@ -4021,7 +4026,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "landgoed altembrouck",
+                    "producten",
                     "positive"
                 ]
             ],
@@ -4052,8 +4057,8 @@
         {
             "predictions": [
                 [
-                    "food prices",
-                    "broodje met vol-au-vent",
+                    "food quality",
+                    "broodje",
                     "positive"
                 ]
             ],
@@ -4068,8 +4073,13 @@
         {
             "predictions": [
                 [
+                    "food quality",
+                    "bordjes",
+                    "positive"
+                ],
+                [
                     "food style_options",
-                    "kaart",
+                    "bordjes",
                     "positive"
                 ]
             ],
@@ -4122,7 +4132,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "taarten of quiches",
+                    "taarten",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "taarten",
                     "positive"
                 ]
             ],
@@ -4175,14 +4190,14 @@
             "predictions": [
                 [
                     "food quality",
-                    "thaise keuken",
-                    "negative"
+                    "Thaise keuken",
+                    "neutral"
                 ]
             ],
             "gold_labels": [
                 [
                     "food quality",
-                    "thaise keuken",
+                    "Thaise keuken",
                     "positive"
                 ]
             ]
@@ -4195,7 +4210,7 @@
                     "neutral"
                 ],
                 [
-                    "food prices",
+                    "food quality",
                     "eten",
                     "positive"
                 ]
@@ -4211,7 +4226,7 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
+                    "food quality",
                     "NULL",
                     "positive"
                 ]
@@ -4281,7 +4296,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "bordje",
+                    "afsluiter",
                     "positive"
                 ]
             ],
@@ -4297,12 +4312,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "stukje gebakken zalm met krieltjes en verse groentjes",
+                    "stukje gebakken zalm met krieltjes",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "stukje gebakken zalm met krieltjes en verse groentjes",
+                    "groentjes",
                     "positive"
                 ]
             ],
@@ -4338,9 +4353,9 @@
                     "positive"
                 ],
                 [
-                    "food quality",
-                    "quiche",
-                    "positive"
+                    "drinks quality",
+                    "limonade",
+                    "negative"
                 ]
             ],
             "gold_labels": [
@@ -4466,14 +4481,14 @@
             "predictions": [
                 [
                     "food quality",
-                    "pizza-bakker",
+                    "Mateo",
                     "positive"
                 ]
             ],
             "gold_labels": [
                 [
                     "food quality",
-                    "mateo",
+                    "Mateo",
                     "positive"
                 ]
             ]
@@ -4499,7 +4514,7 @@
                 [
                     "restaurant general",
                     "NULL",
-                    "positive"
+                    "neutral"
                 ]
             ],
             "gold_labels": [
@@ -4515,11 +4530,16 @@
                 [
                     "food quality",
                     "eten",
-                    "negative"
+                    "positive"
                 ],
                 [
                     "service general",
                     "mevrouw van de bediening",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "eten",
                     "negative"
                 ]
             ],
@@ -4560,7 +4580,7 @@
         {
             "predictions": [
                 [
-                    "service general",
+                    "food quality",
                     "NULL",
                     "positive"
                 ]
@@ -4577,7 +4597,7 @@
             "predictions": [
                 [
                     "food prices",
-                    "gerechten",
+                    "Biryani",
                     "positive"
                 ],
                 [
@@ -4587,7 +4607,7 @@
                 ],
                 [
                     "restaurant general",
-                    "biryani",
+                    "Biryani",
                     "positive"
                 ]
             ],
@@ -4624,14 +4644,14 @@
             "predictions": [
                 [
                     "food quality",
-                    "gamba's op Indische wijze",
+                    "Gamba's",
                     "positive"
                 ]
             ],
             "gold_labels": [
                 [
                     "food quality",
-                    "gamba's op indische wijze",
+                    "Gamba's op Indische wijze",
                     "positive"
                 ]
             ]
@@ -4697,15 +4717,15 @@
         {
             "predictions": [
                 [
-                    "ambience general",
-                    "terrasje",
+                    "location general",
+                    "locatie",
                     "positive"
                 ]
             ],
             "gold_labels": [
                 [
                     "location general",
-                    "sint jorispoort",
+                    "Sint Jorispoort",
                     "positive"
                 ]
             ]
@@ -4731,6 +4751,11 @@
                 [
                     "drinks style_options",
                     "wijnkaart",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "wijnen",
                     "positive"
                 ]
             ],
@@ -4782,7 +4807,12 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
+                    "food quality",
+                    "NULL",
+                    "neutral"
+                ],
+                [
+                    "food quality",
                     "NULL",
                     "positive"
                 ]
@@ -4799,14 +4829,14 @@
             "predictions": [
                 [
                     "service general",
-                    "bediening",
+                    "Bediening",
                     "negative"
                 ]
             ],
             "gold_labels": [
                 [
                     "service general",
-                    "bediening",
+                    "Bediening",
                     "neutral"
                 ]
             ]
