@@ -177,7 +177,6 @@ def init_args():
     parser.add_argument('--seed', type=int, default=5)
     parser.add_argument("--max_seq_length", default=200, type=int)
     parser.add_argument("--max_new_tokens", default=200, type=int)
-    parser.add_argument("--max_num_regenerations_eval", default=10, type=int)
     parser.add_argument("--temperature", default=1.0, type=float)
     # parser.add_argument("--cond_name", default='', type=str)
     parser.add_argument("--max_model_len", default=2048, type=int)
@@ -188,29 +187,7 @@ def init_args():
     args = parser.parse_args()
 
     return args
-    
-def savePredictions(f1, golds, preds, args, config, eval_type):
-    output_path = os.path.join(args.output_dir, f'{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting.replace("_","-")}-{"b" if eval_type == "balanced" else "o"}_{args.learning_rate}_{args.train_batch_size}_{args.num_train_epochs}_{args.seed}')
-    
-    os.makedirs(output_path, exist_ok=True)
 
-    for idx, name in enumerate(["asp", "asp_pol", "pairs", "pol", "phrases"]):
-        pd.DataFrame.from_dict(f1[idx]).transpose().to_csv(os.path.join(output_path, f"metrics_{name}.tsv"), sep="\t")
-    
-    try:
-        matched_samples = [
-            {"predictions": pred, "gold_labels": gold}
-            for pred, gold in zip(preds, golds)
-        ]
-        print(matched_samples[:5])
-        with open(os.path.join(output_path, 'predictions.json'), "w", encoding="utf-8") as f:
-            json.dump({"test": matched_samples}, f, indent=4, ensure_ascii=False)
-
-    except:
-        pass
-
-    with open(os.path.join(output_path, 'config.json'), "w", encoding="utf-8") as f:
-        json.dump(config, f, indent=4, ensure_ascii=False)
 
 def extract_output_as_list(output_raw, task):
     try:
@@ -226,133 +203,189 @@ def extract_output_as_list(output_raw, task):
         output_label = []
     return output_label
 
-if __name__ == '__main__':
-    args = init_args()
-    
-    seed = args.seed
-    model_name_or_path = args.model_name_or_path
-    task = args.task
-    lanugage = args.lang
-    max_seq_length = args.max_seq_length
-    max_new_tokens = args.max_new_tokens
-    max_num_regenerations_eval = args.max_num_regenerations_eval
-    temperature = args.temperature
-    max_model_len = args.max_model_len
+def createPrompts(dataset, test = False, eos_token = ''):
+    def formatting_prompts_func(examples):
+        inputs = examples["input"]
+        outputs = examples["output"]
+        texts = []
+        for input, output in zip(inputs, outputs):
+            text = PROMPT_TEMPLATE.format(prompt_header, input, output) + eos_token
+            texts.append(text)
+        return {
+            "text": texts,
+        }
 
-    set_seed(seed)
-
-    train_ds, test_ds, label_space = loadDataset(args.data_path, args.lang, args.data_setting)
-    
     unique_aspect_categories = sorted(set([asp.split(':')[0] for asp in label_space]))
-
+        
     prompt_header = (
         get_prompt_header(lanugage)
         .replace("[[aspect_category]]", str(unique_aspect_categories)[1:-1])
         .replace("[[examples]]", "")[:-2]
     )
 
-    cache_config = f"cache_res_{args.task}_{args.lang}_{args.eval_type}_{args.data_setting}_{args.lang_setting}_{args.num_train_epochs}"
+    if test:
+        predictions = {}
+
+        all_prompts = []
+        all_labels = []
     
-    if False:
-        dataset = []
-        for idx, example in train_ds.iterrows():
-            dataset.append(
+        for idx, example in tqdm(test_ds.iterrows(), total=test_ds.shape[0]):
+            test_text = example["text"]
+            all_prompts.append(
+                PROMPT_TEMPLATE.format(
+                    prompt_header,
+                    test_text,
+                    "",
+                )
+            )
+    
+            tuple_list = [list(_tuple) for _tuple in [tuple(examples) for examples in example["labels"]]]
+            tuple_list = [[_tuple[0], _tuple[1], *_tuple[2:]] for _tuple in tuple_list]
+            all_labels.append(tuple_list)
+
+        return all_prompts, all_labels
+
+    else:
+        examples_preprocessed = []
+        for idx, examples in train_ds.iterrows():
+            examples_preprocessed.append(
                 {
                     "input": example["text"],
-                    "output": str([tuple(s.strip() for s in examples) for examples in example["labels"]]),
+                    "output": str([tuple(s.strip() for s in labels) for labels in examples["labels"]]),
                 }
             )
-        dataset = Dataset.from_dict({key: [d[key] for d in dataset] for key in dataset[0]})
-        model, tokenizer = get_model_and_tokenizer(max_seq_length, model_name_or_path, seed)
-        EOS_TOKEN = tokenizer.eos_token  # Must add EOS_TOKEN
+        examples_preprocessed = Dataset.from_dict({key: [d[key] for d in examples_preprocessed] for key in examples_preprocessed[0]})
     
-        def formatting_prompts_func(examples):
-            inputs = examples["input"]
-            outputs = examples["output"]
-            texts = []
-            for input, output in zip(inputs, outputs):
-                # Must add EOS_TOKEN, otherwise your generation will go on forever!
-                text = PROMPT_TEMPLATE.format(prompt_header, input, output) + EOS_TOKEN
-                texts.append(text)
-            return {
-                "text": texts,
-            }
-    
-        dataset = dataset.map(
+        all_prompts = examples_preprocessed.map(
             formatting_prompts_func,
             batched=True,
         )
+
+        return all_prompts
         
-        print(dataset[0])
+    
+
+if __name__ == '__main__':
+    args = init_args()
+    
+    set_seed(args.seed)
+
+    model, tokenizer = get_model_and_tokenizer(args.max_seq_length, args.model_name_or_path, args.seed)
+
+    if args.data_setting == 'balanced':
+        train, test_balanced, label_space = splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
+        _, test_orig, _ = loadDataset(args.data_path, args.lang, 'orig')
+
+        unique_aspect_categories = sorted(set([asp.split(':')[0] for asp in label_space]))
+        
+        prompt_header = (
+            get_prompt_header(args.lang)
+            .replace("[[aspect_category]]", str(unique_aspect_categories)[1:-1])
+            .replace("[[examples]]", "")[:-2]
+        )
+
+        if 'eval' in args.eval_type:
+            test_dataset, gold = createPrompts(test_balanced, test = True, eos_token = tokenizer.eos_token)
+
+    elif args.data_setting == 'orig':
+        train, test_orig, label_space = splitForEvalSetting(loadDataset(args.data_path, args.lang, args.data_setting), args.eval_type)
+        if args.lang != 'tr':
+            _, test_balanced, _ = loadDataset(args.data_path, args.lang, 'balanced')
+
+        unique_aspect_categories = sorted(set([asp.split(':')[0] for asp in label_space]))
+        
+        prompt_header = (
+            get_prompt_header(args.lang)
+            .replace("[[aspect_category]]", str(unique_aspect_categories)[1:-1])
+            .replace("[[examples]]", "")[:-2]
+        )
+        
+        if 'eval' in args.eval_type:
+            test_dataset, gold = createPrompts(test_orig, test = True, eos_token = tokenizer.eos_token)
+
+    else: 
+        train, test_balanced, label_space = splitForEvalSetting(loadDataset(args.data_path, args.lang, 'multi_balanced'), args.eval_type)
+        _, test_orig, _ = loadDataset(args.data_path, args.lang, 'orig')
+
+    train_dataset = createPrompts(train, test = False, eos_token = tokenizer.eos_token)
+        
+    if train:
+        model, tokenizer = get_model_and_tokenizer(args.max_seq_length, model_name_or_path, seed)
         
         start_total_time = time.time()
     
-        trainer = get_trainer(model, tokenizer, dataset, args)
+        trainer = get_trainer(model, tokenizer, train_dataset, args)
         trainer.train()
         
         end_total_time = time.time()
-        total_time = end_total_time - start_total_time
+        training_duration = end_total_time - start_total_time
 
-        model.save_pretrained(cache_config, maximum_memory_usage=0.9)
+        model_config = f"../src/llm/model_cache/{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting}_{args.learning_rate}_{args.batch_size}_{args.num_train_epochs}_{args.seed}"
+        model.save_pretrained(model_config, maximum_memory_usage=0.9)
+
+        trainer_args = {}
+        trainer_args.update({
+            "model_name": args.model_name_or_path,
+            "task": args.task,
+            "data_setting": args.data_setting,
+            "lang": args.lang,
+            "lang_setting": args.lang_setting,
+            "per_device_train_batch_size": args.train_batch_size,
+            "learning_rate": args.learning_rate,
+            "num_train_epochs": args.num_train_epochs,
+            "eval_type": args.eval_type,
+            "train_runtime": training_duration
+        })
     else:
         total_time = 0
 
-    predictions = {}
 
-    all_prompts = []
-    all_labels = []
-
-    for idx, example in tqdm(test_ds.iterrows(), total=test_ds.shape[0]):
-        test_text = example["text"]
-        all_prompts.append(
-            PROMPT_TEMPLATE.format(
-                prompt_header,
-                test_text,
-                "",
-            )
-        )
-
-        tuple_list = [list(_tuple) for _tuple in [tuple(examples) for examples in example["labels"]]]
-        tuple_list = [[_tuple[0], _tuple[1], *_tuple[2:]] for _tuple in tuple_list]
-        all_labels.append(tuple_list)
-
-    print(all_prompts[0])
-    # save cache_res
-
+    ###
+    #  Eval
+    ###
     
-    with open(f"{cache_config}.json", "w") as f:
-        json.dump({"all_prompts": all_prompts, "all_labels": all_labels}, f)
+    if 'eval' not in args.eval_type:
+        if args.lang != 'tr':
+            test_dataset_balanced, gold_balanced = createPrompts(test_balanced, test = True, eos_token = tokenizer.eos_token)
+            res_config_1 = f"../results/llm/{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting}-b_{args.learning_rate}_{args.batch_size}_{args.num_train_epochs}_{args.seed}/"
+            os.makedirs(res_config_1, exist_ok=True)
+            
+            with open(f"{res_config_1}res_config.json", "w") as f:
+                json.dump({"all_prompts": test_dataset_balanced, "all_labels": gold_balanced, "train_config": trainer_args, "label_space": label_space}, f)
+            
+        test_dataset_orig, gold_orig = createPrompts(test_orig, test = True, eos_token = tokenizer.eos_token)
+        res_config_2 = f"../results/llm/{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting}-o_{args.learning_rate}_{args.batch_size}_{args.num_train_epochs}_{args.seed}/"
+        os.makedirs(res_config_2, exist_ok=True)
+        
+        with open(f"{res_config_2}res_config.json", "w") as f:
+            json.dump({"all_prompts": test_dataset_orig, "all_labels": gold_orig, "train_config": trainer_args, "label_space": label_space}, f)
 
-    result = subprocess.run(
-        [
+    else:
+        res_config_1 = f"../results/llm/{args.task}_{args.lang}_{args.lang_setting}_{args.eval_type}_{args.data_setting}-{args.data_setting[0]}_{args.learning_rate}_{args.batch_size}_{args.num_train_epochs}_{args.seed}/"
+        os.makedirs(res_config_1, exist_ok=True)
+        res_config_2 = None
+        
+        with open(f"{res_config_1}res_config.json", "w") as f:
+            json.dump({"all_prompts": test_dataset, "all_labels": gold, "train_config": trainer_args, "label_space": label_space}, f)
+
+    cmd = [
             "python", "../src/llm/test_llm.py",
-            "--max-new-tokens", str(max_new_tokens), 
-            "--max-model-len", str(max_model_len),
-            "--model-name-or-path", model_name_or_path,
-            "--seed", str(seed),
-            "--temperature", str(temperature),
-            "--evaluation_data", f"{cache_config}.json",
-            "--model_path", cache_config,
-            "--task", task,
-        ],
+            "--max_new_tokens", str(args.max_new_tokens), 
+            "--max_model_len", str(args.max_model_len),
+            "--model_name_or_path", args.model_name_or_path,
+            "--seed", str(args.seed),
+            "--temperature", str(args.temperature),
+            "--evaluation_data_1", res_config_1,
+            "--model_path", model_config,
+            "--task", args.task,
+        ]
+
+    if res_config_2:
+        cmd.extend(["--evaluation_data_2", res_config_2])
+        
+    result = subprocess.run(
+        cmd,
         capture_output=True,
         text=True,
         # stderr=sys.stdout
     )
-    try:
-        result = json.loads(result.stdout.split("#######\n")[1])
-    except:
-        print(result.stdout)
-
-    predictions["all_prompts"] = all_prompts
-    predictions["all_preds"] = result["all_preds"]
-    predictions["all_labels"] = all_labels
-    total_time = end_total_time - start_total_time
-    predictions["total_time"] = total_time
-    predictions["scores"] = result["scores"]
-
-    scores_dfs = compute_scores(result["all_preds"], all_labels, task, label_space):
-
-    savePredictions(scores_dfs, golds, preds, args, config, eval_type):
-    
-    print(predictions["scores"])
