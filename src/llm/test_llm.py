@@ -13,6 +13,7 @@ from transformers import set_seed
 import random
 import numpy as np
 import torch
+import pandas as pd
 
 parser = argparse.ArgumentParser(description="Run LLM model")
 parser.add_argument(
@@ -23,8 +24,8 @@ parser.add_argument(
     help="Model name or path",
 )
 parser.add_argument("--seed", "-s", type=int, default=0, help="Random seed")
-parser.add_argument("--evaluation_data_1", "-e", type=str, help="Path to evaluation data")
-parser.add_argument("--evaluation_data_2", "-e", type=str, default=None, help="Path to evaluation data")
+parser.add_argument("--evaluation_data_1", "-e1", type=str, help="Path to evaluation data")
+parser.add_argument("--evaluation_data_2", "-e2", type=str, default=None, help="Path to evaluation data")
 parser.add_argument(
     "--temperature",
     "-t",
@@ -69,7 +70,8 @@ def savePredictions(f1, golds, preds, output_path, training_args):
     os.makedirs(output_path, exist_ok=True)
 
     for idx, name in enumerate(["asp", "asp_pol", "pairs", "pol", "phrases"]):
-        pd.DataFrame.from_dict(f1[idx]).transpose().to_csv(os.path.join(output_path, f"metrics_{name}.tsv"), sep="\t")
+        if f1[idx] is not None:
+            pd.DataFrame.from_dict(f1[idx]).transpose().to_csv(os.path.join(output_path, f"metrics_{name}.tsv"), sep="\t")
     
     try:
         matched_samples = [
@@ -90,13 +92,18 @@ def extract_output_as_list(output_raw, task):
     try:
         output_label = output_raw
 
-        n_elements = {"asqp": 4, "tasd": 3, "e2e": 2}
+        n_elements = {"asqp": 4, "tasd": 3, "acsa": 2, "acd": 1}
         output_label = to_pred_list(output_label, n_elements[task])
         output_label = [
             list(_tuple) for _tuple in output_label if len(_tuple) == n_elements[task]
         ]
         # switch first and second element of each tuple
-        output_label = [[_tuple[1], _tuple[0], *_tuple[2:]] for _tuple in output_label]
+        if task == 'tasd':
+            output_label = [[_tuple[1], _tuple[2].upper(), _tuple[0]] for _tuple in output_label]
+        elif task == 'acsa':
+            output_label = [[_tuple[0], _tuple[1].upper()] for _tuple in output_label]
+        elif task == 'acd':
+            output_label = [_tuple for _tuple in output_label]
     except:
         output_label = []
     return output_label
@@ -152,10 +159,10 @@ model = LLM(
     dtype="bfloat16",
     max_model_len=args.max_model_len,
     tensor_parallel_size=torch.cuda.device_count(),
-    gpu_memory_utilization = 0.9,
+    gpu_memory_utilization = 0.6,
     seed=args.seed,
     enable_lora=True,
-    max_lora_rank=8,
+    max_lora_rank=64,
     max_num_seqs = 20
 )
 
@@ -170,21 +177,21 @@ eval_config = {
 
 sampling_params = createSamplingParams(eval_config)
 
-eval_paths = [args.evaluation_data_path_1]
-if args.evaluation_data_path_2
-    eval_paths.append(args.evaluation_data_path_2)
+eval_paths = [args.evaluation_data_1]
+if args.evaluation_data_2:
+    eval_paths.append(args.evaluation_data_2)
 
 
 for path in eval_paths:
     
     # load the evaluation data (json)
-    with open(path, "r", encoding="utf-8") as f:
+    with open(f"{path}res_config.json", "r", encoding="utf-8") as f:
         eval_data = json.load(f)
 
     all_prompts = eval_data["all_prompts"]
     all_labels = eval_data["all_labels"]
     label_space = eval_data["label_space"]
-    training_args = eval_data["training_args"]
+    training_args = eval_data["train_config"]
     
     model_outputs = model.generate(all_prompts, sampling_params, lora_request=LoRARequest("adapter", 1, args.model_path))
 
@@ -197,13 +204,27 @@ for path in eval_paths:
        all_labels[k] = [
            list(_tuple) for _tuple in all_labels[k]
        ] 
+
+    print(all_preds[0])
+    print(all_labels[0])
     
     scores = compute_f1_scores(all_preds, all_labels)
     print("\nF1 Scores - Nils: ", scores['f1'])
+
+    preds, _ = convertLabels(all_preds, args.task, label_space)
+    golds, _ = convertLabels(all_labels, args.task, label_space)
+
+    print(preds[0])
+    print(golds[0])
     
-    f1 = createResults(all_preds, all_labels, label_space, args.task)
-    print("\nF1 Scores - Jakob: ", f1[4]['Micro-AVG']['f1'])
+    f1 = createResults(preds, golds, label_space, args.task)
+    if args.task == 'tasd':
+        print("\nF1 Scores - Jakob: ", f1[4]['Micro-AVG']['f1'])
+    elif args.task == 'acsa':
+        print("\nF1 Scores - Jakob: ", f1[1]['Micro-AVG']['f1'])
+    elif args.task == 'acd':
+        print("\nF1 Scores - Jakob: ", f1[0]['Micro-AVG']['f1'])
     
     training_args.update(eval_config)
     
-    savePredictions(f1, all_labels, all_preds, path, training_args, args.eval_type)
+    savePredictions(f1, all_labels, all_preds, path, training_args)
