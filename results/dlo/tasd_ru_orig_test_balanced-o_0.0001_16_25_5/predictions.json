@@ -50,7 +50,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Салаты со свежей зеленью",
+                    "Салаты со зеленью",
                     "positive"
                 ],
                 [
@@ -60,7 +60,7 @@
                 ],
                 [
                     "food quality",
-                    "курицы",
+                    "курица",
                     "positive"
                 ],
                 [
@@ -70,7 +70,7 @@
                 ],
                 [
                     "food quality",
-                    "Супфреда миндальный",
+                    "Салаты со миндальный",
                     "positive"
                 ]
             ],
@@ -291,7 +291,7 @@
             "predictions": [
                 [
                     "food style_options",
-                    "сигоря",
+                    "сигары",
                     "negative"
                 ],
                 [
@@ -300,8 +300,8 @@
                     "negative"
                 ],
                 [
-                    "food style_options",
-                    "блюд",
+                    "service general",
+                    "выборе блюд",
                     "negative"
                 ]
             ],
@@ -551,12 +551,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "фирменный салат Клет",
+                    "фирменный салат Класерт",
                     "negative"
                 ],
                 [
                     "food quality",
-                    "вина",
+                    "вину",
                     "neutral"
                 ],
                 [
@@ -634,7 +634,7 @@
             "predictions": [
                 [
                     "service general",
-                    "девушка-администраторка",
+                    "девушка-блондинка",
                     "positive"
                 ]
             ],
@@ -666,7 +666,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "стейк Тавер",
+                    "стейк Тае",
                     "positive"
                 ],
                 [
@@ -737,8 +737,8 @@
                     "positive"
                 ],
                 [
-                    "food quality",
-                    "Вельвете",
+                    "drinks quality",
+                    "Вельво",
                     "positive"
                 ]
             ],
@@ -823,7 +823,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "вентиляции",
+                    "вентиляцией",
                     "negative"
                 ]
             ],
@@ -903,7 +903,7 @@
             "predictions": [
                 [
                     "service general",
-                    "Персонау",
+                    "Персоналу",
                     "positive"
                 ]
             ],
@@ -951,7 +951,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "овсу",
+                    "овную",
                     "positive"
                 ]
             ],
@@ -983,7 +983,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Токтики",
+                    "NULL",
                     "positive"
                 ],
                 [
@@ -1289,7 +1289,7 @@
             "predictions": [
                 [
                     "service general",
-                    "бармен",
+                    "Бармен",
                     "positive"
                 ]
             ],
@@ -1499,7 +1499,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Коктели",
+                    "Коктан",
                     "neutral"
                 ],
                 [
@@ -1530,7 +1530,7 @@
                 ],
                 [
                     "food style_options",
-                    "выбор блюдо",
+                    "блюдо",
                     "positive"
                 ]
             ],
@@ -1546,12 +1546,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "чебуреки с сыром и картофелем",
+                    "Чебуреки с сыром и картофелем",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "супом и картофелем",
+                    "соусом",
                     "positive"
                 ]
             ],
@@ -1629,8 +1629,13 @@
                 ],
                 [
                     "service general",
-                    "подача",
+                    "Обслуживание",
                     "negative"
+                ],
+                [
+                    "food quality",
+                    "шашлык",
+                    "positive"
                 ]
             ],
             "gold_labels": [
@@ -1702,7 +1707,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "светлоый зал",
+                    "Светлый зал",
                     "positive"
                 ]
             ],
@@ -1855,7 +1860,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "залов",
+                    "зале",
                     "positive"
                 ],
                 [
@@ -1902,7 +1907,7 @@
                 ],
                 [
                     "food style_options",
-                    "паки гриль",
+                    "папки гриль",
                     "negative"
                 ],
                 [
@@ -2002,7 +2007,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Суп мен-чи",
+                    "Суп ким-чи",
                     "positive"
                 ],
                 [
@@ -2052,9 +2057,29 @@
                     "positive"
                 ],
                 [
-                    "food quality",
-                    "уха",
+                    "food style_options",
+                    "рыба гриль",
                     "positive"
+                ],
+                [
+                    "food style_options",
+                    "рыба гриль",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "рыба гриль",
+                    "positive"
+                ],
+                [
+                    "food style_options",
+                    "рыба гриль",
+                    "positive"
+                ],
+                [
+                    "",
+                    "",
+                    ""
                 ]
             ],
             "gold_labels": [
@@ -2137,7 +2162,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "шарлатка",
+                    "NULL",
                     "positive"
                 ],
                 [
@@ -2163,7 +2188,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "тарроны",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -2263,7 +2288,7 @@
             "predictions": [
                 [
                     "service general",
-                    "администратор",
+                    "Администратор",
                     "positive"
                 ]
             ],
@@ -2352,12 +2377,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "сервис ресторана",
-                    "positive"
-                ],
-                [
-                    "food style_options",
-                    "меню",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -2514,8 +2534,13 @@
             "predictions": [
                 [
                     "ambience general",
-                    "Интерьер",
+                    "NULL",
                     "positive"
+                ],
+                [
+                    "ambience general",
+                    "Интерьер",
+                    "neutral"
                 ]
             ],
             "gold_labels": [
@@ -2608,12 +2633,12 @@
                 ],
                 [
                     "food quality",
-                    "салат из кальмара",
+                    "салат из кальмаров",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "вкус",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -2670,7 +2695,7 @@
                 ],
                 [
                     "food quality",
-                    "фрукты в горячие карме",
+                    "фрукты в горя это",
                     "positive"
                 ]
             ],
@@ -2961,12 +2986,12 @@
                 ],
                 [
                     "ambience general",
-                    "мест на диваноках",
+                    "мест на диванчиках",
                     "positive"
                 ],
                 [
                     "ambience general",
-                    "музыка",
+                    "музыки",
                     "positive"
                 ]
             ],
@@ -3035,12 +3060,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "Еда",
+                    "NULL",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "салаты",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -3056,7 +3081,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "ролый суп с морепродуктами",
+                    "суп с морепродуктами",
                     "positive"
                 ],
                 [
@@ -3087,12 +3112,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "Мидий под спечи соусом",
+                    "Мидии под соусом",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "медови из двух палочек",
+                    "мидии из это",
                     "positive"
                 ]
             ],
@@ -3108,7 +3133,7 @@
             "predictions": [
                 [
                     "food style_options",
-                    "куриное филе с пюре",
+                    "Куриное филе с пюре",
                     "positive"
                 ],
                 [
@@ -3207,7 +3232,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "Озарках",
+                    "Озерках",
                     "positive"
                 ]
             ],
@@ -3404,7 +3429,7 @@
             "predictions": [
                 [
                     "service general",
-                    "официант",
+                    "официантом",
                     "positive"
                 ]
             ],
@@ -3516,7 +3541,7 @@
             "predictions": [
                 [
                     "restaurant prices",
-                    "пена- бар",
+                    "пена-бар",
                     "negative"
                 ]
             ],
@@ -3576,11 +3601,6 @@
                     "service general",
                     "Персонал",
                     "positive"
-                ],
-                [
-                    "service general",
-                    "девушки хостес",
-                    "positive"
                 ]
             ],
             "gold_labels": [
@@ -3621,7 +3641,7 @@
             "predictions": [
                 [
                     "food style_options",
-                    "Официе",
+                    "Оформление",
                     "positive"
                 ],
                 [
@@ -3642,27 +3662,17 @@
             "predictions": [
                 [
                     "food quality",
-                    "лосось с гофами",
+                    "лосось с гофрами",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "подкосенный лосось с гофами",
+                    "красной икрой и кремом шантий",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "красной икрой и кремом шалтой",
-                    "positive"
-                ],
-                [
-                    "food style_options",
                     "рыба",
-                    "positive"
-                ],
-                [
-                    "food style_options",
-                    "и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и и",
                     "positive"
                 ]
             ],
@@ -3757,7 +3767,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "стейк с трюфельным кремм",
+                    "стейк с трюфельным маслом",
                     "positive"
                 ]
             ],
@@ -3789,7 +3799,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "десерт с зеленикой",
+                    "десерт с черникой",
                     "positive"
                 ]
             ],
@@ -3805,7 +3815,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "кухня",
+                    "группа А это",
                     "positive"
                 ]
             ],
@@ -3837,7 +3847,7 @@
             "predictions": [
                 [
                     "drinks quality",
-                    "коктейлей",
+                    "коктейлями",
                     "negative"
                 ],
                 [
@@ -3994,8 +4004,8 @@
         {
             "predictions": [
                 [
-                    "food style_options",
-                    "Сервисировка",
+                    "food quality",
+                    "Сервировка",
                     "positive"
                 ]
             ],
@@ -4186,11 +4196,6 @@
                 ],
                 [
                     "food style_options",
-                    "салаттики",
-                    "positive"
-                ],
-                [
-                    "food style_options",
                     "сервировка блюд",
                     "positive"
                 ]
@@ -4236,8 +4241,8 @@
                     "positive"
                 ],
                 [
-                    "drinks quality",
-                    "кварь",
+                    "food quality",
+                    "клыка",
                     "positive"
                 ]
             ],
@@ -4654,12 +4659,12 @@
                 ],
                 [
                     "ambience general",
-                    "стулья под зонтыками",
+                    "стулья под зонтиками",
                     "positive"
                 ],
                 [
                     "ambience general",
-                    "атмосфер",
+                    "свежий это",
                     "positive"
                 ]
             ],
@@ -4690,7 +4695,7 @@
             "predictions": [
                 [
                     "service general",
-                    "Девушка официантки",
+                    "Девушки официантки",
                     "negative"
                 ]
             ],
@@ -4738,12 +4743,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "сухе мясо",
+                    "соус к шашлыку",
                     "negative"
                 ],
                 [
                     "food quality",
-                    "белый соус к шашлыку",
+                    "красный соус к шашлыку",
                     "positive"
                 ]
             ],
@@ -4827,12 +4832,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "Мясо",
+                    "Моом",
                     "positive"
                 ],
                 [
                     "drinks quality",
-                    "чай зеленый с леоном",
+                    "чай зеленый с лимоном",
                     "positive"
                 ]
             ],
@@ -4885,7 +4890,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "музыка",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -5084,7 +5089,7 @@
             "predictions": [
                 [
                     "service general",
-                    "Еда",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -5338,12 +5343,12 @@
                 ],
                 [
                     "food quality",
-                    "мясо цыпка",
+                    "мясо цыпленка",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "шоколадовельсиновый соус",
+                    "соус",
                     "positive"
                 ]
             ],
@@ -5364,7 +5369,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "телятину на пасточек",
+                    "телятину на телятину",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "телятину",
                     "positive"
                 ]
             ],
@@ -5380,7 +5390,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "ресторан Ла Токре",
+                    "ресторан это",
                     "positive"
                 ],
                 [
@@ -5438,7 +5448,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "столов с диваном",
+                    "столов с диванами",
                     "positive"
                 ]
             ],
@@ -5539,7 +5549,7 @@
             "predictions": [
                 [
                     "service general",
-                    "Качество",
+                    "Доставка",
                     "neutral"
                 ]
             ],
@@ -5623,7 +5633,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "Сервис",
+                    "Дизайн",
                     "positive"
                 ],
                 [
@@ -5681,7 +5691,7 @@
             "predictions": [
                 [
                     "service general",
-                    "администрацитер",
+                    "официантка",
                     "positive"
                 ],
                 [
@@ -5728,7 +5738,7 @@
             "predictions": [
                 [
                     "drinks quality",
-                    "напитоклимончелло",
+                    "напиток Лимончелло",
                     "positive"
                 ]
             ],
@@ -5744,7 +5754,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "кремовый леончелло",
+                    "кремовый ло",
                     "positive"
                 ]
             ],
@@ -5876,7 +5886,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "потолы",
+                    "потолки",
                     "positive"
                 ],
                 [
@@ -5918,7 +5928,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "салаты с крабом и утку",
+                    "салаты с крабом и уткой",
                     "positive"
                 ]
             ],
@@ -6103,11 +6113,6 @@
                 ],
                 [
                     "food style_options",
-                    "соуса",
-                    "positive"
-                ],
-                [
-                    "food style_options",
                     "порции",
                     "positive"
                 ]
@@ -6181,12 +6186,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "сырная лешка",
+                    "сырная лепешка",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "сырная лешка",
+                    "сырная лепешка",
                     "positive"
                 ]
             ],
@@ -6234,7 +6239,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "десерт Европский пижк",
+                    "десерт это",
                     "negative"
                 ]
             ],
@@ -6356,7 +6361,12 @@
                 ],
                 [
                     "food style_options",
-                    "рыба",
+                    "салат",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "салат",
                     "negative"
                 ]
             ],
@@ -6392,7 +6402,7 @@
                 ],
                 [
                     "service general",
-                    "педерики",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -6433,7 +6443,7 @@
                 ],
                 [
                     "food quality",
-                    "подача блюд",
+                    "подачи блюд",
                     "positive"
                 ]
             ],
@@ -6636,12 +6646,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "десертытирамису",
+                    "десерты Тирамису",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "десертытирамису",
+                    "десерты Тирамису",
                     "positive"
                 ]
             ],
@@ -6794,12 +6804,7 @@
                 ],
                 [
                     "ambience general",
-                    "интерьера сотрудниками",
-                    "positive"
-                ],
-                [
-                    "ambience general",
-                    "музыка",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -6904,28 +6909,53 @@
             "predictions": [
                 [
                     "restaurant prices",
-                    "горшочек солйки",
+                    "горшочек солянки",
                     "neutral"
                 ],
                 [
                     "food prices",
-                    "горшочек солйки",
+                    "горшочек солянки",
                     "positive"
                 ],
                 [
                     "drinks prices",
-                    "горелка Неров",
+                    "горл вина",
                     "positive"
                 ],
                 [
                     "drinks prices",
-                    "балан вина",
+                    "вина",
                     "positive"
                 ],
                 [
                     "drinks prices",
-                    "спирто",
+                    "вина",
                     "positive"
+                ],
+                [
+                    "drinks prices",
+                    "вина",
+                    "positive"
+                ],
+                [
+                    "drinks prices",
+                    "вина",
+                    "neutral"
+                ],
+                [
+                    "drinks prices",
+                    "вина",
+                    "positive"
+                ],
+                [
+                    "drinks prices",
+                    "вина",
+                    "neutral"
+                ],
+                [
+                    "",
+                    "",
+                    ""
                 ]
             ],
             "gold_labels": [
@@ -7013,12 +7043,7 @@
                 ],
                 [
                     "food quality",
-                    "филе цыпка",
-                    "positive"
-                ],
-                [
-                    "food quality",
-                    "основного блюда",
+                    "филе цыпленка",
                     "positive"
                 ],
                 [
@@ -7070,7 +7095,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "Обый зал",
+                    "NULL",
                     "positive"
                 ],
                 [
@@ -7080,7 +7105,7 @@
                 ],
                 [
                     "ambience general",
-                    "стулы",
+                    "люстры",
                     "positive"
                 ]
             ],
@@ -7158,7 +7183,7 @@
                 ],
                 [
                     "ambience general",
-                    "стулок итальянской кухни",
+                    "окок итальянской кухни",
                     "positive"
                 ]
             ],
@@ -7298,7 +7323,7 @@
                 ],
                 [
                     "food style_options",
-                    "блюд салатов",
+                    "блюд мясо",
                     "negative"
                 ]
             ],
@@ -7335,7 +7360,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "заведении",
+                    "заведений",
                     "positive"
                 ]
             ],
@@ -7484,7 +7509,12 @@
             "predictions": [
                 [
                     "ambience general",
-                    "Танец жива",
+                    "Танец это",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "исполнении",
                     "positive"
                 ]
             ],
@@ -7542,17 +7572,17 @@
                 ],
                 [
                     "food quality",
-                    "пососенный суп из шпинат",
+                    "по салат",
                     "negative"
                 ],
                 [
                     "food quality",
                     "хлебной тарелки",
-                    "negative"
+                    "positive"
                 ],
                 [
                     "food quality",
-                    "куриная котлелка",
+                    "куриная котлетка",
                     "positive"
                 ]
             ],
@@ -7644,9 +7674,49 @@
                     "positive"
                 ],
                 [
-                    "food quality",
-                    "палокты",
+                    "drinks quality",
+                    "горячее",
                     "positive"
+                ],
+                [
+                    "food quality",
+                    "десерт",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "десерт",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "десерт",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "десерт",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "десерт",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "десерт",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "десерт",
+                    "positive"
+                ],
+                [
+                    "",
+                    "",
+                    ""
                 ]
             ],
             "gold_labels": [
@@ -7827,7 +7897,7 @@
                 ],
                 [
                     "food quality",
-                    "мяса на гриле",
+                    "сема на гриле",
                     "positive"
                 ],
                 [
@@ -7868,12 +7938,12 @@
             "predictions": [
                 [
                     "ambience general",
-                    "блюда",
+                    "души",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "чай",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -8079,12 +8149,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "зал",
-                    "positive"
-                ],
-                [
-                    "ambience general",
-                    "вид",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -8100,17 +8165,17 @@
             "predictions": [
                 [
                     "ambience general",
-                    "интерьер",
+                    "вид",
                     "positive"
                 ],
                 [
-                    "service general",
-                    "пофициантов",
+                    "ambience general",
+                    "зале",
                     "negative"
                 ],
                 [
                     "service general",
-                    "бармен",
+                    "официантов",
                     "negative"
                 ]
             ],
@@ -8131,7 +8196,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "ппелница",
+                    "попельница",
                     "negative"
                 ]
             ],
@@ -8221,17 +8286,17 @@
             "predictions": [
                 [
                     "drinks prices",
-                    "коктейлей",
+                    "Коктейлей",
                     "negative"
                 ],
                 [
                     "restaurant general",
-                    "Дейкирики",
+                    "места",
                     "negative"
                 ],
                 [
                     "restaurant general",
-                    "Заведения",
+                    "заведения",
                     "positive"
                 ]
             ],
@@ -8267,7 +8332,7 @@
                 ],
                 [
                     "ambience general",
-                    "интерьер",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -8340,18 +8405,18 @@
                 ],
                 [
                     "food quality",
-                    "меню",
+                    "салате",
                     "positive"
                 ],
                 [
                     "food style_options",
-                    "крем-суп из шампины и картофелем",
-                    "positive"
+                    "порция",
+                    "negative"
                 ],
                 [
                     "food quality",
-                    "свинину с грибами и картофелем",
-                    "negative"
+                    "крем-суп из шампину с грибами и картофелем",
+                    "positive"
                 ],
                 [
                     "food quality",
@@ -8361,7 +8426,7 @@
                 [
                     "food quality",
                     "подача",
-                    "negative"
+                    "positive"
                 ]
             ],
             "gold_labels": [
@@ -8416,27 +8481,17 @@
             "predictions": [
                 [
                     "food quality",
-                    "куриные грудки- гриль",
+                    "куриные грудки-гриль",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "салатная заправка",
+                    "стоматном соусе",
                     "positive"
                 ],
                 [
                     "food quality",
                     "грудки",
-                    "positive"
-                ],
-                [
-                    "food quality",
-                    "гардероб",
-                    "positive"
-                ],
-                [
-                    "food quality",
-                    "гардероб",
                     "positive"
                 ]
             ],
@@ -8526,7 +8581,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "Сивалето",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -8552,7 +8607,7 @@
                 ],
                 [
                     "ambience general",
-                    "кароке",
+                    "караоке",
                     "positive"
                 ],
                 [
@@ -8643,19 +8698,29 @@
                     "positive"
                 ],
                 [
-                    "food quality",
+                    "food style_options",
                     "роллов",
                     "positive"
                 ],
                 [
                     "drinks style_options",
-                    "Кокция карта",
+                    "Кокная карта",
+                    "positive"
+                ],
+                [
+                    "drinks style_options",
+                    "кокная карта",
                     "negative"
                 ],
                 [
-                    "food quality",
-                    "клубничная маргарита",
+                    "drinks style_options",
+                    "кокная карта",
                     "negative"
+                ],
+                [
+                    "",
+                    "",
+                    ""
                 ]
             ],
             "gold_labels": [
@@ -8720,7 +8785,7 @@
             "predictions": [
                 [
                     "restaurant miscellaneous",
-                    "курю кальян",
+                    "Курю кальян",
                     "positive"
                 ]
             ],
@@ -8804,7 +8869,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "Гору",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -8835,12 +8900,17 @@
                 ],
                 [
                     "ambience general",
-                    "кофеные диваны",
+                    "девушки на хостес",
                     "positive"
                 ],
                 [
                     "ambience general",
-                    "картины из интерьеров",
+                    "кожаные диваны",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "картины это",
                     "positive"
                 ]
             ],
@@ -8871,7 +8941,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "Горна",
+                    "Волна",
                     "positive"
                 ]
             ],
@@ -8929,12 +8999,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "Фетчи с белым грибами",
-                    "positive"
+                    "Фетучини с белами",
+                    "neutral"
                 ],
                 [
                     "food quality",
-                    "паста с крабом",
+                    "паста с краами",
                     "neutral"
                 ],
                 [
@@ -8986,12 +9056,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "роллкио",
+                    "ролл Киосем",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "ролл с сырым лососем",
+                    "ролл с лососем",
                     "positive"
                 ]
             ],
@@ -9022,13 +9092,8 @@
                 ],
                 [
                     "food quality",
-                    "фруктовый тар-тан",
-                    "positive"
-                ],
-                [
-                    "food quality",
                     "десертам",
-                    "neutral"
+                    "positive"
                 ]
             ],
             "gold_labels": [
@@ -9122,7 +9187,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "ролы с угрем",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -9175,7 +9240,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Гарпачо",
+                    "Гаспачо",
                     "negative"
                 ],
                 [
@@ -9201,7 +9266,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Цеплеонок картока",
+                    "Циль",
                     "positive"
                 ],
                 [
@@ -9211,17 +9276,42 @@
                 ],
                 [
                     "food quality",
-                    "рыба баклажаны",
+                    "масла баклажаны",
                     "negative"
                 ],
                 [
                     "food quality",
-                    "цуки",
+                    "вкусно",
                     "negative"
                 ],
                 [
                     "food quality",
-                    "борзарский перч",
+                    "баклажаны",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "баклажаны",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "баклажаны",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "баклажаны",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "баклажаны",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "баклажаны [S",
                     "negative"
                 ]
             ],
@@ -9519,12 +9609,12 @@
                 ],
                 [
                     "ambience general",
-                    "детское меню",
+                    "детского меню",
                     "positive"
                 ],
                 [
                     "ambience general",
-                    "стульчики",
+                    "стульчиков",
                     "positive"
                 ]
             ],
@@ -9784,7 +9874,7 @@
             "predictions": [
                 [
                     "service general",
-                    "Персонана",
+                    "Персонало",
                     "negative"
                 ],
                 [
@@ -9941,9 +10031,59 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
-                    "Севи",
+                    "drinks quality",
+                    "",
                     "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "",
+                    "positive"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "",
+                    "positive"
+                ],
+                [
+                    "",
+                    "",
+                    ""
                 ]
             ],
             "gold_labels": [
@@ -9989,17 +10129,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "салат с крабом",
+                    "салат с крабами",
                     "positive"
                 ],
                 [
                     "food quality",
                     "паста",
-                    "positive"
-                ],
-                [
-                    "food quality",
-                    "рисото",
                     "positive"
                 ],
                 [
@@ -10051,7 +10186,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "Ресторан Повара",
+                    "Ресторан Повари",
                     "negative"
                 ]
             ],
@@ -10347,12 +10482,12 @@
             "predictions": [
                 [
                     "drinks quality",
-                    "пива с греками",
+                    "пива",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "кольцами кальмара",
+                    "кольцами кальмаров",
                     "positive"
                 ]
             ],
@@ -10410,7 +10545,7 @@
             "predictions": [
                 [
                     "service general",
-                    "бармени",
+                    "NULL",
                     "positive"
                 ],
                 [
@@ -10441,12 +10576,12 @@
             "predictions": [
                 [
                     "drinks quality",
-                    "асертты из закусок",
+                    "асок",
                     "positive"
                 ],
                 [
                     "food style_options",
-                    "палочка сырные",
+                    "палочки сырные",
                     "positive"
                 ],
                 [
@@ -10467,7 +10602,7 @@
             "predictions": [
                 [
                     "drinks quality",
-                    "вино",
+                    "пива",
                     "positive"
                 ],
                 [
@@ -10582,12 +10717,7 @@
                 ],
                 [
                     "food style_options",
-                    "пиво",
-                    "negative"
-                ],
-                [
-                    "food style_options",
-                    "пармеза",
+                    "цезарь",
                     "negative"
                 ]
             ],
@@ -10671,12 +10801,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "Кухня",
-                    "positive"
-                ],
-                [
-                    "ambience general",
-                    "интерьера",
+                    "Кафе интерьера",
                     "positive"
                 ]
             ],
@@ -10760,12 +10885,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "музыка",
-                    "positive"
-                ],
-                [
-                    "ambience general",
-                    "программа вентиляции",
+                    "система вентиляции",
                     "positive"
                 ]
             ],
@@ -10860,13 +10980,13 @@
             "predictions": [
                 [
                     "service general",
-                    "Девушка-официант",
+                    "Девушка-олоиант",
                     "positive"
                 ],
                 [
                     "food style_options",
                     "блюд",
-                    "neutral"
+                    "negative"
                 ]
             ],
             "gold_labels": [
@@ -10998,7 +11118,7 @@
                 ],
                 [
                     "location general",
-                    "расположение к гому",
+                    "расположение к это",
                     "positive"
                 ]
             ],
@@ -11056,7 +11176,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Едой",
+                    "NULL",
                     "positive"
                 ],
                 [
@@ -11071,7 +11191,7 @@
                 ],
                 [
                     "food quality",
-                    "ланмен",
+                    "лагман",
                     "positive"
                 ]
             ],
@@ -11102,7 +11222,7 @@
             "predictions": [
                 [
                     "drinks style_options",
-                    "виная карта",
+                    "вин",
                     "neutral"
                 ]
             ],
@@ -11381,7 +11501,7 @@
             "predictions": [
                 [
                     "service general",
-                    "официантов",
+                    "официантами",
                     "positive"
                 ],
                 [
@@ -11418,7 +11538,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "мохио",
+                    "мохито",
                     "positive"
                 ]
             ],
@@ -11439,7 +11559,7 @@
                 ],
                 [
                     "food quality",
-                    "Менхио",
+                    "мохие",
                     "positive"
                 ]
             ],
@@ -11552,7 +11672,7 @@
                 ],
                 [
                     "ambience general",
-                    "гардероб",
+                    "столов",
                     "positive"
                 ]
             ],
@@ -11594,7 +11714,7 @@
                 ],
                 [
                     "food quality",
-                    "крук с орушевым соусом",
+                    "косем",
                     "positive"
                 ],
                 [
@@ -11752,16 +11872,6 @@
                     "service general",
                     "Официант",
                     "positive"
-                ],
-                [
-                    "drinks quality",
-                    "десертов Сура",
-                    "positive"
-                ],
-                [
-                    "drinks quality",
-                    "чай клубничная",
-                    "positive"
                 ]
             ],
             "gold_labels": [
@@ -11918,8 +12028,8 @@
         {
             "predictions": [
                 [
-                    "service general",
-                    "девушках персоналах",
+                    "food quality",
+                    "девушках это",
                     "negative"
                 ]
             ],
@@ -11935,7 +12045,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "каже супа",
+                    "аже супа",
                     "negative"
                 ]
             ],
@@ -11951,12 +12061,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "суп",
+                    "супу",
                     "negative"
                 ],
                 [
                     "food quality",
-                    "суши",
+                    "ло",
                     "negative"
                 ]
             ],
@@ -11977,7 +12087,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "хлеб с макам",
+                    "хлеб с маслом",
                     "positive"
                 ],
                 [
@@ -12076,7 +12186,7 @@
                 ],
                 [
                     "ambience general",
-                    "стулете",
+                    "чего",
                     "neutral"
                 ]
             ],
@@ -12294,7 +12404,7 @@
             "predictions": [
                 [
                     "service general",
-                    "халлов официант",
+                    "официант",
                     "negative"
                 ]
             ],
@@ -12584,7 +12694,7 @@
             "predictions": [
                 [
                     "service general",
-                    "администраторина",
+                    "и и это",
                     "negative"
                 ]
             ],
@@ -12605,7 +12715,7 @@
                 ],
                 [
                     "food quality",
-                    "корочками булочки",
+                    "корочки булочки",
                     "positive"
                 ]
             ],
@@ -12658,7 +12768,7 @@
                 ],
                 [
                     "food quality",
-                    "сливочный соусе",
+                    "сливочном соусе",
                     "positive"
                 ]
             ],
@@ -12674,7 +12784,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "шашлыка из баранины на пасточек",
+                    "шашлыка из баранины на косточке",
                     "positive"
                 ]
             ],
@@ -12812,7 +12922,7 @@
             "predictions": [
                 [
                     "service general",
-                    "Обслуживание",
+                    "Обслуживающий персонал",
                     "negative"
                 ]
             ],
@@ -13097,7 +13207,7 @@
                 ],
                 [
                     "service general",
-                    "Впит-зала",
+                    "Вадминистратор",
                     "neutral"
                 ]
             ],
@@ -13202,17 +13312,17 @@
             "predictions": [
                 [
                     "ambience general",
-                    "туалети",
+                    "NULL",
                     "positive"
                 ],
                 [
                     "ambience general",
-                    "гардеробах",
+                    "зеркалах",
                     "negative"
                 ],
                 [
                     "drinks quality",
-                    "рыба",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -13265,7 +13375,7 @@
                 ],
                 [
                     "ambience general",
-                    "решение интерьера",
+                    "решения интерьера",
                     "positive"
                 ]
             ],
@@ -13318,7 +13428,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Местмия",
+                    "Массмидия",
                     "negative"
                 ]
             ],
@@ -13370,8 +13480,8 @@
         {
             "predictions": [
                 [
-                    "service general",
-                    "Местмия",
+                    "food quality",
+                    "Массмидия",
                     "positive"
                 ]
             ],
@@ -13403,7 +13513,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "дива",
+                    "мидии",
                     "negative"
                 ]
             ],
@@ -13540,7 +13650,7 @@
                 ],
                 [
                     "food quality",
-                    "Михио",
+                    "Мохи",
                     "negative"
                 ]
             ],
@@ -13603,7 +13713,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "Холодстой",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -13760,7 +13870,7 @@
             "predictions": [
                 [
                     "food style_options",
-                    "тушеное мясо",
+                    "Тушеное мясо",
                     "positive"
                 ],
                 [
@@ -13807,7 +13917,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "обстановка",
+                    "NULL",
                     "neutral"
                 ]
             ],
@@ -14041,7 +14151,7 @@
                 ],
                 [
                     "restaurant general",
-                    "заведении",
+                    "заведных",
                     "positive"
                 ]
             ],
@@ -14073,7 +14183,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "интерьер",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -14089,7 +14199,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "музыка",
+                    "музыкение",
                     "positive"
                 ]
             ],
@@ -14163,7 +14273,7 @@
                 ],
                 [
                     "ambience general",
-                    "пармон",
+                    "пардон",
                     "positive"
                 ],
                 [
@@ -14173,7 +14283,7 @@
                 ],
                 [
                     "ambience general",
-                    "администраторий",
+                    "трансляций",
                     "positive"
                 ]
             ],
@@ -14247,7 +14357,12 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "Филнежанс",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "место",
                     "positive"
                 ]
             ],
@@ -14262,8 +14377,8 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
-                    "ресторане Кухня",
+                    "restaurant miscellaneous",
+                    "ресторане это",
                     "negative"
                 ]
             ],
@@ -14301,11 +14416,11 @@
                 [
                     "food quality",
                     "овощи",
-                    "positive"
+                    "negative"
                 ],
                 [
                     "food quality",
-                    "тепло",
+                    "овощи",
                     "positive"
                 ]
             ],
@@ -14363,7 +14478,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "музыков",
+                    "артистов",
                     "negative"
                 ]
             ],
@@ -14384,12 +14499,7 @@
                 ],
                 [
                     "ambience general",
-                    "декорции",
-                    "positive"
-                ],
-                [
-                    "food style_options",
-                    "ролы",
+                    "декоры",
                     "positive"
                 ]
             ],
@@ -14421,7 +14531,42 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "ресторану Кухня",
+                    "ресторану Т ресторану",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "ресторану",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "ресторану",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "ресторану",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "ресторану",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "ресторану",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "ресторану",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -14453,7 +14598,7 @@
             "predictions": [
                 [
                     "service general",
-                    "персоналам ресторана",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -14474,7 +14619,7 @@
                 ],
                 [
                     "restaurant miscellaneous",
-                    "салатки гостей",
+                    "посадки гостей",
                     "positive"
                 ]
             ],
@@ -14747,7 +14892,12 @@
             "predictions": [
                 [
                     "service general",
-                    "Обслуживание персонал",
+                    "Обслуживающий персонал",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "основного горячего блюда",
                     "positive"
                 ]
             ],
@@ -14868,7 +15018,7 @@
                 ],
                 [
                     "location general",
-                    "вид на залив",
+                    "вида на залив",
                     "positive"
                 ]
             ],
@@ -15111,7 +15261,7 @@
                 ],
                 [
                     "food quality",
-                    "Паште из леонины",
+                    "Па это",
                     "positive"
                 ]
             ],
@@ -15191,7 +15341,7 @@
             "predictions": [
                 [
                     "service general",
-                    "руководству ресторана",
+                    "руководство ресторана",
                     "positive"
                 ]
             ],
@@ -15308,7 +15458,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "декорные окна",
+                    "декоративные окна",
                     "positive"
                 ]
             ],
@@ -15365,7 +15515,7 @@
             "predictions": [
                 [
                     "drinks style_options",
-                    "виная карта",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -15428,12 +15578,12 @@
             "predictions": [
                 [
                     "restaurant miscellaneous",
-                    "женный туалет",
+                    "NULL",
                     "negative"
                 ],
                 [
-                    "ambience general",
-                    "заок на интерьером",
+                    "location general",
+                    "вид",
                     "negative"
                 ]
             ],
@@ -15454,7 +15604,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "Деаны",
+                    "Дианы",
                     "positive"
                 ],
                 [
@@ -15565,7 +15715,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Кухня",
+                    "Кухню",
                     "negative"
                 ]
             ],
@@ -15835,7 +15985,7 @@
                 ],
                 [
                     "ambience general",
-                    "курящей зале",
+                    "куряном зале",
                     "negative"
                 ],
                 [
@@ -15912,7 +16062,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "крем-суп из белых грибов",
+                    "Крем-суп из белых грибов",
                     "positive"
                 ]
             ],
@@ -15932,12 +16082,12 @@
                     "positive"
                 ],
                 [
-                    "food style_options",
-                    "фирменный пиццу",
+                    "food quality",
+                    "фирменную пиццу",
                     "positive"
                 ],
                 [
-                    "food quality",
+                    "food style_options",
                     "тесто",
                     "positive"
                 ],
@@ -15989,7 +16139,7 @@
                 ],
                 [
                     "ambience general",
-                    "выткии",
+                    "окно",
                     "negative"
                 ]
             ],
@@ -16041,7 +16191,12 @@
             "predictions": [
                 [
                     "service general",
-                    "администрацитир-гардеробщица",
+                    "Администра это",
+                    "positive"
+                ],
+                [
+                    "service general",
+                    "гардеробщица",
                     "positive"
                 ]
             ],
@@ -16078,7 +16233,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "столи",
+                    "статуи",
                     "negative"
                 ]
             ],
@@ -16253,7 +16408,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "Снежных королевы",
+                    "Сненые королевы",
                     "positive"
                 ]
             ],
@@ -16386,7 +16541,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "постолов",
+                    "потолков",
                     "negative"
                 ]
             ],
@@ -16412,7 +16567,7 @@
                 ],
                 [
                     "food quality",
-                    "итальянская кухня",
+                    "кухня",
                     "positive"
                 ]
             ],
@@ -16438,7 +16593,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Стек",
+                    "Стейк",
                     "neutral"
                 ],
                 [
@@ -16575,12 +16730,12 @@
             "predictions": [
                 [
                     "drinks prices",
-                    "Кктейли",
+                    "Коктейли",
                     "positive"
                 ],
                 [
                     "drinks prices",
-                    "Кктейли",
+                    "Коктейли",
                     "positive"
                 ]
             ],
@@ -16606,7 +16761,7 @@
                 ],
                 [
                     "drinks quality",
-                    "коктейлей",
+                    "коктейлями",
                     "positive"
                 ]
             ],
@@ -16701,7 +16856,22 @@
                 ],
                 [
                     "ambience general",
-                    "пеклис",
+                    "плейет",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "музыка",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "интерьер",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "интерьер",
                     "positive"
                 ]
             ],
@@ -16759,7 +16929,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "итальянская и японскую кухню",
+                    "итальянскю",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "японскую кухню",
                     "positive"
                 ]
             ],
@@ -16822,7 +16997,7 @@
                 ],
                 [
                     "food quality",
-                    "свинина в соусе с пастшой",
+                    "свинина в соусе с лапшой",
                     "negative"
                 ],
                 [
@@ -16973,7 +17148,7 @@
                 ],
                 [
                     "ambience general",
-                    "джис",
+                    "музыка",
                     "positive"
                 ]
             ],
@@ -17094,7 +17269,7 @@
                 ],
                 [
                     "ambience general",
-                    "атмосферо",
+                    "атмосферно",
                     "positive"
                 ]
             ],
@@ -17152,7 +17327,7 @@
                 ],
                 [
                     "ambience general",
-                    "столики",
+                    "кабинки",
                     "positive"
                 ]
             ],
@@ -17230,7 +17405,7 @@
                 ],
                 [
                     "restaurant general",
-                    "виду",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -17308,7 +17483,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "соленые окурцы",
+                    "соленые огурцы",
                     "negative"
                 ]
             ],
@@ -17324,7 +17499,12 @@
             "predictions": [
                 [
                     "ambience general",
-                    "официантов",
+                    "зановесочками",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -17361,7 +17541,7 @@
                 ],
                 [
                     "ambience general",
-                    "зала с кароке",
+                    "зала с караоке",
                     "neutral"
                 ]
             ],
@@ -17382,7 +17562,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "вандефулино",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -17435,7 +17615,12 @@
                 ],
                 [
                     "food quality",
-                    "суши",
+                    "банки с компотами",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -17456,7 +17641,12 @@
             "predictions": [
                 [
                     "drinks quality",
-                    "напитки домашного приготовления",
+                    "напитки",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "напитки",
                     "positive"
                 ]
             ],
@@ -17503,7 +17693,7 @@
                 ],
                 [
                     "food quality",
-                    "морокный тортс сыром Филадельфия",
+                    "моркадельфия",
                     "positive"
                 ]
             ],
@@ -17572,7 +17762,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "Вешки",
+                    "В это",
                     "negative"
                 ]
             ],
@@ -17620,7 +17810,7 @@
             "predictions": [
                 [
                     "service general",
-                    "девушкей-администраторов",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -17668,7 +17858,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Чичхелка",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -17726,12 +17916,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "латте с белисом",
+                    "латте с бейлисом",
                     "positive"
                 ],
                 [
                     "drinks quality",
-                    "латте с белисом",
+                    "латте с бейлисом",
                     "positive"
                 ]
             ],
@@ -17810,12 +18000,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "Кухня",
+                    "NULL",
                     "negative"
                 ],
                 [
                     "food quality",
-                    "Холеная корзинка",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -17831,7 +18021,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Лааня",
+                    "Лаза",
                     "negative"
                 ]
             ],
@@ -17930,13 +18120,13 @@
         {
             "predictions": [
                 [
-                    "ambience general",
-                    "полтанчики",
+                    "food style_options",
+                    "туалет",
                     "positive"
                 ],
                 [
-                    "ambience general",
-                    "полтанчики",
+                    "food style_options",
+                    "NULL",
                     "positive"
                 ],
                 [
@@ -18142,7 +18332,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Пулка",
+                    "Pулька",
                     "positive"
                 ]
             ],
@@ -18253,7 +18443,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "Обстановка",
+                    "соус",
                     "positive"
                 ],
                 [
@@ -18284,7 +18474,7 @@
                 ],
                 [
                     "food quality",
-                    "курицы",
+                    "курица",
                     "negative"
                 ]
             ],
@@ -18362,13 +18552,13 @@
         {
             "predictions": [
                 [
-                    "food quality",
-                    "ананатовый фриш",
+                    "food style_options",
+                    "ананасовый фреш",
                     "negative"
                 ],
                 [
                     "food quality",
-                    "спирт",
+                    "сахар",
                     "negative"
                 ]
             ],
