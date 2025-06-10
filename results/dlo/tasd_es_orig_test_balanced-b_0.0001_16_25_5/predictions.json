@@ -3,8 +3,8 @@
         {
             "predictions": [
                 [
-                    "location general",
-                    "sitio",
+                    "location general [AC] location general",
+                    "ubicacion",
                     "positive"
                 ]
             ],
@@ -119,12 +119,7 @@
                 ],
                 [
                     "drinks style_options",
-                    "drinks style_options",
-                    "negative"
-                ],
-                [
-                    "food quality",
-                    "menú con jamón",
+                    "bebida",
                     "negative"
                 ]
             ],
@@ -171,7 +166,7 @@
             "predictions": [
                 [
                     "drinks style_options",
-                    "carta de vinos",
+                    "Carta de vinos",
                     "negative"
                 ]
             ],
@@ -234,7 +229,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "Restaurante de pata y cocina",
+                    "Restaurante de pasta y cocina",
                     "positive"
                 ]
             ],
@@ -250,7 +245,12 @@
             "predictions": [
                 [
                     "ambience general",
-                    "Lugas y luzas",
+                    "Luces",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "sombras",
                     "positive"
                 ]
             ],
@@ -427,7 +427,7 @@
                 ],
                 [
                     "ambience general",
-                    "ruido",
+                    "reido",
                     "negative"
                 ],
                 [
@@ -612,12 +612,17 @@
                 ],
                 [
                     "ambience general",
-                    "solo",
+                    "local",
                     "positive"
                 ],
                 [
                     "ambience general",
-                    "illo personal",
+                    "local",
+                    "positive"
+                ],
+                [
+                    "ambience general",
+                    "local",
                     "positive"
                 ]
             ],
@@ -1095,7 +1100,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "ambiente",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -1111,7 +1116,12 @@
             "predictions": [
                 [
                     "service general",
-                    "detención",
+                    "",
+                    "positive"
+                ],
+                [
+                    "restaurant general",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -1200,12 +1210,12 @@
                 ],
                 [
                     "food quality",
-                    "llar",
+                    "llantar",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "tabano",
+                    "cigarr habo",
                     "positive"
                 ]
             ],
@@ -1354,7 +1364,7 @@
                 ],
                 [
                     "food quality",
-                    "huevo de Carry",
+                    "NULL",
                     "positive"
                 ],
                 [
@@ -1725,7 +1735,7 @@
             "predictions": [
                 [
                     "drinks prices",
-                    "Paella",
+                    "vinos",
                     "negative"
                 ],
                 [
@@ -1793,7 +1803,7 @@
                 ],
                 [
                     "ambience general",
-                    "limpiuza",
+                    "servicio",
                     "positive"
                 ]
             ],
@@ -2011,11 +2021,6 @@
                 [
                     "service general",
                     "encargado",
-                    "negative"
-                ],
-                [
-                    "ambience general",
-                    "ruitos",
                     "negative"
                 ]
             ],
@@ -2241,17 +2246,17 @@
             "predictions": [
                 [
                     "food quality",
-                    "tapas",
+                    "Tapas",
+                    "positive"
+                ],
+                [
+                    "drinks quality",
+                    "",
                     "positive"
                 ],
                 [
                     "ambience general",
                     "Ambiente",
-                    "positive"
-                ],
-                [
-                    "food quality",
-                    "Comida",
                     "positive"
                 ]
             ],
@@ -2349,13 +2354,18 @@
                     "negative"
                 ],
                 [
-                    "food quality",
-                    "plato style_options",
+                    "food style_options",
+                    "plato plato plato plato y plato plato y plato plato plato y alación",
                     "negative"
                 ],
                 [
                     "service general",
-                    "servicio",
+                    "NULL",
+                    "negative"
+                ],
+                [
+                    "service general",
+                    "camarero",
                     "negative"
                 ]
             ],
@@ -2381,18 +2391,13 @@
             "predictions": [
                 [
                     "food style_options",
-                    "rebete finale",
+                    "NULL",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "croan de chocolate del taños de un pan",
+                    "chocolate de chocolate del t eso",
                     "neutral"
-                ],
-                [
-                    "food quality",
-                    "tartito de queso",
-                    "positive"
                 ]
             ],
             "gold_labels": [
@@ -2583,7 +2588,12 @@
                 ],
                 [
                     "food style_options",
-                    "huesas",
+                    "sabor",
+                    "negative"
+                ],
+                [
+                    "food style_options",
+                    "platos",
                     "negative"
                 ]
             ],
@@ -2635,7 +2645,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "risgadona a la malo",
+                    "primer plato",
                     "negative"
                 ],
                 [
@@ -2723,7 +2733,7 @@
             "predictions": [
                 [
                     "food style_options",
-                    "parrillado de carne",
+                    "parrilla de carne",
                     "negative"
                 ]
             ],
@@ -2821,7 +2831,12 @@
                 ],
                 [
                     "ambience general",
-                    "local",
+                    "primero",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "merluza a la plancha",
                     "positive"
                 ]
             ],
@@ -3028,7 +3043,7 @@
                 ],
                 [
                     "food quality",
-                    "entrecot de ternasco de Arroón a la brasa",
+                    "entrecot de ternasco de Aragón a la brasa",
                     "positive"
                 ]
             ],
@@ -3100,7 +3115,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "bocado",
+                    "NULL",
                     "positive"
                 ],
                 [
@@ -3173,7 +3188,7 @@
             "predictions": [
                 [
                     "food style_options",
-                    "carta",
+                    "Carta",
                     "positive"
                 ],
                 [
@@ -3321,8 +3336,8 @@
                     "positive"
                 ],
                 [
-                    "food quality",
-                    "luz a la sal",
+                    "food style_options",
+                    "sal",
                     "positive"
                 ],
                 [
@@ -3550,7 +3565,7 @@
             "predictions": [
                 [
                     "food style_options",
-                    "menu deldía",
+                    "menu del eso",
                     "positive"
                 ],
                 [
@@ -3576,7 +3591,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "lasana",
+                    "lasaña",
                     "negative"
                 ],
                 [
@@ -3864,12 +3879,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "nproductos",
-                    "negative"
-                ],
-                [
-                    "food quality",
-                    "pizza",
+                    "ncocina",
                     "negative"
                 ]
             ],
@@ -3884,13 +3894,13 @@
         {
             "predictions": [
                 [
-                    "food quality",
-                    "mejalos en escabecha con patatas rutano",
+                    "food quality [AC] food quality",
+                    "de patatas matutano",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "mejalos en escabecha con patatas matano",
+                    "y y platitos",
                     "positive"
                 ]
             ],
@@ -3942,7 +3952,7 @@
                 ],
                 [
                     "food quality",
-                    "foiua",
+                    "ambiente",
                     "negative"
                 ]
             ],
@@ -4004,7 +4014,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "Ortiillas",
+                    "",
+                    "negative"
+                ],
+                [
+                    "ambience general",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -4025,7 +4040,7 @@
                 ],
                 [
                     "food quality",
-                    "paella",
+                    "pía",
                     "positive"
                 ]
             ],
@@ -4099,12 +4114,17 @@
             "predictions": [
                 [
                     "food quality",
-                    "besugo al orrio",
+                    "Asugo al orrio",
                     "neutral"
                 ],
                 [
                     "food quality",
-                    "olor a virenge",
+                    "desugo al orrio",
+                    "neutral"
+                ],
+                [
+                    "drinks quality",
+                    "olor a virio",
                     "negative"
                 ],
                 [
@@ -4125,7 +4145,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "paella style_options",
+                    "paella",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "paella",
                     "negative"
                 ]
             ],
@@ -4194,7 +4219,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "plato",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -4460,12 +4485,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "totada de palo",
-                    "negative"
-                ],
-                [
-                    "food quality",
-                    "NULL",
+                    "tomadura de eso",
                     "negative"
                 ]
             ],
@@ -4592,9 +4612,64 @@
         {
             "predictions": [
                 [
-                    "food quality",
-                    "Tomate",
+                    "drinks style_options",
+                    "",
                     "negative"
+                ],
+                [
+                    "drinks style_options",
+                    "",
+                    "negative"
+                ],
+                [
+                    "drinks style_options",
+                    "",
+                    "negative"
+                ],
+                [
+                    "drinks style_options",
+                    "",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "",
+                    "negative"
+                ],
+                [
+                    "food quality",
+                    "",
+                    "negative"
+                ],
+                [
+                    "",
+                    "",
+                    ""
                 ]
             ],
             "gold_labels": [
@@ -4694,12 +4769,12 @@
             "predictions": [
                 [
                     "ambience general",
-                    "sitio",
+                    "espacio",
                     "positive"
                 ],
                 [
                     "food style_options",
-                    "ambiente",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -4808,7 +4883,7 @@
                 ],
                 [
                     "service general",
-                    "servicio",
+                    "NULL",
                     "positive"
                 ],
                 [
@@ -4856,11 +4931,6 @@
                 [
                     "restaurant general",
                     "experiencia",
-                    "positive"
-                ],
-                [
-                    "service general",
-                    "situación",
                     "positive"
                 ],
                 [
@@ -5046,7 +5116,7 @@
             "predictions": [
                 [
                     "ambience general",
-                    "ambiente",
+                    "ambientación",
                     "positive"
                 ]
             ],
@@ -5252,11 +5322,6 @@
         },
         {
             "predictions": [
-                [
-                    "ambience general",
-                    "WAC] ambience general",
-                    "positive"
-                ],
                 [
                     "ambience general",
                     "WC",
@@ -5702,7 +5767,7 @@
                 ],
                 [
                     "food style_options",
-                    "chuletes",
+                    "chuletones",
                     "negative"
                 ]
             ],
@@ -5723,7 +5788,7 @@
             "predictions": [
                 [
                     "restaurant general",
-                    "Ras",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -6370,8 +6435,8 @@
         {
             "predictions": [
                 [
-                    "restaurant general",
-                    "gestión",
+                    "restaurant miscellaneous",
+                    "griterio",
                     "negative"
                 ]
             ],
@@ -6593,7 +6658,7 @@
             "predictions": [
                 [
                     "service general",
-                    "servicio",
+                    "camareros",
                     "negative"
                 ]
             ],
@@ -6609,7 +6674,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "meses",
+                    "metres",
                     "negative"
                 ]
             ],
@@ -6946,13 +7011,13 @@
         {
             "predictions": [
                 [
-                    "service general",
+                    "food quality",
                     "camareros",
                     "positive"
                 ],
                 [
                     "service general",
-                    "servicio",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -7015,7 +7080,7 @@
             "predictions": [
                 [
                     "food style_options",
-                    "coillería",
+                    "NULL",
                     "neutral"
                 ]
             ],
@@ -7131,7 +7196,7 @@
             "predictions": [
                 [
                     "service general",
-                    "cena degustación",
+                    "NULL",
                     "negative"
                 ],
                 [
@@ -7336,7 +7401,7 @@
             "predictions": [
                 [
                     "service general",
-                    "servicio",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -7503,7 +7568,7 @@
             "predictions": [
                 [
                     "service general",
-                    "tiempo entre platos",
+                    "Tempo entre platos",
                     "neutral"
                 ]
             ],
@@ -7738,7 +7803,7 @@
                 ],
                 [
                     "ambience general",
-                    "restaurante",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -7975,7 +8040,7 @@
                 ],
                 [
                     "ambience general",
-                    "atención",
+                    "NULL",
                     "positive"
                 ],
                 [
@@ -8105,12 +8170,17 @@
             "predictions": [
                 [
                     "food quality",
-                    "carnes",
+                    "Carnes",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "patas",
+                    "NULL",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "sorrentinos",
                     "positive"
                 ]
             ],
@@ -8256,7 +8326,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "carne",
+                    "Carne",
                     "positive"
                 ]
             ],
@@ -8272,7 +8342,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "ambiente",
+                    "NULL",
                     "negative"
                 ]
             ],
@@ -8424,7 +8494,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "paella del horn del riotgu",
+                    "paella del moll del ella del ella",
                     "positive"
                 ]
             ],
@@ -8444,8 +8514,8 @@
                     "positive"
                 ],
                 [
-                    "food quality",
-                    "cocina",
+                    "service general",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -8717,7 +8787,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "maristada genial",
+                    "mariscada imperial",
                     "positive"
                 ]
             ],
@@ -8913,7 +8983,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "espumas",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -8950,12 +9020,12 @@
             "predictions": [
                 [
                     "food quality",
-                    "Postilleras",
+                    "",
                     "neutral"
                 ],
                 [
                     "food quality",
-                    "arroz",
+                    "NULL",
                     "neutral"
                 ]
             ],
@@ -9093,7 +9163,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "huevo fritos",
+                    "fritas",
                     "neutral"
                 ]
             ],
@@ -9188,8 +9258,18 @@
             "predictions": [
                 [
                     "service general",
-                    "sitio",
+                    "ociones",
                     "neutral"
+                ],
+                [
+                    "service general",
+                    "porciones",
+                    "positive"
+                ],
+                [
+                    "food quality",
+                    "pescados",
+                    "positive"
                 ]
             ],
             "gold_labels": [
@@ -9335,13 +9415,13 @@
         {
             "predictions": [
                 [
-                    "food quality",
-                    "Arróz de Simón",
+                    "food quality [AC] food quality",
+                    "",
                     "negative"
                 ],
                 [
-                    "food quality",
-                    "Arróz de Simón",
+                    "service general",
+                    "cocinero",
                     "negative"
                 ],
                 [
@@ -9393,7 +9473,7 @@
                 ],
                 [
                     "ambience general",
-                    "ambiente",
+                    "NULL",
                     "positive"
                 ],
                 [
@@ -9455,18 +9535,18 @@
                 ],
                 [
                     "food style_options",
-                    "prima salsa",
+                    "NULL",
                     "negative"
                 ],
                 [
                     "food quality",
-                    "huevo Carry",
+                    "habones Charly",
                     "positive"
                 ],
                 [
                     "food quality",
-                    "carrillera iberica",
-                    "negative"
+                    "carrillera ibérica",
+                    "positive"
                 ],
                 [
                     "restaurant general",
@@ -9502,11 +9582,6 @@
                 [
                     "food style_options",
                     "menu infantil",
-                    "positive"
-                ],
-                [
-                    "food quality",
-                    "hueguillares",
                     "positive"
                 ],
                 [
@@ -9631,12 +9706,12 @@
             "predictions": [
                 [
                     "ambience general",
-                    "ejo",
+                    "ón",
                     "positive"
                 ],
                 [
                     "service general",
-                    "servicio",
+                    "NULL",
                     "positive"
                 ]
             ],
@@ -9668,7 +9743,7 @@
             "predictions": [
                 [
                     "food quality",
-                    "primeros de Picar",
+                    "primeros de picar",
                     "positive"
                 ],
                 [
@@ -9678,7 +9753,7 @@
                 ],
                 [
                     "food quality",
-                    "terones",
+                    "primeros de picar",
                     "negative"
                 ]
             ],
@@ -9703,9 +9778,9 @@
         {
             "predictions": [
                 [
-                    "food quality",
-                    "comida",
-                    "positive"
+                    "",
+                    "",
+                    ""
                 ],
                 [
                     "service general",
@@ -9853,8 +9928,8 @@
                     "positive"
                 ],
                 [
-                    "restaurant general",
-                    "restaurante",
+                    "ambience general",
+                    "ambiente",
                     "positive"
                 ]
             ],
@@ -9880,7 +9955,7 @@
             "predictions": [
                 [
                     "restaurant miscellaneous",
-                    "sitio",
+                    "NULL",
                     "positive"
                 ]
             ],

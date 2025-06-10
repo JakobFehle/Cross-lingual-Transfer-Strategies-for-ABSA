@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:POSITIVE	0.5686	0.8788	0.6905	0.5273	110.0
+ambience general:NEUTRAL	0.6667	0.2857	0.4	0.25	8.0
+ambience general:NEGATIVE	0.3333	0.8	0.4706	0.3077	26.0
+drinks prices:POSITIVE	0.6667	1.0	0.8	0.6667	3.0
+drinks prices:NEUTRAL	0	0	0	0	0
+drinks prices:NEGATIVE	0.3333	1.0	0.5	0.3333	3.0
+drinks quality:POSITIVE	0.6154	0.5714	0.5926	0.4211	19.0
+drinks quality:NEUTRAL	1.0	0.1667	0.2857	0.1667	6.0
+drinks quality:NEGATIVE	0.5	0.1667	0.25	0.1429	7.0
+drinks style_options:POSITIVE	0.25	0.8	0.381	0.2353	17.0
+drinks style_options:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+drinks style_options:NEGATIVE	0.4	0.5714	0.4706	0.3077	13.0
+food prices:POSITIVE	0.5	0.5	0.5	0.3333	3.0
+food prices:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+food prices:NEGATIVE	0.5	0.6667	0.5714	0.4	5.0
+food quality:POSITIVE	0.6552	0.6552	0.6552	0.4872	195.0
+food quality:NEUTRAL	0.625	0.3846	0.4762	0.3125	16.0
+food quality:NEGATIVE	0.5814	0.641	0.6098	0.4386	57.0
+food style_options:POSITIVE	0.3623	0.5952	0.4505	0.2907	86.0
+food style_options:NEUTRAL	0.0	0.0	0.0	0.0	8.0
+food style_options:NEGATIVE	0.1905	0.8889	0.3137	0.186	86.0
+location general:POSITIVE	0.0	0.0	0.0	0.0	8.0
+location general:NEUTRAL	0.0	0.0	0.0	0.0	2.0
+location general:NEGATIVE	0.0	0.0	0.0	0.0	3.0
+restaurant general:POSITIVE	0.5698	0.8033	0.6667	0.5	98.0
+restaurant general:NEUTRAL	0.0	0.0	0.0	0.0	6.0
+restaurant general:NEGATIVE	0.6111	0.6471	0.6286	0.4583	48.0
+restaurant miscellaneous:POSITIVE	0.0	0.0	0.0	0.0	20.0
+restaurant miscellaneous:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+restaurant miscellaneous:NEGATIVE	0.0	0.0	0.0	0.0	13.0
+restaurant prices:POSITIVE	0.5	0.5556	0.5263	0.3571	14.0
+restaurant prices:NEUTRAL	0.5	0.5	0.5	0.3333	3.0
+restaurant prices:NEGATIVE	0.5	0.6	0.5455	0.375	8.0
+service general:POSITIVE	0.6636	0.8022	0.7264	0.5703	128.0
+service general:NEUTRAL	0.0833	0.1667	0.1111	0.0588	17.0
+service general:NEGATIVE	0.7344	0.746	0.7402	0.5875	80.0
+Micro-AVG	0.5152	0.6681	0.5817	0.4102	1119.0
+Macro-AVG	0.3586	0.4276	0.3573		1119

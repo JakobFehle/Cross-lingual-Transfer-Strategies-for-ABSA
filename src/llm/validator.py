@@ -45,17 +45,26 @@ def to_pred_list(text, n_elements):
     text = "[" + text
     text = text.replace("\n", "")
 
-    text = re.sub(r"\[ *\( *[\'\"]", "", text)
+    if n_elements == 1:
+        text = re.sub(r"\[ *[\'\"]", "", text)
+    else:
+        text = re.sub(r"\[ *\( *[\'\"]", "", text)
     text = re.sub(r"[\"\'] *, *[\'\"]", "#####", text)
     text = re.sub(r"[\"\']\) *, *\([\"\']", "#####", text)
-    text = re.sub(r"[\"\'] *\) *\]", "", text)
+    if n_elements == 1:
+        text = re.sub(r"[\"\'] *\]", "", text)
+    else:
+        text = re.sub(r"[\"\'] *\) *\]", "", text)
     matches = text.split("#####")
     matches = [match.strip() for match in matches]
     label = []
     for i in range(0, len(matches), n_elements):
         if len(matches[i : i + n_elements]) != n_elements:
             raise ValueError(f"Error in text: {text_original}")
-        label.append(matches[i : i + n_elements])
+        if n_elements == 1:
+            label.append(matches[i])
+        else:
+            label.append(matches[i : i + n_elements])
 
     return label
 
