@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:POSITIVE	0.8286	0.8056	0.8169	0.6905	42.0
+ambience general:NEUTRAL	0.0	0.0	0.0	0.0	3.0
+ambience general:NEGATIVE	0.7143	0.7143	0.7143	0.5556	18.0
+drinks prices:POSITIVE	1.0	1.0	1.0	1.0	2.0
+drinks prices:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+drinks prices:NEGATIVE	0.4	0.6667	0.5	0.3333	6.0
+drinks quality:POSITIVE	0.9091	1.0	0.9524	0.9091	11.0
+drinks quality:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+drinks quality:NEGATIVE	0.6667	1.0	0.8	0.6667	3.0
+drinks style_options:POSITIVE	0.5	1.0	0.6667	0.5	2.0
+drinks style_options:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+drinks style_options:NEGATIVE	0.3333	0.25	0.2857	0.1667	6.0
+food prices:POSITIVE	0.8571	0.6667	0.75	0.6	10.0
+food prices:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+food prices:NEGATIVE	0.6	0.4286	0.5	0.3333	9.0
+food quality:POSITIVE	0.7226	0.9167	0.8082	0.6781	146.0
+food quality:NEUTRAL	0.7143	0.7143	0.7143	0.5556	9.0
+food quality:NEGATIVE	0.5479	0.9091	0.6838	0.5195	77.0
+food style_options:POSITIVE	0.6923	0.5625	0.6207	0.45	40.0
+food style_options:NEUTRAL	0.0	0.0	0.0	0.0	12.0
+food style_options:NEGATIVE	0.6087	0.6667	0.6364	0.4667	30.0
+location general:POSITIVE	0.6667	0.4	0.5	0.3333	6.0
+location general:NEUTRAL	0.3333	1.0	0.5	0.3333	3.0
+location general:NEGATIVE	0.0	0.0	0.0	0.0	1.0
+restaurant general:POSITIVE	0.7857	0.8571	0.8199	0.6947	95.0
+restaurant general:NEUTRAL	0.6	0.5	0.5455	0.375	8.0
+restaurant general:NEGATIVE	0.6136	0.75	0.675	0.5094	53.0
+restaurant miscellaneous:POSITIVE	0.0	0.0	0.0	0.0	5.0
+restaurant miscellaneous:NEUTRAL	0	0	0	0	0
+restaurant miscellaneous:NEGATIVE	1.0	0.4444	0.6154	0.4444	9.0
+restaurant prices:POSITIVE	0.7143	0.6667	0.6897	0.5263	19.0
+restaurant prices:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+restaurant prices:NEGATIVE	0.4444	0.5	0.4706	0.3077	13.0
+service general:POSITIVE	0.8923	0.8788	0.8855	0.7945	73.0
+service general:NEUTRAL	0.4	0.2857	0.3333	0.2	10.0
+service general:NEGATIVE	0.8644	0.8226	0.843	0.7286	70.0
+Micro-AVG	0.7132	0.7743	0.7425	0.5905	796.0
+Macro-AVG	0.4836	0.5113	0.4813		796

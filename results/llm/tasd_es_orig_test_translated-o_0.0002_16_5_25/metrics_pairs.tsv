@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:POSITIVE	0.7234	0.8831	0.7953	0.6602	103.0
+ambience general:NEUTRAL	0.0	0.0	0.0	0.0	7.0
+ambience general:NEGATIVE	0.9333	0.6222	0.7467	0.5957	47.0
+drinks prices:POSITIVE	0.5	0.5	0.5	0.3333	6.0
+drinks prices:NEUTRAL	0	0	0	0	0
+drinks prices:NEGATIVE	0.625	0.8333	0.7143	0.5556	9.0
+drinks quality:POSITIVE	0.3684	0.7778	0.5	0.3333	21.0
+drinks quality:NEUTRAL	0	0	0	0	0
+drinks quality:NEGATIVE	0.25	1.0	0.4	0.25	4.0
+drinks style_options:POSITIVE	0.3333	1.0	0.5	0.3333	15.0
+drinks style_options:NEUTRAL	1.0	1.0	1.0	1.0	1.0
+drinks style_options:NEGATIVE	0.75	0.6	0.6667	0.5	6.0
+food prices:POSITIVE	0.6429	0.75	0.6923	0.5294	34.0
+food prices:NEUTRAL	0.2	1.0	0.3333	0.2	5.0
+food prices:NEGATIVE	0.5333	0.5	0.5161	0.3478	23.0
+food quality:POSITIVE	0.8288	0.8142	0.8214	0.697	264.0
+food quality:NEUTRAL	0.55	0.6111	0.5789	0.4074	27.0
+food quality:NEGATIVE	0.5507	0.8085	0.6552	0.4872	78.0
+food style_options:POSITIVE	0.3962	0.5833	0.4719	0.3088	68.0
+food style_options:NEUTRAL	0.1667	0.25	0.2	0.1111	9.0
+food style_options:NEGATIVE	0.4651	0.6897	0.5556	0.3846	52.0
+location general:POSITIVE	0.6111	0.6111	0.6111	0.44	25.0
+location general:NEUTRAL	0	0	0	0	0
+location general:NEGATIVE	0	0	0	0	0
+restaurant general:POSITIVE	0.7939	0.7616	0.7774	0.6359	206.0
+restaurant general:NEUTRAL	0.5	0.6	0.5455	0.375	16.0
+restaurant general:NEGATIVE	0.7561	0.775	0.7654	0.62	50.0
+restaurant miscellaneous:POSITIVE	0.1667	0.3333	0.2222	0.125	16.0
+restaurant miscellaneous:NEUTRAL	0.0	0.0	0.0	0.0	2.0
+restaurant miscellaneous:NEGATIVE	0.0	0.0	0.0	0.0	25.0
+restaurant prices:POSITIVE	0.5833	0.4375	0.5	0.3333	21.0
+restaurant prices:NEUTRAL	0.0	0.0	0.0	0.0	4.0
+restaurant prices:NEGATIVE	0.6087	0.7368	0.6667	0.5	28.0
+service general:POSITIVE	0.8696	0.8917	0.8805	0.7865	178.0
+service general:NEUTRAL	0.3333	0.2	0.25	0.1429	7.0
+service general:NEGATIVE	0.7077	0.7667	0.736	0.5823	79.0
+Micro-AVG	0.6902	0.7565	0.7219	0.5648	1436.0
+Macro-AVG	0.4374	0.5371	0.4612		1436

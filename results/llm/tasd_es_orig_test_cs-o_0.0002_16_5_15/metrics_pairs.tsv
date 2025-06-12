@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:POSITIVE	0.7273	0.8312	0.7758	0.6337	101.0
+ambience general:NEUTRAL	0.0	0.0	0.0	0.0	4.0
+ambience general:NEGATIVE	0.8	0.5333	0.64	0.4706	51.0
+drinks prices:POSITIVE	0.4	0.5	0.4444	0.2857	7.0
+drinks prices:NEUTRAL	0	0	0	0	0
+drinks prices:NEGATIVE	0.7143	0.8333	0.7692	0.625	8.0
+drinks quality:POSITIVE	0.6364	0.7778	0.7	0.5385	13.0
+drinks quality:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+drinks quality:NEGATIVE	0.0	0.0	0.0	0.0	4.0
+drinks style_options:POSITIVE	0.5556	1.0	0.7143	0.5556	9.0
+drinks style_options:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+drinks style_options:NEGATIVE	0.6	0.6	0.6	0.4286	7.0
+food prices:POSITIVE	0.5429	0.7917	0.6441	0.475	40.0
+food prices:NEUTRAL	0.0	0.0	0.0	0.0	2.0
+food prices:NEGATIVE	0.6	0.75	0.6667	0.5	24.0
+food quality:POSITIVE	0.8268	0.8451	0.8359	0.718	266.0
+food quality:NEUTRAL	0.5238	0.6111	0.5641	0.3929	28.0
+food quality:NEGATIVE	0.6452	0.8511	0.7339	0.5797	69.0
+food style_options:POSITIVE	0.463	0.6944	0.5556	0.3846	65.0
+food style_options:NEUTRAL	0.0	0.0	0.0	0.0	7.0
+food style_options:NEGATIVE	0.3148	0.5862	0.4096	0.2576	66.0
+location general:POSITIVE	0.6875	0.6111	0.6471	0.4783	23.0
+location general:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+location general:NEGATIVE	0.0	0.0	0.0	0.0	3.0
+restaurant general:POSITIVE	0.8113	0.75	0.7795	0.6386	202.0
+restaurant general:NEUTRAL	0.3636	0.4	0.381	0.2353	17.0
+restaurant general:NEGATIVE	0.6667	0.7	0.6829	0.5185	54.0
+restaurant miscellaneous:POSITIVE	0.0714	0.1667	0.1	0.0526	19.0
+restaurant miscellaneous:NEUTRAL	0.0	0.0	0.0	0.0	3.0
+restaurant miscellaneous:NEGATIVE	0.1765	0.5	0.2609	0.15	20.0
+restaurant prices:POSITIVE	0.5294	0.5625	0.5455	0.375	24.0
+restaurant prices:NEUTRAL	0.0	0.0	0.0	0.0	4.0
+restaurant prices:NEGATIVE	0.6364	0.7368	0.6829	0.5185	27.0
+service general:POSITIVE	0.8305	0.9363	0.8802	0.7861	187.0
+service general:NEUTRAL	0.6667	0.4	0.5	0.3333	6.0
+service general:NEGATIVE	0.6234	0.8	0.7007	0.5393	89.0
+Micro-AVG	0.6836	0.7659	0.7224	0.5654	1452.0
+Macro-AVG	0.4004	0.4658	0.4226		1452

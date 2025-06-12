@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:POSITIVE	0.6304	0.8788	0.7342	0.58	100.0
+ambience general:NEUTRAL	0.6667	0.2857	0.4	0.25	8.0
+ambience general:NEGATIVE	0.5263	1.0	0.6897	0.5263	19.0
+drinks prices:POSITIVE	0.5	0.5	0.5	0.3333	3.0
+drinks prices:NEUTRAL	0	0	0	0	0
+drinks prices:NEGATIVE	0.3333	1.0	0.5	0.3333	3.0
+drinks quality:POSITIVE	0.6471	0.7857	0.7097	0.55	20.0
+drinks quality:NEUTRAL	0.0	0.0	0.0	0.0	7.0
+drinks quality:NEGATIVE	0.5455	1.0	0.7059	0.5455	11.0
+drinks style_options:POSITIVE	0.4286	0.6	0.5	0.3333	9.0
+drinks style_options:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+drinks style_options:NEGATIVE	1.0	0.4286	0.6	0.4286	7.0
+food prices:POSITIVE	0.5	0.5	0.5	0.3333	3.0
+food prices:NEUTRAL	0.0	0.0	0.0	0.0	2.0
+food prices:NEGATIVE	0.5	1.0	0.6667	0.5	6.0
+food quality:POSITIVE	0.6633	0.9103	0.7674	0.6226	212.0
+food quality:NEUTRAL	0.6154	0.6154	0.6154	0.4444	18.0
+food quality:NEGATIVE	0.5738	0.8974	0.7	0.5385	65.0
+food style_options:POSITIVE	0.5556	0.7143	0.625	0.4545	66.0
+food style_options:NEUTRAL	0.0	0.0	0.0	0.0	6.0
+food style_options:NEGATIVE	0.75	0.6667	0.7059	0.5455	22.0
+location general:POSITIVE	0.5714	0.6667	0.6154	0.4444	9.0
+location general:NEUTRAL	0.0	0.0	0.0	0.0	2.0
+location general:NEGATIVE	0.5	0.5	0.5	0.3333	3.0
+restaurant general:POSITIVE	0.7681	0.8689	0.8154	0.6883	77.0
+restaurant general:NEUTRAL	1.0	0.2	0.3333	0.2	5.0
+restaurant general:NEGATIVE	0.7368	0.8235	0.7778	0.6364	44.0
+restaurant miscellaneous:POSITIVE	0.5	0.2	0.2857	0.1667	6.0
+restaurant miscellaneous:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+restaurant miscellaneous:NEGATIVE	0.5	0.1667	0.25	0.1429	7.0
+restaurant prices:POSITIVE	0.5	0.6667	0.5714	0.4	15.0
+restaurant prices:NEUTRAL	1.0	0.5	0.6667	0.5	2.0
+restaurant prices:NEGATIVE	0.3333	0.4	0.3636	0.2222	9.0
+service general:POSITIVE	0.8242	0.8242	0.8242	0.7009	107.0
+service general:NEUTRAL	0.6	0.5	0.5455	0.375	8.0
+service general:NEGATIVE	0.7639	0.873	0.8148	0.6875	80.0
+Micro-AVG	0.6646	0.7962	0.7245	0.568	963.0
+Macro-AVG	0.5009	0.527	0.4801		963

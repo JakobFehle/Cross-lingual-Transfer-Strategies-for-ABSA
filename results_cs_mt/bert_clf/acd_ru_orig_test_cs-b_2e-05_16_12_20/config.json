@@ -1,0 +1,12 @@
+{
+    "model_name": "google-bert/bert-base-multilingual-cased",
+    "task": "acd",
+    "data_setting": "cs",
+    "lang": "ru",
+    "lang_setting": "orig",
+    "per_device_train_batch_size": 16,
+    "learning_rate": 2e-05,
+    "num_train_epochs": 12,
+    "eval_type": "test",
+    "train_runtime": 229.3392825126648
+}

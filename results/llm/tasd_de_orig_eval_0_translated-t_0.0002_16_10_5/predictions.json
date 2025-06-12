@@ -1,0 +1,5112 @@
+{
+    "test": [
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "NEUTRAL",
+                    "Weinkarten"
+                ],
+                [
+                    "drinks prices",
+                    "NEUTRAL",
+                    "Weinkarten"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "Weinkarten"
+                ],
+                [
+                    "drinks prices",
+                    "POSITIVE",
+                    "Weinkarten"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Beilagen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Beilagen"
+                ],
+                [
+                    "food style_options",
+                    "NEUTRAL",
+                    "Beilagen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "NEUTRAL",
+                    "Barkegdrinks"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "NEGATIVE",
+                    "Barkegdrinks"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "NEUTRAL",
+                    "Flaschenb bier"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "NEGATIVE",
+                    "Auswahl an Flaschenb bier"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Reis"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "NEGATIVE",
+                    "thaischen Restaurant"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Ort"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Interieur"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "NEUTRAL",
+                    "Ort"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "ungemarkierten Holztüren"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Interieur"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "location general",
+                    "NEGATIVE",
+                    "Gegend"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "NEUTRAL",
+                    "NULL"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "NEUTRAL",
+                    "NULL"
+                ],
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "Mengen an Spirituosen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Essen"
+                ],
+                [
+                    "restaurant prices",
+                    "NEUTRAL",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Essen"
+                ],
+                [
+                    "restaurant prices",
+                    "NEUTRAL",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "indisches Essen"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "indisches Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "indisches Essen"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "indisches Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Bestelllung"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Bestelllung"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEUTRAL",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEUTRAL",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "Biere"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Kürbis Tortellini"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "Biere"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Kürbis Tortellini"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Weinkarte"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "Weinkarte"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NEUTRAL",
+                    "große"
+                ],
+                [
+                    "food style_options",
+                    "NEUTRAL",
+                    "Beläge"
+                ],
+                [
+                    "food prices",
+                    "NEUTRAL",
+                    "Beläge"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Beläge"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Toppings"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Toppings"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Aufstriche"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Toppings"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Aufstriche"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Toppings"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Sicht auf die Skyline von NewYork City"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Sicht auf die Skyline von NewYork City"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "POSITIVE",
+                    "entspannende Atmosphäre"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "location general",
+                    "NEUTRAL",
+                    "Bedford Avenue"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Rasenflächen"
+                ],
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Fluss Hudson"
+                ],
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Freiheldenstatue"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Restaurant"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Brasserie"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "Brasserie"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Brasserie"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "Brasserie"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "cocktail"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "cocktail mit Citrus Wodka und Zitronen- und Limettensaft und Minzblättern"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Gigontas"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "Gigontas"
+                ],
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Hauschampagner"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "Weinkette"
+                ],
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Gigontas"
+                ],
+                [
+                    "drinks prices",
+                    "POSITIVE",
+                    "Hauschampagner"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "NEGATIVE",
+                    "Change Mojito"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Change Mojito"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Reiswein"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Reiswein"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pizza"
+                ],
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Wein"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "service"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Hinterhof-Essbereich"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pizza"
+                ],
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Wein"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "service"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Hinterhof-Essbereich"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Rehf Fleisch"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Rehf Fleisch"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food style_options",
+                    "NEUTRAL",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Ort"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Raum"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Angestellten"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Ort"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Raum"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Angestellten"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Decor"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Decor"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Service"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Atmosphäre"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Service"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Atmosphäre"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphähre"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Kaminecke"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphähre"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Kaminecke"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "NEGATIVE",
+                    "Redakteur"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Gespräch mit dem Nachbartisch"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Verkehr"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Interieur"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Interieur"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "gespiegelten Mauern"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Ort"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Ort"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Ort"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "Ort"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Reibekäse"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "restaurants"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "VEGGIE"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Fleischgerichte"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Fleischbrötchen"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Fleischbrötchen"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Fleischbrötchen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Portionen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Die Portionen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "das Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Bratbackbananen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Nachtisch"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Pasta"
+                ],
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Soße"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pasta"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Pasta"
+                ],
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Pasta"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Prüne"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Restaurant"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Ort"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Ort"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Casa La Femme"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "SMITH STREET"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "ORT"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Restaurant"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Sushi-Kreation"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Sushi-Kreation"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Ration Ris zu Fisch"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Ris zu Fisch"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Laden"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "Geld"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Laden"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Portionen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Portionen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Pizza"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Basilikumschnittstück"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Auswahl an dünn belegbarer Pizza"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Auswahl an dünn belegbarer Pizza"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Pizza-Restaurant"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Basilikumschnittstück"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Teig"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pizza"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Teig"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Pizza"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NEUTRAL",
+                    "Spezialrolle"
+                ],
+                [
+                    "food style_options",
+                    "NEUTRAL",
+                    "normale Rolle"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Dessert"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Spezialrolle"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "normale Rolle"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Gerichte"
+                ],
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Steak Frites"
+                ],
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Eintopf"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Auswahl"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Buffet"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Chicken pot pie"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Käseburgere"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Käseburgere"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Chicken pot pie"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Käseburgere"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Käseburgere"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Shrimp Scampi"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Antipasti"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Shrimp Scampi"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Antipasti"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Auswahl"
+                ],
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Weißwein"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Ausstattung"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Weißwein"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Ausstattung"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Auswahl"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Bagels"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Bagels"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Bagels"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Vorspeise mit Antipasti"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Calamari"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Hauptgerichten mit Nudeln"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Antipasti"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Calamari"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Hauptgerichten mit Nudeln"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Hauptgerichten mit Nudeln"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Murray"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "gesamte Sache"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Service"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Service"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks prices",
+                    "NEGATIVE",
+                    "Wein"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Restaurant"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Mitarbeiter"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "kleinen Details"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Restaurant"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Restaurant"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Mitarbeiter"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Dekoration"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Aaubergine"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NEUTRAL",
+                    "Dekoration"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Aaubergine"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Aaubergine"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "NEUTRAL",
+                    "Lieferung"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Lieferung"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Käsebelegte brotes"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Manager"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Manager"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Speisekarte"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Personals"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Personals"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Kundenservices"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Service"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Service"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Service"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Restaurant"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Service"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Restaurant"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Thailanderessen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Gerichte"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Gerichte"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Hängefilet"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Thon"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Hängefilet"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Thon"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "nakki-bokki"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "nakki-bokki"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "location general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Spinat Pilz Calzone"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "japanisches Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "japanisches Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Ort"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Calamare"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Calamare"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Go Go Hamburgers"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Go Go Hamburgers"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Fisch"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Sushi-Köch­e"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "Fisch"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Personal"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Fisch"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Personal"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "NEGATIVE",
+                    "Sushi-Köch­e"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Sushi"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Sushi"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Desserts"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Desserts"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Platz"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Platz"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Setting /die Atmosphäre"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Setting /die Atmosphäre"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Gerichte"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Gerichte"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Ambiente"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Ambiente"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "NEUTRAL",
+                    "Ambrosiontz"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Ambrosiontz"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "Jass-Bar"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Speiseraumluftgarten"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "knusprigen Pizzen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Lasagne-Speisekarte"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Speiseraumluftgarten"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Jass-Bar"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "knusprigen Pizzen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Lasagne-Speisekarte"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "kulinarisches Erlebnis"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Laden"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Laden"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Gegens"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Gegens"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Dekor"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Gastfreundschaft"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Dekor"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Unterhaltung"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Aufführungen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Mittagessen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Kellner"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Kellner"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "Jukebox"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Jukebox"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "NEUTRAL",
+                    "Atmosphäre"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Soho"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "Aufteilung des Räumes"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Räumes"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "restaurants"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Restaurants"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Ort"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Ort"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Restaurant"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Restaurant"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEUTRAL",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Red Dragon Roll"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Yamato"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Yamato"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Red Dragon Roll"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Village Underground"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Village Underground"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "UMBERAUBER"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Suan"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Suan"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Ort"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Ort"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Pastis"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Pastis"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Pinky Pony"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Pinky Pony"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Gastronomie"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Ort"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "ORT"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "dieses hier"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "hier"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Rahmen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Rahmen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Servicepersonal"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Servicepersonal"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Nudelgericht"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Nudelgericht"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Nudelgericht"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pizza"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Betreiber"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pizza"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Betreiber"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "NEUTRAL",
+                    "Sitzplatz"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Sitzplatz"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Personal"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Personal"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Service"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Fisch"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Fisch"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "Reservierungen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Lieferzeiten"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Manager"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Manager"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Manager"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Schilder"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Special-Menüs"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service personal"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "Schilder"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Special-Menüs"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "personal"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "scharfe Soße"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "scharfe Soße"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Appetithappen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Essen"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Menü mit fester Preisvereinbarung"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "Menü mit fester Preisvereinbarung"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "Menü mit fester Preisvereinbarung"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Essen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Menü mit fester Preisvereinbarung"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "Menü mit fester Preisvereinbarung"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "allein"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Desserts"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosphäre"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Desserts"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Kellner"
+                ],
+                [
+                    "service miscellaneous",
+                    "POSITIVE",
+                    "Kellner"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Kellner"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Pub-Atmosphäre"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Kellnermschaft"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Kellnermschaft"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Servicepersonal"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Ort"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Servicepersonal"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Bedienung"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Bedienung"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "The Four Seasons"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ],
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "The Four Seasons"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Teig"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Zutaten"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Personal"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Teig"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Personal"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Zutaten"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Fisch"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Fisch"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEUTRAL",
+                    "Ort"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Beläge"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "Ort"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Roter Drachen Maki"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Roter Drachen Maki"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Best. Sushi"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "india­sches Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "india­sches Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Gericht vom Kalb"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Kalb"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Dal Bukihara"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Dal Bukihara"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Kuchen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Kuchen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Bagals"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Bagals"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Entrée"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Entrée"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food consistency",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Hauptspeise"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Hauptspeise"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Raum"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "indisch-chinesisches Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "NEGATIVE",
+                    "Raum"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "indisch-chinesisches Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "DimSum"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "DimSum"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "DimSum"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "DimSum"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Fisch"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Mermaids Inn"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Fisch"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Mermaids Inn"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Frittenfisch"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pam‘s spezielle Frittenfisch"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Essen"
+                ],
+                [
+                    "service general",
+                    "NEUTRAL",
+                    "Service"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Eiernudeln in der Rindersuppe"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Schweinefleisch"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Eiernudeln in der Rindersuppe mit Shremplen und Scheiben von gegrilltem BBQ-Schweinefleisch"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Shabu-Shabu"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Shabu-Shabu"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "gerichten"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "gerichten"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "gerichten"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Lammwürstchen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sardinen mit Keksen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "großen ganzen Garnelen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pistazie Eis"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Pistazie Eis"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pistazie Eis"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "gerichten"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Lammwürstchen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sardinen mit Keksen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "grossen ganzen Garnelen"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pistazie Eis"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Shabu Shabu"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Shabu Shabu"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "biologiere Hund"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "umweltfreundliches Etablissement"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Hund"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "Etablissement"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Service"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ],
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Manhattan"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Restaurant"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Restaurant"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Restaurants"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Restaurants"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Pizzeria"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Pizzeria"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        }
+    ]
+}
