@@ -1,0 +1,5142 @@
+{
+    "test": [
+        {
+            "predictions": [
+                [
+                    "drinks prices",
+                    "POSITIVE",
+                    "Vinný lîstek"
+                ],
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Vinný lîstek"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "Vinný lîstek"
+                ],
+                [
+                    "drinks prices",
+                    "POSITIVE",
+                    "Vinný lîstek"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pokrmy"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Bystré pokrmy"
+                ],
+                [
+                    "food style_options",
+                    "NEUTRAL",
+                    "Bystré pokrmy"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "NEGATIVE",
+                    "Návrh na nápoje v baru"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "NEGATIVE",
+                    "nápoje v baru"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "NEGATIVE",
+                    "Brahma"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "NEGATIVE",
+                    "výběr lahvicového piva"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Thajská restaurace"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "NEGATIVE",
+                    "Thajská restaurace"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "označenými dřevnými dvířkami"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "zenem"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "interiérem"
+                ],
+                [
+                    "location general",
+                    "POSITIVE",
+                    "místo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "NEUTRAL",
+                    "místo"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "označenými dřevnými dvířky"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "interiérem"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "NEUTRAL",
+                    "NULL"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant prices",
+                    "NEUTRAL",
+                    "NULL"
+                ],
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "měření alkoholů"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "ceny"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Jídlo"
+                ],
+                [
+                    "restaurant prices",
+                    "NEUTRAL",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "Jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo είναι"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "Jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "indické jídlo"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "indické jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "indické jídlo"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "indické jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "vaše objednávka"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEUTRAL",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEUTRAL",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "pív"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "dýňový tortelloni"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "pív"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "dýňový tortelloni"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Viněte"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "Viněte"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEUTRAL",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "Velké"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "přišvihy"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "přišvihy"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Rozpařky a nápladťky"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Rozpařky a nápladťky"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Rozpařky"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "nápladťky"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Rozpařky"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "nápladťky"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "location general",
+                    "POSITIVE",
+                    "výhled na new yorský skyline"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "location general",
+                    "POSITIVE",
+                    "výhled na new yorský skyline"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Venkovská atmosféra"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Venkovská atmosféra"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "location general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Restauracі"
+                ],
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Restauracі"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "location general",
+                    "POSITIVE",
+                    "Restauracі"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Ambiance"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "skvělé ceny"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Ambiance"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "hospodu"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "hospodu"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "hospodu"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Špatný servis"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Špatný servis"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "vini"
+                ],
+                [
+                    "drinks prices",
+                    "POSITIVE",
+                    "Gigondes"
+                ],
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "domácí šumivé víno"
+                ],
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "Gigondes"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "vini"
+                ],
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Gigondes"
+                ],
+                [
+                    "drinks prices",
+                    "POSITIVE",
+                    "domácí šumivé víno"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Change Mojito"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Change Mojito"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Saka"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Saka"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pizze"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Pizze"
+                ],
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "víno"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "jídelní část"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pizze"
+                ],
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "víno"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "venkovní jídelní část"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídelo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Jídelo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Vanison"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Vanison"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEUTRAL",
+                    "Jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Hamption Chutneys"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Hamption Chutneys"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "místnosti"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "prodavači"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "podniku"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "místnosti"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "prodavači"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "výtvarné zpracování"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "výtvarné zpracování"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Služby"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "atmosféra"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Služby"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "atmosféra"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféra"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "krb"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféra"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "krb"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "autor"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "schodiště"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "schodiště"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "interiér"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "zrcadlené stěny"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Místo"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Místo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ],
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Místo"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "Místo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "restaurace"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "jídla"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "quatre malé masové karičky"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "quatre malé masové karičky"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Porce"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Porce"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "tempury"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "zákusek"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Těstoviny"
+                ],
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Těstoviny"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Těstoviny"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Těstoviny"
+                ],
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "Těstoviny"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Pru"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "restaurace"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "restaurace"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Tahleet místo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "místo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Casa La Femme"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Casa La Femme"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "místa"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "restaurace"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "roláda"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "roláda"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "místo"
+                ],
+                [
+                    "restaurant prices",
+                    "POSITIVE",
+                    "místo"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "jídla"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "jídla"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "místo"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "jídla"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "tato malá restaurace"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "sušhi"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "sušhi"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Pořce"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "sušhi"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "pizzeria"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Basil slice"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Basil slice"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pizzas"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "pizzas"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "selection of thin-crust pizzas"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "selection of thin-crust pizzas"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "pizzeria"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Basil slice"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "kořka"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "pizze"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "kořka"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "pizze"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "válek"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "specializovaný válek"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "standardní válek"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "dezert"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Cassoulette"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Steaky frite"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Guláš z drážěk"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Bufet"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Bufet"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Kuře v koláči"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "cheeseburger"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "cheeseburger"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obługa"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Kuře v koláči"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "cheeseburger"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "cheeseburger"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obługa"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Krevety scampy"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "předkrmů"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Krevety scampy"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "množství předkrmů"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "servis"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "dekor"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "výber"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "vína"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "servis"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "dekor"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "kolecka pečení"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "kolecka"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "kolecka"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Předjízlo"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "kalamary"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "plnicí těstoviny"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Předjízlo"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "kalamary"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "těstoviny hlavní jídla"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "těstoviny hlavní jídla"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "Murray to"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "jídlo"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "obsluhy"
+                ],
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "jídlo"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "obsluhy"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "restaraunce"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "personál"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "restaraunce"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "restaraunce"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "personál"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Výklad interiéru"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "studený lilek"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "studený lilek"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "NEUTRAL",
+                    "Výklad interiéru"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "lilek"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "lilek"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "NEUTRAL",
+                    "Doročníování"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Doročníování"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "manažer"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "manažer"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "personál"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "zákaznickou péči"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "personál"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "zákaznickou péči"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Služby"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Služby"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Obsluha"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "restaurace"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "Obsluha"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "restaurace"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "NEGATIVE",
+                    "thajská kuchyně"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "jídlech"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "jídlech"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Hangersteak"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "tuňák"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Hangersteak"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "tuňák"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Nakgi-pokum"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Nakgi-pokum"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "calzoniem"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "české jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "české jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "jídlo"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "místo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "jídlo"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "místo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "kousací"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "kousací"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Go Go Hamburgery"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Go Go Hamburgery"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "ryby"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "zaměstnanci"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "sushi kuchař"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "ryby"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "zaměstnanci"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "NEGATIVE",
+                    "sushi kuchař"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "sushi"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "sushi"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Jidlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Jidlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "dezerté"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "dezerté"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "Můjho manža"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "mé"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Místo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Místo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Slušba"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "prostředí"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Slušba"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "prostředí"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféra"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídel"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Výborná atmosféra"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídel"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféra"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Vynasná atmosféra"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosféra"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosféra ​​"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosféra"
+                ],
+                [
+                    "location general",
+                    "POSITIVE",
+                    "pozice"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosféra"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "pozice"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféra"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféra"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Jazz Bar"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Stravovací zahrada"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pizza z tenkého pečiva"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídelní lístek Lasagno"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Stravovací zahrada"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Jazz Bar"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pizza z tenkého pečiva"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídelní lístek Lasagno"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "večeři"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "poseszení"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféru"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "servis"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféru"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "servis"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Místo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Místo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "útočište klidu"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "místo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "místo"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "místo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféra"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosfera"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "vzhled místnosti"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "pohostinstní"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "večer"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "vzhled místnosti"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Zp zábava"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosféra"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosféra"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atnosféra"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atnosféra"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "číšník"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "číšník"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "Jukeboox"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Jukeboox"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "NEGATIVE",
+                    "Atmosféra"
+                ],
+                [
+                    "restaurant general",
+                    "NEUTRAL",
+                    "podnik"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Atmosféra"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Soho"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Prostredí"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Prostredí"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "personál"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "restaurace"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "personál"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "restaurace"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "místo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "místo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "klenot"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "restauračka"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "restauračka"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Red Dragon Roll"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Yamato"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Red Dragon Roll"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Village Underground"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Village Underground"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Suanu"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "to místo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "místo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "drinks quality",
+                    "POSITIVE",
+                    "Pastis"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Pastis"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "růhového koně"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "růhového koně"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "MÍSTO"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "místo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "místo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "ambience"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "The ambience"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "obsluha"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "špagetové jídlo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "špagetové jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "špagetové jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant miscellaneous",
+                    "NEUTRAL",
+                    "NULL"
+                ],
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pizza"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "majiteli"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pizza"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "majitel"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Usedení"
+                ],
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "restaurací"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Usedení"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Služby"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Služby"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "personál"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "servis"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pstruh"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "servis"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pstruh"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "rezervace"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Doručení"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Doručení"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "manažera"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "dezerty"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "manažera"
+                ],
+                [
+                    "service general",
+                    "NEGATIVE",
+                    "manažera"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Služby"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Služby"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Náznaky"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "speciální nabídeny"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "Náznaky"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "speciální nabídy"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Služba"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "omáčku"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Služba"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "omáčku"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Sloužíme"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "fixní menu"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "Jídlo"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "fixní menu chutí"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "fixní menu chutí"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Hurleyův bar"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "Skalá atmosféra"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "servis"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "dezert"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféra"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "servis"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "dezert"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "servírku"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "servírku"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféru hospůdky"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "úžasně laskavití"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Obsluga"
+                ],
+                [
+                    "ambience general",
+                    "POSITIVE",
+                    "atmosféru"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "Obsluga"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "personál"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "personál"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ],
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "The Four Seasons"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Jídlo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluha"
+                ],
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "The Four Seasons"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "drinks style_options",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Děro"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "personál"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "přísady"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Ryba"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Ryba ​​"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "topinkové polevy"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "topinkové polevy"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "místo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Red Dragon Rolel"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Red Dragon Rolel"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "food style_options",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "To"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Indické jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Indické jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Pastický telečí"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "telečí"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Dal Bukhára"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Dal Bukhára"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jahodovo-vanilkový cheesecake s krupicou"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jahodovo-vanilkový cheesecake"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "bagely"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "bagely"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Sushi"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Příložky"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Příložky"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "RYBY"
+                ],
+                [
+                    "food quality",
+                    "NEGATIVE",
+                    "plavky"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "máslové"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Hlavní jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Hlavní jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "čínско-indickém jídle"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "NULL"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant miscellaneous",
+                    "NEGATIVE",
+                    "Prostor"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "čínско-indickém jídle"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food prices",
+                    "POSITIVE",
+                    "čínský obilí"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "čínský obilí"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food prices",
+                    "NEGATIVE",
+                    "siu májů"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "siu májů"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Mermaid Inn"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "mořskými plodeninami"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "mořskými plodeninami"
+                ],
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Penzion Mermaid Inn"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pamls special fried fish"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pamls special fried fish"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluhu"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlo"
+                ],
+                [
+                    "service general",
+                    "NEUTRAL",
+                    "obsluhu"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "sedo vaječných nudlí"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "hovožím bujonu"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "krevety knedlíčky"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "plátky BBQ grilovaného prasacinka"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "vaječných nudlí v hovožím bujonu s krevety knedlíčky a plátky BBQ grilovaného prasacinka"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "Shabushabu"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Shabushabu"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlá"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jehněčích колbás"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "sardinek s sušenkami"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "velkých krevet"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pistáciovou zmrzlinu"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jídlá"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "jehněčích колbás"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "sardinek s sušenkami"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "velkých krevet"
+                ],
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "pistáciovou zmrzlinu"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Shaba Shabu"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "Shaba Shabu"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "kobyla"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "zařízení"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "food quality",
+                    "POSITIVE",
+                    "kobyla"
+                ],
+                [
+                    "restaurant miscellaneous",
+                    "POSITIVE",
+                    "zařízení"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluhá"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "service general",
+                    "POSITIVE",
+                    "obsluhá"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "suhi restaurací"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "restauraci"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant prices",
+                    "NEGATIVE",
+                    "restaurace"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "restaurace"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "pizzerie"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "POSITIVE",
+                    "pizzerie"
+                ]
+            ]
+        },
+        {
+            "predictions": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ],
+            "gold_labels": [
+                [
+                    "restaurant general",
+                    "NEGATIVE",
+                    "NULL"
+                ]
+            ]
+        }
+    ]
+}
