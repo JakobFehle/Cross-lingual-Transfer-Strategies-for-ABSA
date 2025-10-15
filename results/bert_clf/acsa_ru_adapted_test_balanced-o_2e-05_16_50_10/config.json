@@ -1,0 +1,12 @@
+{
+    "model_name": "DeepPavlov/rubert-base-cased",
+    "task": "acsa",
+    "data_setting": "balanced",
+    "lang": "ru",
+    "lang_setting": "adapted",
+    "per_device_train_batch_size": 16,
+    "learning_rate": 2e-05,
+    "num_train_epochs": 50,
+    "eval_type": "test",
+    "train_runtime": 231.6477553844452
+}

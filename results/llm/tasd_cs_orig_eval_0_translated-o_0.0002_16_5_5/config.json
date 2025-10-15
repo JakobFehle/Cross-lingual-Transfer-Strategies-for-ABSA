@@ -1,0 +1,16 @@
+{
+    "model_name": "google/gemma-3-4b-it",
+    "task": "tasd",
+    "data_setting": "translated",
+    "lang": "cs",
+    "lang_setting": "orig",
+    "per_device_train_batch_size": 16,
+    "learning_rate": 0.0002,
+    "num_train_epochs": 5,
+    "train_runtime": 901.7833480834961,
+    "temperature": 0.0,
+    "max_new_tokens": 256,
+    "seed": 5,
+    "top_k": -1,
+    "top_p": 1
+}

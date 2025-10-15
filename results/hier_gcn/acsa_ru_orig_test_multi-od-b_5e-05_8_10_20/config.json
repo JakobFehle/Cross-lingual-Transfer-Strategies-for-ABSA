@@ -1,0 +1,13 @@
+{
+    "model_name": "google-bert/bert-base-multilingual-cased",
+    "task": "acsa",
+    "data_setting": "multi-od",
+    "lang": "ru",
+    "lang_setting": "orig",
+    "per_device_train_batch_size": 8,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 5e-05,
+    "num_train_epochs": 10.0,
+    "eval_type": "test",
+    "train_runtime": 896.2013411521912
+}

@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:POSITIVE	0.6761	0.8889	0.768	0.6234	77.0
+ambience general:NEUTRAL	1.0	0.25	0.4	0.25	4.0
+ambience general:NEGATIVE	0.7647	0.7222	0.7429	0.5909	22.0
+drinks prices:POSITIVE	0.4	0.5	0.4444	0.2857	7.0
+drinks prices:NEUTRAL	0	0	0	0	0
+drinks prices:NEGATIVE	0.6667	0.6667	0.6667	0.5	8.0
+drinks quality:POSITIVE	0.6	1.0	0.75	0.6	15.0
+drinks quality:NEUTRAL	0	0	0	0	0
+drinks quality:NEGATIVE	0.3333	1.0	0.5	0.3333	3.0
+drinks style_options:POSITIVE	0.5	1.0	0.6667	0.5	10.0
+drinks style_options:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+drinks style_options:NEGATIVE	0.8	0.8	0.8	0.6667	6.0
+food prices:POSITIVE	0.3846	0.7692	0.5128	0.3448	29.0
+food prices:NEUTRAL	0.0	0.0	0.0	0.0	2.0
+food prices:NEGATIVE	0.5263	0.8333	0.6452	0.4762	21.0
+food quality:POSITIVE	0.7778	0.9172	0.8418	0.7268	183.0
+food quality:NEUTRAL	0.5625	0.5625	0.5625	0.3913	23.0
+food quality:NEGATIVE	0.7347	0.8182	0.7742	0.6316	57.0
+food style_options:POSITIVE	0.4909	0.75	0.5934	0.4219	64.0
+food style_options:NEUTRAL	0.0	0.0	0.0	0.0	5.0
+food style_options:NEGATIVE	0.4474	0.68	0.5397	0.3696	46.0
+location general:POSITIVE	0.5556	0.7692	0.6452	0.4762	21.0
+location general:NEUTRAL	0.0	0.0	0.0	0.0	2.0
+location general:NEGATIVE	0.0	0.0	0.0	0.0	3.0
+restaurant general:POSITIVE	0.7385	0.6234	0.6761	0.5106	94.0
+restaurant general:NEUTRAL	0.25	0.1	0.1429	0.0769	13.0
+restaurant general:NEGATIVE	0.8056	0.725	0.7632	0.617	47.0
+restaurant miscellaneous:POSITIVE	0.0833	0.1667	0.1111	0.0588	17.0
+restaurant miscellaneous:NEUTRAL	0.0	0.0	0.0	0.0	2.0
+restaurant miscellaneous:NEGATIVE	0.3333	0.5	0.4	0.25	12.0
+restaurant prices:POSITIVE	0.4444	0.2857	0.3478	0.2105	19.0
+restaurant prices:NEUTRAL	0.0	0.0	0.0	0.0	5.0
+restaurant prices:NEGATIVE	0.6154	0.6667	0.64	0.4706	17.0
+service general:POSITIVE	0.8039	0.9425	0.8677	0.7664	107.0
+service general:NEUTRAL	0.6667	0.4	0.5	0.3333	6.0
+service general:NEGATIVE	0.6575	0.8	0.7218	0.5647	85.0
+Micro-AVG	0.657	0.7656	0.7071	0.547	1033.0
+Macro-AVG	0.4339	0.5038	0.4451		1033

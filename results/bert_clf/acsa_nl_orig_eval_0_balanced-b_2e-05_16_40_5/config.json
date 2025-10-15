@@ -1,0 +1,12 @@
+{
+    "model_name": "google-bert/bert-base-multilingual-cased",
+    "task": "acsa",
+    "data_setting": "balanced",
+    "lang": "nl",
+    "lang_setting": "orig",
+    "per_device_train_batch_size": 16,
+    "learning_rate": 2e-05,
+    "num_train_epochs": 40,
+    "eval_type": "eval_0",
+    "train_runtime": 157.41465187072754
+}

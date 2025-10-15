@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:POSITIVE	0.8548	0.8689	0.8618	0.7571	70.0
+ambience general:NEUTRAL	0.2	0.3333	0.25	0.1429	7.0
+ambience general:NEGATIVE	0.1667	1.0	0.2857	0.1667	12.0
+drinks prices:POSITIVE	0.0	0.0	0.0	0.0	1.0
+drinks prices:NEUTRAL	0	0	0	0	0
+drinks prices:NEGATIVE	0.8	1.0	0.8889	0.8	5.0
+drinks quality:POSITIVE	0.9	0.8571	0.878	0.7826	23.0
+drinks quality:NEUTRAL	0	0	0	0	0
+drinks quality:NEGATIVE	1.0	1.0	1.0	1.0	1.0
+drinks style_options:POSITIVE	0.9	0.8182	0.8571	0.75	12.0
+drinks style_options:NEUTRAL	0	0	0	0	0
+drinks style_options:NEGATIVE	1.0	1.0	1.0	1.0	1.0
+food prices:POSITIVE	0.8333	0.8333	0.8333	0.7143	7.0
+food prices:NEUTRAL	0.0	0.0	0.0	0.0	3.0
+food prices:NEGATIVE	0.7692	0.7143	0.7407	0.5882	17.0
+food quality:POSITIVE	0.9142	0.9108	0.9125	0.839	292.0
+food quality:NEUTRAL	0.5294	0.6923	0.6	0.4286	21.0
+food quality:NEGATIVE	0.8	0.7742	0.7869	0.6486	37.0
+food style_options:POSITIVE	0.7273	0.5161	0.6038	0.4324	37.0
+food style_options:NEUTRAL	0.75	0.3333	0.4615	0.3	10.0
+food style_options:NEGATIVE	0.5263	0.6667	0.5882	0.4167	24.0
+location general:POSITIVE	0.5556	0.4545	0.5	0.3333	15.0
+location general:NEUTRAL	1.0	0.5	0.6667	0.5	2.0
+location general:NEGATIVE	0.0	0.0	0.0	0.0	1.0
+restaurant general:POSITIVE	0.8532	0.8692	0.8611	0.7561	123.0
+restaurant general:NEUTRAL	0.25	1.0	0.4	0.25	4.0
+restaurant general:NEGATIVE	0.8205	0.9412	0.8767	0.7805	41.0
+restaurant miscellaneous:POSITIVE	0.75	0.1875	0.3	0.1765	17.0
+restaurant miscellaneous:NEUTRAL	0.0	0.0	0.0	0.0	4.0
+restaurant miscellaneous:NEGATIVE	0.75	0.2308	0.3529	0.2143	14.0
+restaurant prices:POSITIVE	0.7143	0.8333	0.7692	0.625	8.0
+restaurant prices:NEUTRAL	0.5	1.0	0.6667	0.5	4.0
+restaurant prices:NEGATIVE	0.8182	0.6923	0.75	0.6	15.0
+service general:POSITIVE	0.9355	0.8056	0.8657	0.7632	76.0
+service general:NEUTRAL	0.8	0.5714	0.6667	0.5	8.0
+service general:NEGATIVE	0.8333	0.8553	0.8442	0.7303	89.0
+Micro-AVG	0.8297	0.8056	0.8175	0.6913	1001.0
+Macro-AVG	0.5903	0.5905	0.5575		1001

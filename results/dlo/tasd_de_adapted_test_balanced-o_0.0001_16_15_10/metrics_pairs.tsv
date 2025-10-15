@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:POSITIVE	0.7204	0.8272	0.7701	0.6262	107.0
+ambience general:NEUTRAL	0.0	0.0	0.0	0.0	3.0
+ambience general:NEGATIVE	0.4138	0.6486	0.5053	0.338	71.0
+drinks prices:POSITIVE	0.5	1.0	0.6667	0.5	2.0
+drinks prices:NEUTRAL	0	0	0	0	0
+drinks prices:NEGATIVE	0.5	0.8	0.6154	0.4444	9.0
+drinks quality:POSITIVE	0.6207	0.6429	0.6316	0.4615	39.0
+drinks quality:NEUTRAL	0.75	0.75	0.75	0.6	5.0
+drinks quality:NEGATIVE	0.4167	0.4167	0.4167	0.2632	19.0
+drinks style_options:POSITIVE	0.3333	0.5	0.4	0.25	4.0
+drinks style_options:NEUTRAL	0	0	0	0	0
+drinks style_options:NEGATIVE	0.0	0.0	0.0	0.0	8.0
+food prices:POSITIVE	0.4	0.6667	0.5	0.3333	6.0
+food prices:NEUTRAL	1.0	0.3333	0.5	0.3333	3.0
+food prices:NEGATIVE	0.5	0.4	0.4444	0.2857	28.0
+food quality:POSITIVE	0.7121	0.8133	0.7593	0.612	299.0
+food quality:NEUTRAL	0.9231	0.6316	0.75	0.6	40.0
+food quality:NEGATIVE	0.6271	0.7025	0.6627	0.4955	224.0
+food style_options:POSITIVE	0.5	0.7429	0.5977	0.4262	61.0
+food style_options:NEUTRAL	0.5	1.0	0.6667	0.5	2.0
+food style_options:NEGATIVE	0.2391	0.5789	0.3385	0.2037	54.0
+location general:POSITIVE	0.375	0.375	0.375	0.2308	13.0
+location general:NEUTRAL	0	0	0	0	0
+location general:NEGATIVE	0.0	0.0	0.0	0.0	2.0
+restaurant general:POSITIVE	0.6929	0.7586	0.7243	0.5677	155.0
+restaurant general:NEUTRAL	0.8	0.5	0.6154	0.4444	9.0
+restaurant general:NEGATIVE	0.7174	0.66	0.6875	0.5238	126.0
+restaurant miscellaneous:POSITIVE	0.5	0.1111	0.1818	0.1	20.0
+restaurant miscellaneous:NEUTRAL	0.0	0.0	0.0	0.0	3.0
+restaurant miscellaneous:NEGATIVE	0.0	0.0	0.0	0.0	12.0
+restaurant prices:POSITIVE	0.8	0.8	0.8	0.6667	12.0
+restaurant prices:NEUTRAL	0.6667	0.6667	0.6667	0.5	8.0
+restaurant prices:NEGATIVE	0.6316	0.4444	0.5217	0.3529	34.0
+service general:POSITIVE	0.8303	0.8155	0.8228	0.699	196.0
+service general:NEUTRAL	1.0	0.6667	0.8	0.6667	3.0
+service general:NEGATIVE	0.782	0.6933	0.735	0.581	179.0
+Micro-AVG	0.6686	0.7071	0.6873	0.5236	1757.0
+Macro-AVG	0.4848	0.4985	0.4696		1757

@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:POSITIVE	0.5556	0.8333	0.6667	0.5	60.0
+ambience general:NEUTRAL	0.1667	0.3333	0.2222	0.125	8.0
+ambience general:NEGATIVE	0.4737	0.6429	0.5455	0.375	24.0
+drinks prices:POSITIVE	0.5	0.5	0.5	0.3333	3.0
+drinks prices:NEUTRAL	0.0	0.0	0.0	0.0	2.0
+drinks prices:NEGATIVE	0.0	0.0	0.0	0.0	6.0
+drinks quality:POSITIVE	0.6667	0.6	0.6316	0.4615	13.0
+drinks quality:NEUTRAL	0	0	0	0	0
+drinks quality:NEGATIVE	0.3333	0.5	0.4	0.25	4.0
+drinks style_options:POSITIVE	0.0	0.0	0.0	0.0	8.0
+drinks style_options:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+drinks style_options:NEGATIVE	0.125	0.25	0.1667	0.0909	11.0
+food prices:POSITIVE	0.4444	0.4444	0.4444	0.2857	14.0
+food prices:NEUTRAL	0.0	0.0	0.0	0.0	6.0
+food prices:NEGATIVE	0.3	0.4286	0.3529	0.2143	14.0
+food quality:POSITIVE	0.54	0.75	0.6279	0.4576	177.0
+food quality:NEUTRAL	0.5714	0.5714	0.5714	0.4	10.0
+food quality:NEGATIVE	0.4355	0.6136	0.5094	0.3418	79.0
+food style_options:POSITIVE	0.5385	0.6562	0.5915	0.42	50.0
+food style_options:NEUTRAL	0.0	0.0	0.0	0.0	7.0
+food style_options:NEGATIVE	0.3438	0.5238	0.4151	0.2619	42.0
+location general:POSITIVE	0.5	0.2	0.2857	0.1667	6.0
+location general:NEUTRAL	0.0	0.0	0.0	0.0	1.0
+location general:NEGATIVE	0.0	0.0	0.0	0.0	1.0
+restaurant general:POSITIVE	0.5789	0.5714	0.5752	0.4037	109.0
+restaurant general:NEUTRAL	0.3333	0.1667	0.2222	0.125	8.0
+restaurant general:NEGATIVE	0.5172	0.4167	0.4615	0.3	50.0
+restaurant miscellaneous:POSITIVE	0.0	0.0	0.0	0.0	11.0
+restaurant miscellaneous:NEUTRAL	0	0	0	0	0
+restaurant miscellaneous:NEGATIVE	0.1429	0.1111	0.125	0.0667	15.0
+restaurant prices:POSITIVE	0.5	0.6	0.5455	0.375	24.0
+restaurant prices:NEUTRAL	0.5	1.0	0.6667	0.5	2.0
+restaurant prices:NEGATIVE	0.3077	0.5	0.381	0.2353	17.0
+service general:POSITIVE	0.7083	0.7727	0.7391	0.5862	87.0
+service general:NEUTRAL	0.3333	0.2857	0.3077	0.1818	11.0
+service general:NEGATIVE	0.6667	0.5806	0.6207	0.45	80.0
+Micro-AVG	0.5069	0.5954	0.5476	0.3771	968.0
+Macro-AVG	0.3079	0.357	0.3215		968

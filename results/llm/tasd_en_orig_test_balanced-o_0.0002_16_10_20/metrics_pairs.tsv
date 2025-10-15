@@ -1,0 +1,39 @@
+	precision	recall	f1	accuracy	support
+ambience general:POSITIVE	0.8033	0.8033	0.8033	0.6712	73.0
+ambience general:NEUTRAL	1.0	0.3333	0.5	0.3333	3.0
+ambience general:NEGATIVE	0.2857	1.0	0.4444	0.2857	7.0
+drinks prices:POSITIVE	0.0	0.0	0.0	0.0	2.0
+drinks prices:NEUTRAL	0	0	0	0	0
+drinks prices:NEGATIVE	1.0	0.25	0.4	0.25	4.0
+drinks quality:POSITIVE	0.6667	0.8571	0.75	0.6	30.0
+drinks quality:NEUTRAL	0	0	0	0	0
+drinks quality:NEGATIVE	0.5	1.0	0.6667	0.5	2.0
+drinks style_options:POSITIVE	0.7	0.6364	0.6667	0.5	14.0
+drinks style_options:NEUTRAL	0	0	0	0	0
+drinks style_options:NEGATIVE	0.0	0.0	0.0	0.0	2.0
+food prices:POSITIVE	0.5455	1.0	0.7059	0.5455	11.0
+food prices:NEUTRAL	0.0	0.0	0.0	0.0	3.0
+food prices:NEGATIVE	0.5455	0.8571	0.6667	0.5	24.0
+food quality:POSITIVE	0.893	0.8996	0.8963	0.8121	298.0
+food quality:NEUTRAL	0.6667	0.6154	0.64	0.4706	17.0
+food quality:NEGATIVE	0.6047	0.8387	0.7027	0.5417	48.0
+food style_options:POSITIVE	0.3846	0.6452	0.4819	0.3175	63.0
+food style_options:NEUTRAL	1.0	0.5556	0.7143	0.5556	9.0
+food style_options:NEGATIVE	0.4783	0.7333	0.5789	0.4074	27.0
+location general:POSITIVE	0.75	0.8182	0.7826	0.6429	14.0
+location general:NEUTRAL	1.0	0.5	0.6667	0.5	2.0
+location general:NEGATIVE	0.0	0.0	0.0	0.0	1.0
+restaurant general:POSITIVE	0.8019	0.7944	0.7981	0.6641	128.0
+restaurant general:NEUTRAL	0.1667	1.0	0.2857	0.1667	6.0
+restaurant general:NEGATIVE	0.9091	0.8824	0.8955	0.8108	37.0
+restaurant miscellaneous:POSITIVE	0.2667	0.25	0.2581	0.1481	27.0
+restaurant miscellaneous:NEUTRAL	0.0	0.0	0.0	0.0	4.0
+restaurant miscellaneous:NEGATIVE	0.2	0.0769	0.1111	0.0588	17.0
+restaurant prices:POSITIVE	0.75	1.0	0.8571	0.75	8.0
+restaurant prices:NEUTRAL	1.0	0.5	0.6667	0.5	2.0
+restaurant prices:NEGATIVE	0.4286	0.2308	0.3	0.1765	17.0
+service general:POSITIVE	0.8732	0.8611	0.8671	0.7654	81.0
+service general:NEUTRAL	1.0	0.1429	0.25	0.1429	7.0
+service general:NEGATIVE	0.7701	0.8816	0.8221	0.6979	96.0
+Micro-AVG	0.7514	0.7916	0.771	0.6273	1084.0
+Macro-AVG	0.5275	0.5268	0.4772		1084
