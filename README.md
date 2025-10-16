@@ -43,8 +43,8 @@ This work systematically evaluates **five representative ABSA paradigms** — co
   - Balanced multilingual training across source languages
 
 - **New German ABSA Datasets:**  
-  - **GERestaurant:** aligned for the SemEval schema (Aspect Categories)
-  - **GERest:** first **German ASQP dataset** for structured opinion extraction, fully aligned with the Rest16 schema
+  - **GERestaurant** [[Hellwig et al., 2024](https://aclanthology.org/2024.konvens-main.14/)\]: A version of the dataset adapted to the SemEval Rest16 schema (Aspect Categories)
+  - **GERest:** first **German ASQP dataset** for structured opinion extraction, fully aligned with the SemEval Rest16 schema
 
 - **Empirical Insights:**  
   - Instruction-tuned LLMs generally achieve the highest scores, especially when it comes to more complex tasks (TASD, ASQP).  
@@ -56,7 +56,7 @@ This work systematically evaluates **five representative ABSA paradigms** — co
 
 ## 📊 GERest Dataset
 
-The **GERest** dataset extends the TASD corpus *GERestaurant* \[[Hellwig et al., 2024](https://aclanthology.org/2024.konvens-main.14/)\]  
+The **GERest** dataset extends the TASD corpus *GERestaurant*
 and mirrors the structure of the English **ASQP-Rest16** benchmark \[[Zhang et al., 2021](https://aclanthology.org/2021.emnlp-main.726/)\].  
 It provides German training, validation, and test splits for **aspect sentiment quad prediction**.
 
