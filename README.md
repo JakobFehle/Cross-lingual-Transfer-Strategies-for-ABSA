@@ -109,9 +109,9 @@ Otherwise, the corresponding **multilingual model** (e.g., mBERT, mT5) was retai
 If you use this repository or the GERest dataset, please cite:
 
 ```bibtex
-@inproceedings{TBD,
+@inproceedings{fehle2026-lrec,
   title={Zero-Shot to Full-Resource: Cross-lingual Transfer Strategies for Aspect-Based Sentiment Analysis},
-  author={TBD},
+  author={Fehle, Jakob and Hellwig, Nils Constantin and Kruschwitz, Udo and Wolff, Christian},
   year={2026},
-  booktitle={TBD},
+  booktitle={Proceedings of the Fifteenth Language Resources and Evaluation Conference},
 }
